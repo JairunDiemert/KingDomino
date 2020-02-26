@@ -12,5 +12,13 @@ namespace KingDomino
 		private environmentTypes envType;
 		private int numCrowns;
 		bool filledSpace;
+
+		public Tile() 
+		{
+			environmentTypes = null;
+			numCrowns = -1;
+			filledSpace = false;
+		}
+
 	}
 }
