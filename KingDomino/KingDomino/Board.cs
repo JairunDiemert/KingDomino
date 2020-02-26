@@ -9,6 +9,6 @@ namespace KingDomino
 {
     class Board
     {
-        
+        Tile[, ] Gameboard;     // 8X8
     }
 }
