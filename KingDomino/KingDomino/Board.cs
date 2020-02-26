@@ -10,5 +10,19 @@ namespace KingDomino
     class Board
     {
         Tile[, ] Gameboard;     // 8X8
+
+        Board(){
+            
+            Gameboard = new Tile[,];
+
+            for(int i = 0;i <= 7; i++){
+                
+                for (int j = 0; i <= 7; i++){
+                
+                    Gameboard[i,j] = tile();
+                }
+            }
+
+        }
     }
 }
