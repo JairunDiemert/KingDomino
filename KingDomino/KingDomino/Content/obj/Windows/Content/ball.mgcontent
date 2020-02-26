@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/mattm/source/repos/KingDomino/KingDomino/Content/ball.png</SourceFile>
-  <SourceTime>2020-01-21T11:11:17.8531397-06:00</SourceTime>
-  <DestFile>C:/Users/mattm/source/repos/KingDomino/KingDomino/Content/bin/Windows/Content/ball.xnb</DestFile>
-  <DestTime>2020-01-21T11:17:51.0866422-06:00</DestTime>
+  <SourceFile>C:/Users/Mpate/Desktop/KingDomino Repo/se-project-groups-group-4/KingDomino/KingDomino/Content/ball.png</SourceFile>
+  <SourceTime>2020-02-26T10:53:23.2511161-06:00</SourceTime>
+  <DestFile>C:/Users/Mpate/Desktop/KingDomino Repo/se-project-groups-group-4/KingDomino/KingDomino/Content/bin/Windows/Content/ball.xnb</DestFile>
+  <DestTime>2020-02-26T10:54:08.7695509-06:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T10:35:54-06:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

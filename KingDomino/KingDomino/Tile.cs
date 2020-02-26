@@ -9,7 +9,7 @@ namespace KingDomino
 {
 	public class Tile
 	{
-		private environmentTypes envType;
+		private EnvironmentTypes envType;
 		private int numCrowns;
 		bool filledSpace;
 
