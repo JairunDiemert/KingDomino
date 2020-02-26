@@ -13,13 +13,13 @@ namespace KingDomino
 
         Board(){
             
-            Gameboard = new Tile[,];
+            Gameboard = new Tile[8,8];
 
             for(int i = 0;i <= 7; i++){
                 
                 for (int j = 0; i <= 7; i++){
                 
-                    Gameboard[i,j] = tile();
+                    Gameboard[i,j] = new Tile();
                 }
             }
 

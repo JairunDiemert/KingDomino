@@ -15,7 +15,7 @@ namespace KingDomino
 
 		public Tile() 
 		{
-			environmentTypes = null;
+			envType = default;
 			numCrowns = -1;
 			filledSpace = false;
 		}
