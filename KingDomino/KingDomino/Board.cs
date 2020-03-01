@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace KingDomino
 {
-    class Board
+    public class Board
     {
         Tile[, ] Gameboard;     // 8X8
 
-        Board(){
+        public Board(){
             
             Gameboard = new Tile[8,8];
 
@@ -24,5 +24,7 @@ namespace KingDomino
             }
 
         }
+
+
     }
 }

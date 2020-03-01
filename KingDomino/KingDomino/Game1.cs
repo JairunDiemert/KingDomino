@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+
 namespace KingDomino
 {
     /// <summary>
@@ -11,8 +12,8 @@ namespace KingDomino
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D ballTexture;
-        private Board gameBoard = new Board(5,5,10,10);
+        Texture2D tileTexture;
+        Board gameBoard = new Board();
 
         public Game1()
         {
@@ -29,7 +30,7 @@ namespace KingDomino
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            ballTexture = Content.Load<Texture2D>("ball");
+            tileTexture = Content.Load<Texture2D>("ball");
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
         }
@@ -79,7 +80,24 @@ namespace KingDomino
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            gameBoard.Draw(spriteBatch);
+
+            spriteBatch.Begin();
+            
+            int tileSize = 80;
+            int grid = 5;
+            
+            //the tileTexture thing in the draw...I think that is going to be info that we get from the array..somehow
+            for (int i = 0; i < grid; ++i)
+            {
+                for (int j = 0; j < grid; ++j)
+                {
+                    spriteBatch.Draw(tileTexture, new Rectangle(i * tileSize, j * tileSize, tileSize, tileSize), Color.CornflowerBlue);
+                }
+            }
+
+            spriteBatch.End();
+
+            //gameBoard.Draw(spriteBatch);
 
             base.Draw(gameTime);
         }
