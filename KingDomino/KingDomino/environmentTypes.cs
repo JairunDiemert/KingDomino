@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KingDomino
 {
-    enum EnvironmentTypes
+    public enum EnvironmentTypes
     {
         WheatFeild,
         Lakes,

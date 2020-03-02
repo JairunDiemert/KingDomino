@@ -6,8 +6,23 @@ using System.Threading.Tasks;
 
 namespace KingDomino
 {
-    class Deck
+    public class Deck
     {
-        Domino[] dominoDeck;
+        private Domino[] dominoDeck;
+        int deckSize = 24;
+
+        public Deck()
+        {
+            deckLoader();
+        }
+
+        public void deckLoader()
+        {
+            dominoDeck = new Domino[deckSize];
+            for (int i = 0; i < deckSize; i++)
+            {
+                dominoDeck[i] = new Domino();
+            }
+        }
     }
 }

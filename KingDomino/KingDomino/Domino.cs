@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace KingDomino
 {
-    class Domino
+    public class Domino
     {
         private Tile tile1;
         private Tile tile2;
 
         public Domino()
         {
-            tile1 = null;
-            tile2 = null;
+            tile1 = new Tile();
+            tile2 = new Tile();
         }
     }
 }

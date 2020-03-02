@@ -70,3 +70,25 @@ C:\Users\liter\wtf\se-project-groups-group-4\KingDomino\KingDomino\bin\Windows\x
 C:\Users\liter\wtf\se-project-groups-group-4\KingDomino\KingDomino\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
 C:\Users\liter\wtf\se-project-groups-group-4\KingDomino\KingDomino\bin\Windows\x86\Debug\SharpDX.XInput.xml
 C:\Users\liter\wtf\se-project-groups-group-4\KingDomino\KingDomino\obj\x86\Debug\KingDomino.csproj.CopyComplete
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\bin\Windows\x86\Debug\Content\baby yoda.xnb
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\bin\Windows\x86\Debug\Content\ball.xnb
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\bin\Windows\x86\Debug\KingDomino.exe
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\bin\Windows\x86\Debug\KingDomino.pdb
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\bin\Windows\x86\Debug\MonoGame.Framework.dll
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\bin\Windows\x86\Debug\SharpDX.dll
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\bin\Windows\x86\Debug\SharpDX.XInput.dll
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\bin\Windows\x86\Debug\MonoGame.Framework.xml
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\bin\Windows\x86\Debug\SharpDX.xml
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\bin\Windows\x86\Debug\SharpDX.XInput.xml
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\obj\x86\Debug\KingDomino.csprojAssemblyReference.cache
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\obj\x86\Debug\KingDomino.csproj.CopyComplete
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\obj\x86\Debug\KingDomino.exe
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\obj\x86\Debug\KingDomino.pdb
