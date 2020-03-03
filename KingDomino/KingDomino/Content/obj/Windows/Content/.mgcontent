@@ -4,10 +4,218 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/KingDomino/Content/baby yoda.jfif</File>
-    <File>C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/KingDomino/Content/ball.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/baby yoda.jfif</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/ball.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/Castle_Blue.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/Castle_Green.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/Castle_Red.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/Castle_Yellow.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/King_Blue.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/King_Green.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/King_Red.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/King_Yellow.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_1_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_1_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_10_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_10_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_11_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_11_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_12_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_12_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_13_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_13_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_14_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_14_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_15_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_15_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_16_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_16_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_17_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_17_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_18_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_18_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_19_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_19_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_2_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_2_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_20_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_20_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_21_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_21_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_22_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_22_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_23_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_23_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_24_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_24_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_25_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_25_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_26_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_26_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_27_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_27_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_28_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_28_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_29_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_29_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_3_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_3_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_30_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_30_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_31_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_31_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_32_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_32_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_33_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_33_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_34_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_34_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_35_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_35_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_36_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_36_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_37_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_37_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_38_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_38_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_39_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_39_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_4_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_4_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_40_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_40_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_41_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_41_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_42_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_42_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_43_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_43_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_44_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_44_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_45_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_45_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_46_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_46_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_47_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_47_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_48_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_48_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_5_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_5_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_6_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_6_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_7_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_7_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_8_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_8_R.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_9_L.png</File>
+    <File>C:/Users/mattm/se-project-groups-group-4/KingDomino/KingDomino/Content/kingdomino_tile_9_R.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>

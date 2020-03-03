@@ -30,6 +30,7 @@ namespace KingDomino
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            this.IsMouseVisible = true;
             tileTexture = Content.Load<Texture2D>("ball");
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -84,7 +85,7 @@ namespace KingDomino
             spriteBatch.Begin();
             
             int tileSize = 80;
-            int grid = 5;
+            int grid = 8;
             
             //the tileTexture thing in the draw...I think that is going to be info that we get from the array..somehow
             for (int i = 0; i < grid; ++i)
