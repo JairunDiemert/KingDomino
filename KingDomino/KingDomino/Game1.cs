@@ -30,7 +30,7 @@ namespace KingDomino
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            tileTexture = Content.Load<Texture2D>("ball");
+            tileTexture = Content.Load<Texture2D>("default");
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
         }
@@ -77,7 +77,7 @@ namespace KingDomino
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.White);
 
             // TODO: Add your drawing code here
 
@@ -91,7 +91,7 @@ namespace KingDomino
             {
                 for (int j = 0; j < grid; ++j)
                 {
-                    spriteBatch.Draw(tileTexture, new Rectangle(i * tileSize, j * tileSize, tileSize, tileSize), Color.CornflowerBlue);
+                    spriteBatch.Draw(tileTexture, new Rectangle(i * tileSize, j * tileSize, tileSize, tileSize), Color.White);
                 }
             }
 
