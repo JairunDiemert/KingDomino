@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/KingDomino/Content/baby yoda.jfif</SourceFile>
-  <SourceTime>2020-03-04T09:58:33.2658775-06:00</SourceTime>
-  <DestFile>C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/KingDomino/Content/bin/Windows/Content/baby yoda.xnb</DestFile>
-  <DestTime>2020-03-04T10:00:16.1639361-06:00</DestTime>
+  <SourceFile>C:/Users/liter/wtf/Group4/KingDomino/KingDomino/Content/baby yoda.jfif</SourceFile>
+  <SourceTime>2020-03-04T10:55:36.084986-06:00</SourceTime>
+  <DestFile>C:/Users/liter/wtf/Group4/KingDomino/KingDomino/Content/bin/Windows/Content/baby yoda.xnb</DestFile>
+  <DestTime>2020-03-04T10:57:25.363691-06:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2020-01-19T02:37:12-06:00</ImporterTime>
+  <ImporterTime>2018-12-08T10:35:54-06:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2020-01-19T02:37:12-06:00</ProcessorTime>
+  <ProcessorTime>2018-12-08T10:35:54-06:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>

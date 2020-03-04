@@ -25,6 +25,8 @@ namespace KingDomino
 
         }
 
-
+        public Tile getTileAt(int row, int col){
+            return Gameboard[row, col];
+        }
     }
 }

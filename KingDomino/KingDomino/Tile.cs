@@ -20,5 +20,9 @@ namespace KingDomino
 			filledSpace = false;
 		}
 
+		public EnvironmentTypes GetType(){
+			return envType;
+		}
+
 	}
 }

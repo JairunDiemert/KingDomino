@@ -88,10 +88,16 @@ namespace KingDomino
             int grid = 8;
             
             //the tileTexture thing in the draw...I think that is going to be info that we get from the array..somehow
+            Tile currentTile;
             for (int i = 0; i < grid; ++i)
             {
                 for (int j = 0; j < grid; ++j)
                 {
+                    currentTile = gameBoard.getTileAt(0,0);
+                    if ((currentTile.GetType()).Equals(EnvironmentTypes.Default))
+                    {
+                        tileTexture = Content.Load<Texture2D>("default");
+                    }
                     spriteBatch.Draw(tileTexture, new Rectangle(i * tileSize, j * tileSize, tileSize, tileSize), Color.White);
                 }
             }
