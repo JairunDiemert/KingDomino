@@ -91,9 +91,9 @@ namespace KingDomino
             Tile currentTile;
             for (int i = 0; i < grid; ++i)
             {
-                for (int j = 0; j < grid; ++j)
-                {
-                    currentTile = gameBoard.getTileAt(0,0);
+                for (int j = 0; j < grid; ++j){
+                
+                    currentTile = gameBoard.getTileAt(i,j);
                     if ((currentTile.GetType()).Equals(EnvironmentTypes.Default))
                     {
                         tileTexture = Content.Load<Texture2D>("default");
