@@ -14,6 +14,7 @@ namespace KingDomino
         SpriteBatch spriteBatch;
         Texture2D tileTexture;
         Board gameBoard = new Board();
+        BoardControler boardControl = new BoardControler();
 
         public Game1()
         {
@@ -31,7 +32,7 @@ namespace KingDomino
         {
             // TODO: Add your initialization logic here
             this.IsMouseVisible = true;
-            tileTexture = Content.Load<Texture2D>("default");
+            tileTexture = Content.Load<Texture2D>("ball");
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
         }
@@ -84,8 +85,8 @@ namespace KingDomino
 
             spriteBatch.Begin();
             
-            int tileSize = 80;
-            int grid = 8;
+            int tileSize = boardControl.GetTileSize();
+            int grid = boardControl.GetGridSize();
             
             //the tileTexture thing in the draw...I think that is going to be info that we get from the array..somehow
             Tile currentTile;
@@ -93,11 +94,8 @@ namespace KingDomino
             {
                 for (int j = 0; j < grid; ++j)
                 {
-                    currentTile = gameBoard.getTileAt(0,0);
-                    if ((currentTile.GetType()).Equals(EnvironmentTypes.Default))
-                    {
-                        tileTexture = Content.Load<Texture2D>("default");
-                    }
+                    currentTile = gameBoard.getTileAt(i,j);
+                    tileTexture = Content.Load<Texture2D>(boardControl.TypeChecker(currentTile.GetType()));
                     spriteBatch.Draw(tileTexture, new Rectangle(i * tileSize, j * tileSize, tileSize, tileSize), Color.White);
                 }
             }
