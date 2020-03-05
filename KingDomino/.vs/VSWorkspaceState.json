@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\KingDomino"
+    "\\KingDomino",
+    "\\KingDominoTests"
   ],
-  "SelectedNode": "\\KingDomino\\Board.cs",
+  "SelectedNode": "\\KingDomino.sln",
   "PreviewInSolutionExplorer": false
 }

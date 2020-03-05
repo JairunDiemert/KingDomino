@@ -14,10 +14,10 @@ namespace KingDomino
         public Board(){
             
             Gameboard = new Tile[8,8];
-
-            for(int i = 0;i <= 7; i++){
+            
+            for(int i = 0;i <= 7; ++i){
                 
-                for (int j = 0; j <= 7; j++){
+                for (int j = 0; j <= 7; ++j){
                 
                     Gameboard[i,j] = new Tile();
                 }
