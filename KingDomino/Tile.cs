@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//
+
 namespace KingDomino
 {
 	public class Tile
@@ -20,7 +20,7 @@ namespace KingDomino
 			filledSpace = false;
 		}
 
-		public EnvironmentTypes GetType(){
+		public EnvironmentTypes GetEnvironmentType(){
 			return envType;
 		}
 
