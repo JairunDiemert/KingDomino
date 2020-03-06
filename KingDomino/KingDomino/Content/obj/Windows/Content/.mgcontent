@@ -4,7 +4,6 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/KingDomino/Content/baby yoda.jfif</File>
     <File>C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/KingDomino/Content/ball.png</File>
     <File>C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/KingDomino/Content/C1.png</File>
     <File>C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/KingDomino/Content/C2.png</File>
@@ -113,7 +112,6 @@
     <File>C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/KingDomino/Content/T97.png</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

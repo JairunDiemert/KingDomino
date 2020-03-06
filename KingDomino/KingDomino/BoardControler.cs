@@ -43,7 +43,7 @@ namespace KingDomino
         {
             if (type.Equals(EnvironmentTypes.Default))
             {
-                return "default";
+                return "T1";
             }
             return "";
         }
