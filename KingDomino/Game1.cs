@@ -95,7 +95,7 @@ namespace KingDomino
                 for (int j = 0; j < grid; ++j)
                 {
                     currentTile = gameBoard.getTileAt(i,j);
-                    tileTexture = Content.Load<Texture2D>(boardControl.TypeChecker(currentTile.GetEnvironmentType()));
+                    tileTexture = Content.Load<Texture2D>(boardControl.TypeChecker(currentTile.EnvType));
                     spriteBatch.Draw(tileTexture, new Rectangle(i * tileSize, j * tileSize, tileSize, tileSize), Color.White);
                 }
             }
