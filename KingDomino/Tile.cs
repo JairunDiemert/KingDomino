@@ -14,7 +14,6 @@ namespace KingDomino
 		private bool filledSpace;
 		private string tileImageName;
 
-
 		public Tile() 
 		{
 			EnvType = EnvironmentTypes.Default;
