@@ -3,26 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace KingDomino
 {
     public class Deck
     {
-        private Domino[] dominoDeck;
-        int deckSize = 24;
+        private ArrayList dominoDeck;
+        private int deckSize;
 
         public Deck()
         {
-            deckLoader();
+            DominoDeck = new ArrayList();
+            DeckSize = 24;
+            for (int i = 0; i < DeckSize; i++)
+            {
+                DominoDeck.Add(new Domino(new Tile(), new Tile()));
+                Console.WriteLine("Count: " + DominoDeck.Count);
+            }
+
         }
 
-        public void deckLoader()
+        public ArrayList DominoDeck
         {
-            dominoDeck = new Domino[deckSize];
-            for (int i = 0; i < deckSize; i++)
-            {
-                dominoDeck[i] = new Domino();
-            }
+            get { return dominoDeck; }
+            set { dominoDeck = value; }
+        }
+        public int DeckSize
+        {
+            get { return deckSize; }
+            set { deckSize = value; }
         }
     }
 }

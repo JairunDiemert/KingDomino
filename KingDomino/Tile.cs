@@ -13,6 +13,8 @@ namespace KingDomino
 		private int numCrowns;
 		private bool filledSpace;
 		private string tileImageName;
+		private int xCoordinate;
+		private int yCoordinate;
 
 		public Tile() 
 		{
@@ -20,13 +22,18 @@ namespace KingDomino
 			NumCrowns = -1;
 			FilledSpace = false;
 			TileImageName = "T1";
+			XCoordinate = -1;
+			YCoordinate = -1;
+
 		}
-		public Tile(EnvironmentTypes envType, int numCrowns, bool filledSpace, string tileImageName)
+		public Tile(EnvironmentTypes envType, int numCrowns, bool filledSpace, string tileImageName, int xCoordinate, int yCoordinate)
 		{
 			EnvType = envType;
 			NumCrowns = numCrowns;
 			FilledSpace = filledSpace;
 			TileImageName = tileImageName;
+			XCoordinate = xCoordinate;
+			YCoordinate = yCoordinate;
 		}
 
 		public EnvironmentTypes EnvType
@@ -48,6 +55,16 @@ namespace KingDomino
 		{
 			get { return tileImageName; }
 			set { tileImageName = value; }
+		}
+		public int XCoordinate
+		{
+			get { return xCoordinate; }
+			set { xCoordinate = value; }
+		}
+		public int YCoordinate
+		{
+			get { return yCoordinate; }
+			set { yCoordinate = value; }
 		}
 	}
 }
