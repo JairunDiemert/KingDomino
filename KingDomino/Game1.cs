@@ -12,9 +12,13 @@ namespace KingDomino
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Texture2D tileTexture;
-        Board gameBoard = new Board();
-        BoardControler boardControl = new BoardControler();
-        Deck gameDeck = new Deck(24);
+        Board gameBoard;
+        BoardControler boardControl;
+        Deck gameDeck;
+        int tileSize;
+        int grid;
+        Tile currentTile;
+        Domino currentDomino;
 
         public Game1()
         {
@@ -31,10 +35,14 @@ namespace KingDomino
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            this.IsMouseVisible = true;
-            tileTexture = Content.Load<Texture2D>("ball");
+            graphics.PreferredBackBufferWidth = 1200;
+            graphics.PreferredBackBufferHeight = 600;
 
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            Window.AllowUserResizing = true;
+            IsMouseVisible = true;
+            
+            graphics.ApplyChanges();
+            base.Initialize();
         }
 
         /// <summary>
@@ -44,8 +52,12 @@ namespace KingDomino
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            
-
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+            gameBoard = new Board();
+            boardControl = new BoardControler();
+            gameDeck = new Deck(24);
+            tileSize = boardControl.GetTileSize();
+            grid = boardControl.GetGridSize();
             // TODO: use this.Content to load your game content here
         }
 
@@ -65,7 +77,7 @@ namespace KingDomino
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
             // TODO: Add your update logic here
@@ -85,11 +97,7 @@ namespace KingDomino
 
             spriteBatch.Begin();
             
-            int tileSize = boardControl.GetTileSize();
-            int grid = boardControl.GetGridSize();
-            
             //the tileTexture thing in the draw...I think that is going to be info that we get from the array..somehow
-            Tile currentTile;
             for (int i = 0; i < grid; ++i)
             {
                 for (int j = 0; j < grid; ++j)
@@ -104,7 +112,6 @@ namespace KingDomino
             spriteBatch.Draw(tileTexture, new Rectangle(3 * tileSize, 3 * tileSize, tileSize, tileSize), Color.White);
 
             //testing to see if can display domino from populated list
-            Domino currentDomino;
             for (int i = 0; i < 4; i++)
             {
                 currentDomino = (Domino)gameDeck.DominoDeck[i];
@@ -118,12 +125,8 @@ namespace KingDomino
             tileTexture = Content.Load<Texture2D>("K1");
             spriteBatch.Draw(tileTexture, new Rectangle((8 * tileSize) + tileSize/2 + tileSize/4, 0 * tileSize + tileSize/4, tileSize/2, tileSize/2), Color.White);
             
-
-
             spriteBatch.End();
-
-            //gameBoard.Draw(spriteBatch);
-
+            
             base.Draw(gameTime);
         }
     }

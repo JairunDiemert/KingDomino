@@ -659,9 +659,6 @@ C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\obj\x
 C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\obj\x86\Debug\KingDomino.csproj.CopyComplete
 C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\obj\x86\Debug\KingDomino.exe
 C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\KingDomino\obj\x86\Debug\KingDomino.pdb
-C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\obj\x86\Debug\KingDomino.csprojAssemblyReference.cache
-C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\obj\x86\Debug\KingDomino.exe
-C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\obj\x86\Debug\KingDomino.pdb
 C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\bin\Windows\x86\Debug\Content\ball.xnb
 C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\bin\Windows\x86\Debug\Content\C1.xnb
 C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\bin\Windows\x86\Debug\Content\C2.xnb
@@ -785,3 +782,5 @@ C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\bin\Windows\x86\
 C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
 C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\bin\Windows\x86\Debug\SharpDX.XInput.xml
 C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\obj\x86\Debug\KingDomino.csproj.CopyComplete
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\obj\x86\Debug\KingDomino.exe
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\obj\x86\Debug\KingDomino.pdb
