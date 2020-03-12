@@ -19,7 +19,9 @@ namespace KingDomino
         int grid;
         Tile currentTile;
         Domino currentDomino;
-        MouseState previousMouseState;
+        KeyboardState oldState;
+        DeckButton[] buttons;
+        int whereInDeck;
 
         public Game1()
         {
@@ -35,7 +37,6 @@ namespace KingDomino
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
             graphics.PreferredBackBufferWidth = 1200;
             graphics.PreferredBackBufferHeight = 600;
 
@@ -43,7 +44,9 @@ namespace KingDomino
             IsMouseVisible = true;
             
             graphics.ApplyChanges();
-            previousMouseState = Mouse.GetState();
+            oldState = Keyboard.GetState();
+            buttons = new DeckButton[4];
+            whereInDeck = 0;
             base.Initialize();
         }
 
@@ -81,16 +84,6 @@ namespace KingDomino
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
-            // TODO: Add your update logic here
-            if (previousMouseState.LeftButton == ButtonState.Released 
-            && Mouse.GetState().LeftButton == ButtonState.Pressed)
-            {
-            //do your mouse click response...
-
-            }
-
-            previousMouseState = Mouse.GetState();
             base.Update(gameTime);
         }
 
@@ -129,11 +122,28 @@ namespace KingDomino
 
                 tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
                 spriteBatch.Draw(tileTexture, new Rectangle(9 * tileSize, (i * tileSize), tileSize, tileSize), Color.White);
+                buttons[i] = new DeckButton(Content.Load<Texture2D>(currentDomino.Tile1.TileImageName), Content.Load<Texture2D>(currentDomino.Tile2.TileImageName), 8 * tileSize, i * tileSize);
             }
 
             tileTexture = Content.Load<Texture2D>("K1");
             spriteBatch.Draw(tileTexture, new Rectangle((8 * tileSize) + tileSize/2 + tileSize/4, 0 * tileSize + tileSize/4, tileSize/2, tileSize/2), Color.White);
             
+            KeyboardState newState = Keyboard.GetState();  // get the newest state
+ 
+            // handle the input
+            if(oldState.IsKeyUp(Keys.A) && newState.IsKeyDown(Keys.A))
+            {
+                currentDomino = (Domino)gameDeck.DominoDeck[whereInDeck];
+                tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
+                spriteBatch.Draw(tileTexture, new Rectangle(8 * tileSize, (0 * tileSize), tileSize, tileSize), Color.White);
+
+                tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
+                spriteBatch.Draw(tileTexture, new Rectangle(9 * tileSize, (0 * tileSize), tileSize, tileSize), Color.White);
+                whereInDeck++;
+            }
+ 
+            oldState = newState;
+
 
             spriteBatch.End();
             
