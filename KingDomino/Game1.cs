@@ -19,6 +19,7 @@ namespace KingDomino
         int grid;
         Tile currentTile;
         Domino currentDomino;
+        MouseState previousMouseState;
 
         public Game1()
         {
@@ -42,6 +43,7 @@ namespace KingDomino
             IsMouseVisible = true;
             
             graphics.ApplyChanges();
+            previousMouseState = Mouse.GetState();
             base.Initialize();
         }
 
@@ -81,7 +83,14 @@ namespace KingDomino
                 Exit();
 
             // TODO: Add your update logic here
+            if (previousMouseState.LeftButton == ButtonState.Released 
+            && Mouse.GetState().LeftButton == ButtonState.Pressed)
+            {
+            //do your mouse click response...
 
+            }
+
+            previousMouseState = Mouse.GetState();
             base.Update(gameTime);
         }
 
@@ -125,6 +134,7 @@ namespace KingDomino
             tileTexture = Content.Load<Texture2D>("K1");
             spriteBatch.Draw(tileTexture, new Rectangle((8 * tileSize) + tileSize/2 + tileSize/4, 0 * tileSize + tileSize/4, tileSize/2, tileSize/2), Color.White);
             
+
             spriteBatch.End();
             
             base.Draw(gameTime);
