@@ -15,6 +15,7 @@ namespace KingDomino
         Board gameBoard;
         BoardControler boardControl;
         Deck gameDeck;
+        int deckSize;
         int tileSize;
         int grid;
         Tile currentTile;
@@ -47,6 +48,7 @@ namespace KingDomino
             oldState = Keyboard.GetState();
             buttons = new DeckButton[4];
             whereInDeck = 0;
+            deckSize = 24;
             base.Initialize();
         }
 
@@ -133,13 +135,18 @@ namespace KingDomino
             // handle the input
             if(oldState.IsKeyUp(Keys.A) && newState.IsKeyDown(Keys.A))
             {
-                currentDomino = (Domino)gameDeck.DominoDeck[whereInDeck];
-                tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
-                spriteBatch.Draw(tileTexture, new Rectangle(8 * tileSize, (0 * tileSize), tileSize, tileSize), Color.White);
+                if(whereInDeck <= deckSize){
+                    currentDomino = (Domino)gameDeck.DominoDeck[whereInDeck];
+                    tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
+                    spriteBatch.Draw(tileTexture, new Rectangle(8 * tileSize, (0 * tileSize), tileSize, tileSize), Color.White);
 
-                tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
-                spriteBatch.Draw(tileTexture, new Rectangle(9 * tileSize, (0 * tileSize), tileSize, tileSize), Color.White);
-                whereInDeck++;
+                    tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
+                    spriteBatch.Draw(tileTexture, new Rectangle(9 * tileSize, (0 * tileSize), tileSize, tileSize), Color.White);
+                    whereInDeck++;
+                }
+                else{
+                
+                }
             }
  
             oldState = newState;

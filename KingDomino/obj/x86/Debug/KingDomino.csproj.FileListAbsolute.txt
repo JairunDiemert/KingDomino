@@ -912,3 +912,6 @@ C:\Users\liter\wtf\Group4\KingDomino\obj\x86\Debug\KingDomino.csprojAssemblyRefe
 C:\Users\liter\wtf\Group4\KingDomino\obj\x86\Debug\KingDomino.csproj.CopyComplete
 C:\Users\liter\wtf\Group4\KingDomino\obj\x86\Debug\KingDomino.exe
 C:\Users\liter\wtf\Group4\KingDomino\obj\x86\Debug\KingDomino.pdb
+D:\School\CEN3032\se-project-groups-group-4\KingDomino\obj\x86\Debug\KingDomino.csprojAssemblyReference.cache
+D:\School\CEN3032\se-project-groups-group-4\KingDomino\obj\x86\Debug\KingDomino.exe
+D:\School\CEN3032\se-project-groups-group-4\KingDomino\obj\x86\Debug\KingDomino.pdb
