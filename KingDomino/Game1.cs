@@ -149,7 +149,7 @@ namespace KingDomino
                     currentTile = gameBoard.getTileAt(i, j);
                     positionAndSize.X = (i + 10) * tileSize;
                     positionAndSize.Y = j * tileSize;
-                    tileTexture = Content.Load<Texture2D>(boardControl.TypeChecker(currentTile.EnvType));
+                    tileTexture = Content.Load<Texture2D>("T1");
                     spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
                 }
             }
