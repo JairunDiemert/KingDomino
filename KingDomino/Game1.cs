@@ -21,7 +21,6 @@ namespace KingDomino
         Tile currentTile;
         Domino currentDomino;
         KeyboardState oldState;
-        DeckButton[] buttons;
         int whereInDeck;
 
         public Game1()
@@ -46,7 +45,6 @@ namespace KingDomino
             
             graphics.ApplyChanges();
             oldState = Keyboard.GetState();
-            buttons = new DeckButton[4];
             whereInDeck = 0;
             deckSize = 24;
             base.Initialize();
@@ -124,7 +122,6 @@ namespace KingDomino
 
                 tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
                 spriteBatch.Draw(tileTexture, new Rectangle(9 * tileSize, (i * tileSize), tileSize, tileSize), Color.White);
-                buttons[i] = new DeckButton(Content.Load<Texture2D>(currentDomino.Tile1.TileImageName), Content.Load<Texture2D>(currentDomino.Tile2.TileImageName), 8 * tileSize, i * tileSize);
             }
 
             tileTexture = Content.Load<Texture2D>("K1");
@@ -148,7 +145,7 @@ namespace KingDomino
                 
                 }
             }
- 
+
             oldState = newState;
 
 

@@ -908,7 +908,6 @@ C:\Users\liter\wtf\Group4\KingDomino\bin\Windows\x86\Debug\SharpDX.DXGI.xml
 C:\Users\liter\wtf\Group4\KingDomino\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
 C:\Users\liter\wtf\Group4\KingDomino\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
 C:\Users\liter\wtf\Group4\KingDomino\bin\Windows\x86\Debug\SharpDX.XInput.xml
-C:\Users\liter\wtf\Group4\KingDomino\obj\x86\Debug\KingDomino.csprojAssemblyReference.cache
 C:\Users\liter\wtf\Group4\KingDomino\obj\x86\Debug\KingDomino.csproj.CopyComplete
 C:\Users\liter\wtf\Group4\KingDomino\obj\x86\Debug\KingDomino.exe
 C:\Users\liter\wtf\Group4\KingDomino\obj\x86\Debug\KingDomino.pdb
