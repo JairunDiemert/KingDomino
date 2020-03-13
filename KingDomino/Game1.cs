@@ -27,11 +27,16 @@ namespace KingDomino
         int deckButton2;
         int deckButton3;
         int deckButton4;
+        int deckButton5;
+        int deckButton6;
+        int deckButton7;
+        int deckButton8;
         Rectangle positionAndSize;
         int deckPositionY1;
         int deckPositionY2;
         int deckPositionY3;
         int deckPositionY4;
+        int deckPositionX1;
 
         public Game1()
         {
@@ -47,24 +52,29 @@ namespace KingDomino
         /// </summary>
         protected override void Initialize()
         {
-            graphics.PreferredBackBufferWidth = 1200;
-            graphics.PreferredBackBufferHeight = 600;
+            graphics.PreferredBackBufferWidth = 1760;
+            graphics.PreferredBackBufferHeight = 640;
 
             Window.AllowUserResizing = true;
             IsMouseVisible = true;
             
             graphics.ApplyChanges();
             oldState = Keyboard.GetState();
-            whereInDeck = 4;
+            whereInDeck = 8;
             deckButton1 = 0;
             deckButton2 = 1;
             deckButton3 = 2;
             deckButton4 = 3;
+            deckButton5 = 4;
+            deckButton6 = 5;
+            deckButton7 = 6;
+            deckButton8 = 7;
             deckSize = 24;
             deckPositionY1 = 0;
             deckPositionY2 = 1;
             deckPositionY3 = 2;
             deckPositionY4 = 3;
+            deckPositionX1 = 20;
             base.Initialize();
         }
 
@@ -128,19 +138,56 @@ namespace KingDomino
                     spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
                 }
             }
-            positionAndSize.X = 3 * tileSize;
-            positionAndSize.Y = 3 * tileSize;
+            for (int i = 0; i < grid; ++i)
+            {
+                for (int j = 0; j < grid; ++j)
+                {
+                    currentTile = gameBoard.getTileAt(i, j);
+                    positionAndSize.X = (i + 10) * tileSize;
+                    positionAndSize.Y = j * tileSize;
+                    tileTexture = Content.Load<Texture2D>(boardControl.TypeChecker(currentTile.EnvType));
+                    spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
+                }
+            }
+            positionAndSize.X = 4 * tileSize;
+            positionAndSize.Y = 4 * tileSize;
             tileTexture = Content.Load<Texture2D>("C1");
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
 
-            UpdateDeck(deckButton1, deckPositionY1);
-            UpdateDeck(deckButton2, deckPositionY2);
-            UpdateDeck(deckButton3, deckPositionY3);
-            UpdateDeck(deckButton4, deckPositionY4);
+            positionAndSize.X = 14 * tileSize;
+            positionAndSize.Y = 4 * tileSize;
+            tileTexture = Content.Load<Texture2D>("C3");
+            spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
 
+            UpdateDeck(deckButton1, deckPositionX1, deckPositionY1);
+            UpdateDeck(deckButton2, deckPositionX1, deckPositionY2);
+            UpdateDeck(deckButton3, deckPositionX1, deckPositionY3);
+            UpdateDeck(deckButton4, deckPositionX1, deckPositionY4);
+            UpdateDeck(deckButton5, deckPositionX1 + 3, deckPositionY1);
+            UpdateDeck(deckButton6, deckPositionX1 + 3, deckPositionY2);
+            UpdateDeck(deckButton7, deckPositionX1 + 3, deckPositionY3);
+            UpdateDeck(deckButton8, deckPositionX1 + 3, deckPositionY4);
+
+            positionAndSize.X = 19 * tileSize;
+            positionAndSize.Y = 0 * tileSize;
             tileTexture = Content.Load<Texture2D>("K1");
-            spriteBatch.Draw(tileTexture, new Rectangle((8 * tileSize) + tileSize/2 + tileSize/4, 0 * tileSize + tileSize/4, tileSize/2, tileSize/2), Color.White);
-            
+            spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
+
+            positionAndSize.X = 19 * tileSize;
+            positionAndSize.Y = 1 * tileSize;
+            tileTexture = Content.Load<Texture2D>("K1");
+            spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
+
+            positionAndSize.X = 19 * tileSize;
+            positionAndSize.Y = 2 * tileSize;
+            tileTexture = Content.Load<Texture2D>("K3");
+            spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
+
+            positionAndSize.X = 19 * tileSize;
+            positionAndSize.Y = 3 * tileSize;
+            tileTexture = Content.Load<Texture2D>("K3");
+            spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
+
             KeyboardState newState = Keyboard.GetState();  // get the newest state
             DeckButtonInput(newState);
             oldState = newState;
@@ -155,8 +202,8 @@ namespace KingDomino
             if(oldState.IsKeyUp(Keys.D1) && newState.IsKeyDown(Keys.D1))
             {
                 if(whereInDeck < deckSize){
-                    deckButton1 = whereInDeck;
-                    UpdateDeck(deckButton1, deckPositionY1);
+                    deckButton5 = whereInDeck;
+                    UpdateDeck(deckButton5, deckPositionX1 + 3, deckPositionY1);
                     whereInDeck++;
                 }
                 else{
@@ -166,8 +213,8 @@ namespace KingDomino
             else if(oldState.IsKeyUp(Keys.D2) && newState.IsKeyDown(Keys.D2))
             {
                 if(whereInDeck < deckSize){
-                    deckButton2 = whereInDeck;
-                    UpdateDeck(deckButton2, deckPositionY2);
+                    deckButton6 = whereInDeck;
+                    UpdateDeck(deckButton6, deckPositionX1 + 3, deckPositionY2);
                     whereInDeck++;
                 }
                 else{
@@ -177,8 +224,8 @@ namespace KingDomino
             else if(oldState.IsKeyUp(Keys.D3) && newState.IsKeyDown(Keys.D3))
             {
                 if(whereInDeck < deckSize){
-                    deckButton3 = whereInDeck;
-                    UpdateDeck(deckButton3, deckPositionY3);
+                    deckButton7 = whereInDeck;
+                    UpdateDeck(deckButton7, deckPositionX1 + 3, deckPositionY3);
                     whereInDeck++;
                 }
                 else{
@@ -188,8 +235,8 @@ namespace KingDomino
             else if(oldState.IsKeyUp(Keys.D4) && newState.IsKeyDown(Keys.D4))
             {
                 if(whereInDeck < deckSize){
-                    deckButton4 = whereInDeck;
-                    UpdateDeck(deckButton4, deckPositionY4);
+                    deckButton8 = whereInDeck;
+                    UpdateDeck(deckButton8, deckPositionX1 + 3, deckPositionY4);
                     whereInDeck++;
                 }
                 else{
@@ -197,18 +244,18 @@ namespace KingDomino
                 }
             }
         }
-        public void UpdateDeck(int where, int y)
+        public void UpdateDeck(int where, int x, int y)
         {
             currentDomino = (Domino)gameDeck.DominoDeck[where];
 
             tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
-            positionAndSize.X = 8 * tileSize;
+            positionAndSize.X = x * tileSize;
             positionAndSize.Y = y * tileSize;
             currentDomino.Tile1.PositionAndSize = positionAndSize;
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
 
             tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
-            positionAndSize.X = 9 * tileSize;
+            positionAndSize.X = (x + 1) * tileSize;
             positionAndSize.Y = y * tileSize;
             currentDomino.Tile2.PositionAndSize = positionAndSize;
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);

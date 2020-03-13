@@ -15,8 +15,8 @@ namespace KingDomino
 
         public BoardControler()
         {
-            TileSize = 80;
-            Grid = 8;
+            TileSize = 70;
+            Grid = 9;
         }
         public int TileSize
         {
