@@ -114,15 +114,14 @@ namespace KingDomino
             spriteBatch.Draw(tileTexture, new Rectangle(3 * tileSize, 3 * tileSize, tileSize, tileSize), Color.White);
 
             //testing to see if can display domino from populated list
-            for (int i = 0; i < 4; i++)
-            {
-                currentDomino = (Domino)gameDeck.DominoDeck[i];
+
+                currentDomino = (Domino)gameDeck.DominoDeck[whereInDeck];
                 tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
-                spriteBatch.Draw(tileTexture, new Rectangle(8 * tileSize, (i * tileSize), tileSize, tileSize), Color.White);
+                spriteBatch.Draw(tileTexture, new Rectangle(8 * tileSize, (0 * tileSize), tileSize, tileSize), Color.White);
 
                 tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
-                spriteBatch.Draw(tileTexture, new Rectangle(9 * tileSize, (i * tileSize), tileSize, tileSize), Color.White);
-            }
+                spriteBatch.Draw(tileTexture, new Rectangle(9 * tileSize, (0 * tileSize), tileSize, tileSize), Color.White);
+                
 
             tileTexture = Content.Load<Texture2D>("K1");
             spriteBatch.Draw(tileTexture, new Rectangle((8 * tileSize) + tileSize/2 + tileSize/4, 0 * tileSize + tileSize/4, tileSize/2, tileSize/2), Color.White);
