@@ -28,5 +28,13 @@ namespace KingDomino
         public Tile getTileAt(int row, int col){
             return Gameboard[row, col];
         }
+
+        public void setTileAt(int row, int col, Tile currentTile){
+            Gameboard[row, col].EnvType = (currentTile.EnvType);
+            Gameboard[row, col].NumCrowns = (currentTile.NumCrowns);
+            Gameboard[row, col].TileImageName = (currentTile.TileImageName);
+            Gameboard[row, col].PositionAndSize = (currentTile.PositionAndSize);
+            Gameboard[row, col].FilledSpace = (true);
+        }
     }
 }
