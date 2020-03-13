@@ -22,6 +22,10 @@ namespace KingDomino
         Domino currentDomino;
         KeyboardState oldState;
         int whereInDeck;
+        int deckButton1;
+        int deckButton2;
+        int deckButton3;
+        int deckButton4;
 
         public Game1()
         {
@@ -45,7 +49,11 @@ namespace KingDomino
             
             graphics.ApplyChanges();
             oldState = Keyboard.GetState();
-            whereInDeck = 0;
+            whereInDeck = 4;
+            deckButton1 = 0;
+            deckButton2 = 1;
+            deckButton3 = 2;
+            deckButton4 = 3;
             deckSize = 24;
             base.Initialize();
         }
@@ -113,15 +121,10 @@ namespace KingDomino
             tileTexture = Content.Load<Texture2D>("C1");
             spriteBatch.Draw(tileTexture, new Rectangle(3 * tileSize, 3 * tileSize, tileSize, tileSize), Color.White);
 
-            //testing to see if can display domino from populated list
-
-                currentDomino = (Domino)gameDeck.DominoDeck[whereInDeck];
-                tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
-                spriteBatch.Draw(tileTexture, new Rectangle(8 * tileSize, (0 * tileSize), tileSize, tileSize), Color.White);
-
-                tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
-                spriteBatch.Draw(tileTexture, new Rectangle(9 * tileSize, (0 * tileSize), tileSize, tileSize), Color.White);
-                
+            UpdateDeck1(deckButton1);
+            UpdateDeck2(deckButton2);
+            UpdateDeck3(deckButton3);
+            UpdateDeck4(deckButton4);
 
             tileTexture = Content.Load<Texture2D>("K1");
             spriteBatch.Draw(tileTexture, new Rectangle((8 * tileSize) + tileSize/2 + tileSize/4, 0 * tileSize + tileSize/4, tileSize/2, tileSize/2), Color.White);
@@ -132,7 +135,8 @@ namespace KingDomino
             if(oldState.IsKeyUp(Keys.A) && newState.IsKeyDown(Keys.A))
             {
                 if(whereInDeck <= deckSize){
-                    currentDomino = (Domino)gameDeck.DominoDeck[whereInDeck];
+                    deckButton1 = whereInDeck;
+                    currentDomino = (Domino)gameDeck.DominoDeck[deckButton1];
                     tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
                     spriteBatch.Draw(tileTexture, new Rectangle(8 * tileSize, (0 * tileSize), tileSize, tileSize), Color.White);
 
@@ -151,6 +155,45 @@ namespace KingDomino
             spriteBatch.End();
             
             base.Draw(gameTime);
+        }
+        public void UpdateDeck1(int where)
+        {
+            currentDomino = (Domino)gameDeck.DominoDeck[where];
+            Texture2D tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
+            spriteBatch.Draw(tileTexture, new Rectangle(8 * tileSize, (0 * tileSize), tileSize, tileSize), Color.White);
+
+            tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
+            spriteBatch.Draw(tileTexture, new Rectangle(9 * tileSize, (0 * tileSize), tileSize, tileSize), Color.White);
+        }
+
+        public void UpdateDeck2(int where)
+        {
+            currentDomino = (Domino)gameDeck.DominoDeck[where];
+            Texture2D tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
+            spriteBatch.Draw(tileTexture, new Rectangle(8 * tileSize, (1 * tileSize), tileSize, tileSize), Color.White);
+
+            tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
+            spriteBatch.Draw(tileTexture, new Rectangle(9 * tileSize, (1 * tileSize), tileSize, tileSize), Color.White);
+        }
+
+        public void UpdateDeck3(int where)
+        {
+            currentDomino = (Domino)gameDeck.DominoDeck[where];
+            Texture2D tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
+            spriteBatch.Draw(tileTexture, new Rectangle(8 * tileSize, (2 * tileSize), tileSize, tileSize), Color.White);
+
+            tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
+            spriteBatch.Draw(tileTexture, new Rectangle(9 * tileSize, (2 * tileSize), tileSize, tileSize), Color.White);
+        }
+
+        public void UpdateDeck4(int where)
+        {
+            currentDomino = (Domino)gameDeck.DominoDeck[where];
+            Texture2D tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
+            spriteBatch.Draw(tileTexture, new Rectangle(8 * tileSize, (3 * tileSize), tileSize, tileSize), Color.White);
+
+            tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
+            spriteBatch.Draw(tileTexture, new Rectangle(9 * tileSize, (3 * tileSize), tileSize, tileSize), Color.White);
         }
     }
 }
