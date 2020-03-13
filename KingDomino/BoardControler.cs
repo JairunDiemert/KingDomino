@@ -28,16 +28,13 @@ namespace KingDomino
             get { return grid; }
             set { grid = value; }
         }
-        public String TypeChecker(EnvironmentTypes type)
+        public Boolean DefaultChecker(EnvironmentTypes type)
         {
             if (type.Equals(EnvironmentTypes.Default))
             {
-                return "T1";
+                return true;
             }
-            else if(type.Equals(EnvironmentTypes.WheatFeild)){
-                
-            }
-            return "";
+            return false;
         }
 
 

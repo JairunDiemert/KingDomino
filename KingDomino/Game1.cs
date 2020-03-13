@@ -125,7 +125,10 @@ namespace KingDomino
                     currentTile = gameBoard.getTileAt(i,j);
                     positionAndSize.X = i * tileSize;
                     positionAndSize.Y = j * tileSize;
-                    tileTexture = Content.Load<Texture2D>(boardControl.TypeChecker(currentTile.EnvType));
+                    if(boardControl.DefaultChecker(currentTile.EnvType)){
+                        tileTexture = Content.Load<Texture2D>("T1");
+                    }
+                    
                     spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
                 }
             }
@@ -154,7 +157,7 @@ namespace KingDomino
 
         public void playerInput(KeyboardState state, int playerDomino){
             currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
-            if(oldState.IsKeyUp(Keys.A) && newState.IsKeyDown(Keys.A))
+            if(oldState.IsKeyUp(Keys.A) && state.IsKeyDown(Keys.A))
             {
 
             }
