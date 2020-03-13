@@ -130,11 +130,19 @@ namespace KingDomino
             spriteBatch.Draw(tileTexture, new Rectangle((8 * tileSize) + tileSize/2 + tileSize/4, 0 * tileSize + tileSize/4, tileSize/2, tileSize/2), Color.White);
             
             KeyboardState newState = Keyboard.GetState();  // get the newest state
- 
-            // handle the input
-            if(oldState.IsKeyUp(Keys.A) && newState.IsKeyDown(Keys.A))
+            DeckButtonInput(newState);
+            oldState = newState;
+
+            spriteBatch.End();
+            
+            base.Draw(gameTime);
+        }
+
+        public void DeckButtonInput(KeyboardState newState)
+        {
+            if(oldState.IsKeyUp(Keys.D1) && newState.IsKeyDown(Keys.D1))
             {
-                if(whereInDeck <= deckSize){
+                if(whereInDeck < deckSize){
                     deckButton1 = whereInDeck;
                     currentDomino = (Domino)gameDeck.DominoDeck[deckButton1];
                     tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
@@ -147,15 +155,57 @@ namespace KingDomino
                 else{
                 
                 }
+            } 
+            else if(oldState.IsKeyUp(Keys.D2) && newState.IsKeyDown(Keys.D2))
+            {
+                if(whereInDeck < deckSize){
+                    deckButton2 = whereInDeck;
+                    currentDomino = (Domino)gameDeck.DominoDeck[deckButton2];
+                    tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
+                    spriteBatch.Draw(tileTexture, new Rectangle(8 * tileSize, (1 * tileSize), tileSize, tileSize), Color.White);
+
+                    tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
+                    spriteBatch.Draw(tileTexture, new Rectangle(9 * tileSize, (1 * tileSize), tileSize, tileSize), Color.White);
+                    whereInDeck++;
+                }
+                else{
+                
+                }
             }
+            else if(oldState.IsKeyUp(Keys.D3) && newState.IsKeyDown(Keys.D3))
+            {
+                if(whereInDeck < deckSize){
+                    deckButton3 = whereInDeck;
+                    currentDomino = (Domino)gameDeck.DominoDeck[deckButton3];
+                    tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
+                    spriteBatch.Draw(tileTexture, new Rectangle(8 * tileSize, (2 * tileSize), tileSize, tileSize), Color.White);
 
-            oldState = newState;
+                    tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
+                    spriteBatch.Draw(tileTexture, new Rectangle(9 * tileSize, (2 * tileSize), tileSize, tileSize), Color.White);
+                    whereInDeck++;
+                }
+                else{
+                
+                }
+            }
+            else if(oldState.IsKeyUp(Keys.D4) && newState.IsKeyDown(Keys.D4))
+            {
+                if(whereInDeck < deckSize){
+                    deckButton4 = whereInDeck;
+                    currentDomino = (Domino)gameDeck.DominoDeck[deckButton4];
+                    tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
+                    spriteBatch.Draw(tileTexture, new Rectangle(8 * tileSize, (3 * tileSize), tileSize, tileSize), Color.White);
 
-
-            spriteBatch.End();
-            
-            base.Draw(gameTime);
+                    tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
+                    spriteBatch.Draw(tileTexture, new Rectangle(9 * tileSize, (3 * tileSize), tileSize, tileSize), Color.White);
+                    whereInDeck++;
+                }
+                else{
+                
+                }
+            }
         }
+
         public void UpdateDeck1(int where)
         {
             currentDomino = (Domino)gameDeck.DominoDeck[where];
