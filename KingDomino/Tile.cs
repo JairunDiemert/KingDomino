@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 
 namespace KingDomino
 {
@@ -13,8 +14,7 @@ namespace KingDomino
 		private int numCrowns;
 		private bool filledSpace;
 		private string tileImageName;
-		private int xCoordinate;
-		private int yCoordinate;
+		private Rectangle positionAndSize;
 
 		public Tile() 
 		{
@@ -22,18 +22,16 @@ namespace KingDomino
 			NumCrowns = -1;
 			FilledSpace = false;
 			TileImageName = "T1";
-			XCoordinate = -1;
-			YCoordinate = -1;
-
+			positionAndSize = new Rectangle();
 		}
-		public Tile(EnvironmentTypes envType, int numCrowns, bool filledSpace, string tileImageName, int xCoordinate, int yCoordinate)
+		public Tile(EnvironmentTypes envType, int numCrowns, bool filledSpace, string tileImageName, int x, int y, int width, int height)
 		{
 			EnvType = envType;
 			NumCrowns = numCrowns;
 			FilledSpace = filledSpace;
 			TileImageName = tileImageName;
-			XCoordinate = xCoordinate;
-			YCoordinate = yCoordinate;
+			positionAndSize = new Rectangle(x, y, width, height);
+
 		}
 
 		public EnvironmentTypes EnvType
@@ -56,15 +54,10 @@ namespace KingDomino
 			get { return tileImageName; }
 			set { tileImageName = value; }
 		}
-		public int XCoordinate
+		public Rectangle PositionAndSize
 		{
-			get { return xCoordinate; }
-			set { xCoordinate = value; }
-		}
-		public int YCoordinate
-		{
-			get { return yCoordinate; }
-			set { yCoordinate = value; }
+			get { return positionAndSize; }
+			set { positionAndSize = value; }
 		}
 	}
 }

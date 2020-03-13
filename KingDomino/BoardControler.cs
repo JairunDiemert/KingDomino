@@ -10,35 +10,24 @@ namespace KingDomino
 {
     public class BoardControler
     {
-        int tileSize;
-        int grid;
+        private int tileSize;
+        private int grid;
 
         public BoardControler()
         {
-            tileSize = 80;
-            grid = 8;
+            TileSize = 80;
+            Grid = 8;
         }
-
-        public int GetTileSize()
+        public int TileSize
         {
-            return tileSize;
+            get { return tileSize; }
+            set { tileSize = value; }
         }
-
-        public void SetTileSize(int size)
+        public int Grid
         {
-            tileSize = size;
+            get { return grid; }
+            set { grid = value; }
         }
-
-        public int GetGridSize()
-        {
-            return grid;
-        }
-
-        public void SetGridSize(int gridSize)
-        {
-            grid = gridSize;
-        }
-
         public String TypeChecker(EnvironmentTypes type)
         {
             if (type.Equals(EnvironmentTypes.Default))

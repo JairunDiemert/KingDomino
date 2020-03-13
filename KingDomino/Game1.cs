@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections;
 
 namespace KingDomino
 {
@@ -26,6 +27,11 @@ namespace KingDomino
         int deckButton2;
         int deckButton3;
         int deckButton4;
+        Rectangle positionAndSize;
+        int deckPositionY1;
+        int deckPositionY2;
+        int deckPositionY3;
+        int deckPositionY4;
 
         public Game1()
         {
@@ -55,6 +61,10 @@ namespace KingDomino
             deckButton3 = 2;
             deckButton4 = 3;
             deckSize = 24;
+            deckPositionY1 = 0;
+            deckPositionY2 = 1;
+            deckPositionY3 = 2;
+            deckPositionY4 = 3;
             base.Initialize();
         }
 
@@ -69,8 +79,10 @@ namespace KingDomino
             gameBoard = new Board();
             boardControl = new BoardControler();
             gameDeck = new Deck(24);
-            tileSize = boardControl.GetTileSize();
-            grid = boardControl.GetGridSize();
+            tileSize = boardControl.TileSize;
+            grid = boardControl.Grid;
+            positionAndSize = new Rectangle(0,0,tileSize, tileSize);
+
             // TODO: use this.Content to load your game content here
         }
 
@@ -110,18 +122,21 @@ namespace KingDomino
                 for (int j = 0; j < grid; ++j)
                 {
                     currentTile = gameBoard.getTileAt(i,j);
+                    positionAndSize.X = i * tileSize;
+                    positionAndSize.Y = j * tileSize;
                     tileTexture = Content.Load<Texture2D>(boardControl.TypeChecker(currentTile.EnvType));
-                    spriteBatch.Draw(tileTexture, new Rectangle(i * tileSize, j * tileSize, tileSize, tileSize), Color.White);
+                    spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
                 }
             }
-
+            positionAndSize.X = 3 * tileSize;
+            positionAndSize.Y = 3 * tileSize;
             tileTexture = Content.Load<Texture2D>("C1");
-            spriteBatch.Draw(tileTexture, new Rectangle(3 * tileSize, 3 * tileSize, tileSize, tileSize), Color.White);
+            spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
 
-            UpdateDeck1(deckButton1);
-            UpdateDeck2(deckButton2);
-            UpdateDeck3(deckButton3);
-            UpdateDeck4(deckButton4);
+            UpdateDeck(deckButton1, deckPositionY1);
+            UpdateDeck(deckButton2, deckPositionY2);
+            UpdateDeck(deckButton3, deckPositionY3);
+            UpdateDeck(deckButton4, deckPositionY4);
 
             tileTexture = Content.Load<Texture2D>("K1");
             spriteBatch.Draw(tileTexture, new Rectangle((8 * tileSize) + tileSize/2 + tileSize/4, 0 * tileSize + tileSize/4, tileSize/2, tileSize/2), Color.White);
@@ -202,45 +217,21 @@ namespace KingDomino
                 }
             }
         }
-
-        public void UpdateDeck1(int where)
+        public void UpdateDeck(int where, int y)
         {
             currentDomino = (Domino)gameDeck.DominoDeck[where];
-            Texture2D tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
-            spriteBatch.Draw(tileTexture, new Rectangle(8 * tileSize, (0 * tileSize), tileSize, tileSize), Color.White);
+
+            tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
+            positionAndSize.X = 8 * tileSize;
+            positionAndSize.Y = 2 * tileSize;
+            currentDomino.Tile1.PositionAndSize = positionAndSize;
+            spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
 
             tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
-            spriteBatch.Draw(tileTexture, new Rectangle(9 * tileSize, (0 * tileSize), tileSize, tileSize), Color.White);
-        }
-
-        public void UpdateDeck2(int where)
-        {
-            currentDomino = (Domino)gameDeck.DominoDeck[where];
-            Texture2D tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
-            spriteBatch.Draw(tileTexture, new Rectangle(8 * tileSize, (1 * tileSize), tileSize, tileSize), Color.White);
-
-            tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
-            spriteBatch.Draw(tileTexture, new Rectangle(9 * tileSize, (1 * tileSize), tileSize, tileSize), Color.White);
-        }
-
-        public void UpdateDeck3(int where)
-        {
-            currentDomino = (Domino)gameDeck.DominoDeck[where];
-            Texture2D tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
-            spriteBatch.Draw(tileTexture, new Rectangle(8 * tileSize, (2 * tileSize), tileSize, tileSize), Color.White);
-
-            tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
-            spriteBatch.Draw(tileTexture, new Rectangle(9 * tileSize, (2 * tileSize), tileSize, tileSize), Color.White);
-        }
-
-        public void UpdateDeck4(int where)
-        {
-            currentDomino = (Domino)gameDeck.DominoDeck[where];
-            Texture2D tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
-            spriteBatch.Draw(tileTexture, new Rectangle(8 * tileSize, (3 * tileSize), tileSize, tileSize), Color.White);
-
-            tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
-            spriteBatch.Draw(tileTexture, new Rectangle(9 * tileSize, (3 * tileSize), tileSize, tileSize), Color.White);
+            positionAndSize.X = 9 * tileSize;
+            positionAndSize.Y = 2 * tileSize;
+            currentDomino.Tile2.PositionAndSize = positionAndSize;
+            spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
         }
     }
 }

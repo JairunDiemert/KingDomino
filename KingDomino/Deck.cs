@@ -190,16 +190,20 @@ namespace KingDomino
                 int numCrowns1 = 0;
                 bool filledSpace1 = false;
                 string tileImageName1 = "Empty";
-                int xCoordinate1 = -1;
-                int yCoordinate1 = -1;
+                int x1 = -1;
+                int y1 = -1;
+                int width1 = -1;
+                int height1 = -1;
 
 
                 EnvironmentTypes envType2 = EnvironmentTypes.Default;
                 int numCrowns2 = 0;
                 bool filledSpace2 = false;
                 string tileImageName2 = "Empty";
-                int xCoordinate2 = -1;
-                int yCoordinate2 = -1;
+                int x2 = -1;
+                int y2 = -1;
+                int width2 = -1;
+                int height2 = -1;
 
 
                 tileImageName1 = "T" + (nameIndex1);
@@ -225,8 +229,8 @@ namespace KingDomino
                 if (TripleCrown.Contains(tileImageName1)) numCrowns1 = 3;
                 if (TripleCrown.Contains(tileImageName2)) numCrowns2 = 3;
 
-                DominoDeck.Add(new Domino(new Tile(envType1, numCrowns1, filledSpace1, tileImageName1, xCoordinate1, yCoordinate1),
-                    new Tile(envType2, numCrowns2, filledSpace2, tileImageName2, xCoordinate2, yCoordinate2)));
+                DominoDeck.Add(new Domino(new Tile(envType1, numCrowns1, filledSpace1, tileImageName1, x1, y1, width1, height1),
+                    new Tile(envType2, numCrowns2, filledSpace2, tileImageName2, x2, y2, width1, height1)));
                 nameIndex1 += 2;
                 nameIndex2 += 2;
             }
