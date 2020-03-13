@@ -38,6 +38,8 @@ namespace KingDomino
         int deckPositionY3;
         int deckPositionY4;
         int deckPositionX1;
+        int playerX;
+        int playerY;
 
         public Game1()
         {
@@ -76,6 +78,9 @@ namespace KingDomino
             deckPositionY3 = 2;
             deckPositionY4 = 3;
             deckPositionX1 = 20;
+
+            playerX = 0;
+            playerY = 0;
             base.Initialize();
         }
 
@@ -127,7 +132,7 @@ namespace KingDomino
             GraphicsDevice.Clear(Color.White);
             spriteBatch.Begin();
             
-            //the tileTexture thing in the draw...I think that is going to be info that we get from the array..somehow
+            //Draws boards
             for (int i = 0; i < grid; ++i)
             {
                 for (int j = 0; j < grid; ++j)
@@ -137,6 +142,9 @@ namespace KingDomino
                     positionAndSize.Y = j * tileSize;
                     if(boardControl.DefaultChecker(currentTile.EnvType)){
                         tileTexture = Content.Load<Texture2D>("T1");
+                    }
+                    else {
+                        tileTexture = Content.Load<Texture2D>(currentTile.TileImageName);
                     }
                     
                     spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
@@ -149,10 +157,13 @@ namespace KingDomino
                     currentTile = gameBoard.getTileAt(i, j);
                     positionAndSize.X = (i + 10) * tileSize;
                     positionAndSize.Y = j * tileSize;
-                    tileTexture = Content.Load<Texture2D>("T1");
+                    if(boardControl.DefaultChecker(currentTile.EnvType)){
+                        tileTexture = Content.Load<Texture2D>("T1");
+                    }
                     spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
                 }
             }
+
             positionAndSize.X = 4 * tileSize;
             positionAndSize.Y = 4 * tileSize;
             tileTexture = Content.Load<Texture2D>("C1");
@@ -194,6 +205,7 @@ namespace KingDomino
 
             KeyboardState newState = Keyboard.GetState();  // get the newest state
             DeckButtonInput(newState);
+            PlayerInput(newState, deckButton1);
             oldState = newState;
 
             spriteBatch.End();
@@ -201,11 +213,13 @@ namespace KingDomino
             base.Draw(gameTime);
         }
 
-        public void playerInput(KeyboardState state, int playerDomino){
-            currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
+        public void PlayerInput(KeyboardState state, int playerDomino){
+            
             if(oldState.IsKeyUp(Keys.A) && state.IsKeyDown(Keys.A))
             {
-
+                currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
+                gameBoard.setTileAt(playerX, playerY, currentDomino.Tile1);
+                gameBoard.setTileAt(++playerX, playerY, currentDomino.Tile2);
             }
         }
 
