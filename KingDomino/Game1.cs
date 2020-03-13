@@ -102,9 +102,6 @@ namespace KingDomino
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.White);
-
-            // TODO: Add your drawing code here
-
             spriteBatch.Begin();
             
             //the tileTexture thing in the draw...I think that is going to be info that we get from the array..somehow
