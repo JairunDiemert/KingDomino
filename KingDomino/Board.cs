@@ -34,7 +34,12 @@ namespace KingDomino
             Gameboard[row, col].NumCrowns = (currentTile.NumCrowns);
             Gameboard[row, col].TileImageName = (currentTile.TileImageName);
             Gameboard[row, col].PositionAndSize = (currentTile.PositionAndSize);
-            Gameboard[row, col].FilledSpace = (true);
+        }
+
+        public void FillTile(int row, int col){
+            if(Gameboard[row, col].FilledSpace != true){
+                Gameboard[row, col].FilledSpace = (true);
+            } 
         }
     }
 }

@@ -22,7 +22,6 @@ namespace KingDomino
         Tile currentTile;
         Domino currentDomino;
         KeyboardState oldState;
-        int playerDomino;
         int whereInDeck;
         int deckButton1;
         int deckButton2;
@@ -213,13 +212,21 @@ namespace KingDomino
             base.Draw(gameTime);
         }
 
+
+        //TODO: add more keys A left D right etc this is just a baseline
         public void PlayerInput(KeyboardState state, int playerDomino){
             
-            if(oldState.IsKeyUp(Keys.A) && state.IsKeyDown(Keys.A))
+            if(oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter))
             {
+                int nextTile = playerX + 1;
                 currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
                 gameBoard.setTileAt(playerX, playerY, currentDomino.Tile1);
-                gameBoard.setTileAt(++playerX, playerY, currentDomino.Tile2);
+                gameBoard.setTileAt(nextTile, playerY, currentDomino.Tile2);
+            }
+            else if(oldState.IsKeyUp(Keys.Space) && state.IsKeyDown(Keys.Space)){
+                int nextTile = playerX + 1;
+                gameBoard.FillTile(playerX, playerY);
+                gameBoard.FillTile(nextTile, playerY);
             }
         }
 
@@ -228,7 +235,6 @@ namespace KingDomino
             if(oldState.IsKeyUp(Keys.D1) && newState.IsKeyDown(Keys.D1))
             {
                 if(whereInDeck < deckSize){
-                    playerDomino = deckButton1;
                     deckButton5 = whereInDeck;
                     UpdateDeck(deckButton5, deckPositionX1 + 3, deckPositionY1);
                     whereInDeck++;
