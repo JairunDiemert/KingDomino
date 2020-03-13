@@ -13,6 +13,10 @@ namespace KingDomino
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Texture2D tileTexture;
+        Texture2D tileTexture1;
+        Texture2D tileTexture2;
+        Texture2D tileTexture3;
+        Texture2D tileTexture4;
         Board gameBoard;
         BoardControler boardControl;
         Deck gameDeck;
@@ -133,10 +137,10 @@ namespace KingDomino
             tileTexture = Content.Load<Texture2D>("C1");
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
 
-            UpdateDeck(deckButton1, deckPositionY1);
-            UpdateDeck(deckButton2, deckPositionY2);
-            UpdateDeck(deckButton3, deckPositionY3);
-            UpdateDeck(deckButton4, deckPositionY4);
+            UpdateDeck(deckButton1, deckPositionY1, tileTexture1);
+            UpdateDeck(deckButton2, deckPositionY2, tileTexture2);
+            UpdateDeck(deckButton3, deckPositionY3, tileTexture3);
+            UpdateDeck(deckButton4, deckPositionY4, tileTexture4);
 
             tileTexture = Content.Load<Texture2D>("K1");
             spriteBatch.Draw(tileTexture, new Rectangle((8 * tileSize) + tileSize/2 + tileSize/4, 0 * tileSize + tileSize/4, tileSize/2, tileSize/2), Color.White);
@@ -156,7 +160,7 @@ namespace KingDomino
             {
                 if(whereInDeck < deckSize){
                     deckButton1 = whereInDeck;
-                    UpdateDeck(deckButton1, deckPositionY1);
+                    UpdateDeck(deckButton1, deckPositionY1, tileTexture1);
                     whereInDeck++;
                 }
                 else{
@@ -167,7 +171,7 @@ namespace KingDomino
             {
                 if(whereInDeck < deckSize){
                     deckButton2 = whereInDeck;
-                    UpdateDeck(deckButton2, deckPositionY2);
+                    UpdateDeck(deckButton2, deckPositionY2, tileTexture2);
                     whereInDeck++;
                 }
                 else{
@@ -178,7 +182,7 @@ namespace KingDomino
             {
                 if(whereInDeck < deckSize){
                     deckButton3 = whereInDeck;
-                    UpdateDeck(deckButton3, deckPositionY3);
+                    UpdateDeck(deckButton3, deckPositionY3, tileTexture3);
                     whereInDeck++;
                 }
                 else{
@@ -189,7 +193,7 @@ namespace KingDomino
             {
                 if(whereInDeck < deckSize){
                     deckButton4 = whereInDeck;
-                    UpdateDeck(deckButton4, deckPositionY4);
+                    UpdateDeck(deckButton4, deckPositionY4, tileTexture4);
                     whereInDeck++;
                 }
                 else{
@@ -197,19 +201,19 @@ namespace KingDomino
                 }
             }
         }
-        public void UpdateDeck(int where, int y)
+        public void UpdateDeck(int where, int y, Texture2D tileTexture)
         {
             currentDomino = (Domino)gameDeck.DominoDeck[where];
 
             tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
             positionAndSize.X = 8 * tileSize;
-            positionAndSize.Y = 2 * tileSize;
+            positionAndSize.Y = y * tileSize;
             currentDomino.Tile1.PositionAndSize = positionAndSize;
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
 
             tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
             positionAndSize.X = 9 * tileSize;
-            positionAndSize.Y = 2 * tileSize;
+            positionAndSize.Y = y * tileSize;
             currentDomino.Tile2.PositionAndSize = positionAndSize;
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
         }
