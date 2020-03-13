@@ -22,6 +22,7 @@ namespace KingDomino
         Tile currentTile;
         Domino currentDomino;
         KeyboardState oldState;
+        int playerDomino;
         int whereInDeck;
         int deckButton1;
         int deckButton2;
@@ -128,6 +129,7 @@ namespace KingDomino
                     spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
                 }
             }
+
             positionAndSize.X = 3 * tileSize;
             positionAndSize.Y = 3 * tileSize;
             tileTexture = Content.Load<Texture2D>("C1");
@@ -150,11 +152,20 @@ namespace KingDomino
             base.Draw(gameTime);
         }
 
+        public void playerInput(KeyboardState state, int playerDomino){
+            currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
+            if(oldState.IsKeyUp(Keys.A) && newState.IsKeyDown(Keys.A))
+            {
+
+            }
+        }
+
         public void DeckButtonInput(KeyboardState newState)
         {
             if(oldState.IsKeyUp(Keys.D1) && newState.IsKeyDown(Keys.D1))
             {
                 if(whereInDeck < deckSize){
+                    playerDomino = deckButton1;
                     deckButton1 = whereInDeck;
                     UpdateDeck(deckButton1, deckPositionY1);
                     whereInDeck++;
