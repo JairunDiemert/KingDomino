@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 using System.Collections;
 
 namespace KingDomino
@@ -13,6 +14,7 @@ namespace KingDomino
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Texture2D tileTexture;
+        Texture2D square;
         Board gameBoard;
         BoardControler boardControl;
         Deck gameDeck;
@@ -32,6 +34,7 @@ namespace KingDomino
         int deckButton7;
         int deckButton8;
         Rectangle positionAndSize;
+        Rectangle positionAndSizeOfPLacement;
         int deckPositionY1;
         int deckPositionY2;
         int deckPositionY3;
@@ -78,6 +81,9 @@ namespace KingDomino
             deckPositionY4 = 3;
             deckPositionX1 = 20;
 
+            square = new Texture2D(GraphicsDevice, 100, 100);
+            square.CreateBorder(5, Color.Red);
+
             playerX = 0;
             playerY = 0;
             base.Initialize();
@@ -97,6 +103,8 @@ namespace KingDomino
             tileSize = boardControl.TileSize;
             grid = boardControl.Grid;
             positionAndSize = new Rectangle(0,0,tileSize, tileSize);
+            positionAndSizeOfPLacement = new Rectangle(playerX, playerY, tileSize, tileSize);
+
 
             // TODO: use this.Content to load your game content here
         }
@@ -130,7 +138,10 @@ namespace KingDomino
         {
             GraphicsDevice.Clear(Color.White);
             spriteBatch.Begin();
+            positionAndSizeOfPLacement.X = playerX * tileSize;
+            positionAndSizeOfPLacement.Y = playerY * tileSize;
             
+
             //Draws boards
             for (int i = 0; i < grid; ++i)
             {
@@ -202,6 +213,8 @@ namespace KingDomino
             tileTexture = Content.Load<Texture2D>("K3");
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
 
+            spriteBatch.Draw(square, positionAndSizeOfPLacement, Color.Red);
+
             KeyboardState newState = Keyboard.GetState();  // get the newest state
             DeckButtonInput(newState);
             PlayerInput(newState, deckButton1);
@@ -211,7 +224,6 @@ namespace KingDomino
             
             base.Draw(gameTime);
         }
-
 
         //TODO: add more keys A left D right etc this is just a baseline
         public void PlayerInput(KeyboardState state, int playerDomino){
@@ -246,7 +258,7 @@ namespace KingDomino
                 }
             }
 
-            if(oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter))
+            if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter))
             {
                 int nextTile = playerX + 1;
                 currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
