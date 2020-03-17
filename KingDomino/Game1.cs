@@ -276,15 +276,15 @@ namespace KingDomino
 
             if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter))
             {
-                nextTile = playerX + 1;
+                int nextTile = playerX + 1;
                 currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
                 gameBoard.setTileAt(playerX, playerY, currentDomino.Tile1);
-                gameBoard.setTileAt(nextTileX, nextTileY, currentDomino.Tile2);
+                gameBoard.setTileAt(nextTile, playerY, currentDomino.Tile2);
             }
             else if(oldState.IsKeyUp(Keys.Space) && state.IsKeyDown(Keys.Space)){
-                nextTile = playerX + 1;
+                int nextTile = playerX + 1;
                 gameBoard.FillTile(playerX, playerY);
-                gameBoard.FillTile(nextTileX, playerY);
+                gameBoard.FillTile(nextTile, playerY);
             }
         }
 
