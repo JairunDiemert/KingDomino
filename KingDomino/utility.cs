@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace KingDomino
 {
-    static class Utilities
+    static class utility
     {
         public static void CreateBorder(this Texture2D texture, int borderWidth, Color borderColor)
         {

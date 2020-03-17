@@ -258,17 +258,33 @@ namespace KingDomino
                 }
             }
 
+            /*int nextTileX = playerX + 1;
+            int nextTileY = playerY;
+            bool hit = false;
+
+            if (oldState.IsKeyUp(Keys.C) && state.IsKeyDown(Keys.C))
+            {
+                hit = true;
+                nextTileX = playerX;
+                nextTileY = playerY + 1;
+
+            }else if(hit != true)
+            {
+                nextTileX = playerX + 1;
+                nextTileY = playerY;
+            }*/
+
             if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter))
             {
-                int nextTile = playerX + 1;
+                nextTile = playerX + 1;
                 currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
                 gameBoard.setTileAt(playerX, playerY, currentDomino.Tile1);
-                gameBoard.setTileAt(nextTile, playerY, currentDomino.Tile2);
+                gameBoard.setTileAt(nextTileX, nextTileY, currentDomino.Tile2);
             }
             else if(oldState.IsKeyUp(Keys.Space) && state.IsKeyDown(Keys.Space)){
-                int nextTile = playerX + 1;
+                nextTile = playerX + 1;
                 gameBoard.FillTile(playerX, playerY);
-                gameBoard.FillTile(nextTile, playerY);
+                gameBoard.FillTile(nextTileX, playerY);
             }
         }
 
