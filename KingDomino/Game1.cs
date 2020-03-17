@@ -216,6 +216,36 @@ namespace KingDomino
         //TODO: add more keys A left D right etc this is just a baseline
         public void PlayerInput(KeyboardState state, int playerDomino){
             
+            if(oldState.IsKeyUp(Keys.A) && state.IsKeyDown(Keys.A))
+            {
+                if(playerX >= 1)
+                {
+                    --playerX;
+                }
+            }
+            else if(oldState.IsKeyUp(Keys.D) && state.IsKeyDown(Keys.D))
+            {
+                if(playerX <= 6)
+                {
+                    ++playerX;
+                }
+            }
+
+            if(oldState.IsKeyUp(Keys.W) && state.IsKeyDown(Keys.W))
+            {
+                if(playerY >= 1)
+                {
+                    --playerY;
+                }
+            }
+            else if(oldState.IsKeyUp(Keys.S) && state.IsKeyDown(Keys.S))
+            {
+                if(playerY <= 7)
+                {
+                    ++playerY;
+                }
+            }
+
             if(oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter))
             {
                 int nextTile = playerX + 1;
