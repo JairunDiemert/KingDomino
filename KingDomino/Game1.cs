@@ -42,6 +42,7 @@ namespace KingDomino
         int deckPositionX1;
         int playerX;
         int playerY;
+        int rotateDeg; // either 0, 90, 180, 270
 
         public Game1()
         {
@@ -86,6 +87,7 @@ namespace KingDomino
 
             playerX = 0;
             playerY = 0;
+            rotateDeg = 0;
             base.Initialize();
         }
 
@@ -258,30 +260,61 @@ namespace KingDomino
                 }
             }
 
-            /*int nextTileX = playerX + 1;
+            int nextTileX = playerX + 1;
             int nextTileY = playerY;
             bool hit = false;
 
-            if (oldState.IsKeyUp(Keys.C) && state.IsKeyDown(Keys.C))
+            if (oldState.IsKeyUp(Keys.R) && state.IsKeyDown(Keys.R) && rotateDeg == 0)
             {
-                hit = true;
-                nextTileX = playerX;
-                nextTileY = playerY + 1;
+                rotateDeg = 90;
 
-            }else if(hit != true)
+            }
+            else if(oldState.IsKeyUp(Keys.R) && state.IsKeyDown(Keys.R) && rotateDeg == 90){
+                rotateDeg = 180;
+            }
+            else if(oldState.IsKeyUp(Keys.R) && state.IsKeyDown(Keys.R) && rotateDeg == 180){
+                rotateDeg = 270;
+            }
+            else if(oldState.IsKeyUp(Keys.R) && state.IsKeyDown(Keys.R) && rotateDeg == 270){
+                rotateDeg = 0;
+            }
+            
+            // may not need below
+            /*else if(hit != true)
             {
                 nextTileX = playerX + 1;
                 nextTileY = playerY;
-            }*/
+            }*/ 
 
-            if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter))
+            if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 0) // below does normal 0
             {
                 int nextTile = playerX + 1;
                 currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
                 gameBoard.setTileAt(playerX, playerY, currentDomino.Tile1);
                 gameBoard.setTileAt(nextTile, playerY, currentDomino.Tile2);
             }
-            else if(oldState.IsKeyUp(Keys.Space) && state.IsKeyDown(Keys.Space)){
+            else if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 90) // does 90 
+            {
+                int nextTile = playerX;
+                currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
+                gameBoard.setTileAt(playerX, playerY, currentDomino.Tile1);
+                gameBoard.setTileAt(nextTile, playerY - 1, currentDomino.Tile2);
+            }
+            else if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 180) // below does 180
+            {
+                int nextTile = playerX - 1;
+                currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
+                gameBoard.setTileAt(playerX, playerY, currentDomino.Tile1);
+                gameBoard.setTileAt(nextTile, playerY, currentDomino.Tile2);
+            }
+            else if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 270) // below does 270
+            {
+                int nextTile = playerX;
+                currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
+                gameBoard.setTileAt(playerX, playerY, currentDomino.Tile1);
+                gameBoard.setTileAt(nextTile, playerY + 1, currentDomino.Tile2);
+            }
+            else if(oldState.IsKeyUp(Keys.Space) && state.IsKeyDown(Keys.Space)){ //sets filled, for testing perposes mostly
                 int nextTile = playerX + 1;
                 gameBoard.FillTile(playerX, playerY);
                 gameBoard.FillTile(nextTile, playerY);
