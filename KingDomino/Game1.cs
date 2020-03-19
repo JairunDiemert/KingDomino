@@ -15,6 +15,7 @@ namespace KingDomino
         SpriteBatch spriteBatch;
         Texture2D tileTexture;
         Texture2D square;
+        Texture2D square2;
         Board gameBoard;
         BoardControler boardControl;
         Deck gameDeck;
@@ -35,6 +36,7 @@ namespace KingDomino
         int deckButton8;
         Rectangle positionAndSize;
         Rectangle positionAndSizeOfPLacement;
+        Rectangle positionAndSizeOfPLacement2;
         int deckPositionY1;
         int deckPositionY2;
         int deckPositionY3;
@@ -42,6 +44,8 @@ namespace KingDomino
         int deckPositionX1;
         int playerX;
         int playerY;
+        int playerX2;
+        int playerY2;
         int rotateDeg; // either 0, 90, 180, 270
 
         public Game1()
@@ -83,10 +87,14 @@ namespace KingDomino
             deckPositionX1 = 20;
 
             square = new Texture2D(GraphicsDevice, 100, 100);
+            square2 = new Texture2D(GraphicsDevice, 100, 100);
             square.CreateBorder(5, Color.Red);
+            square2.CreateBorder(5, Color.Red);
 
             playerX = 0;
             playerY = 0;
+            playerX2 = 1;
+            playerY2 = 0;
             rotateDeg = 0;
             base.Initialize();
         }
@@ -106,6 +114,7 @@ namespace KingDomino
             grid = boardControl.Grid;
             positionAndSize = new Rectangle(0,0,tileSize, tileSize);
             positionAndSizeOfPLacement = new Rectangle(playerX, playerY, tileSize, tileSize);
+            positionAndSizeOfPLacement2 = new Rectangle(playerX + 1, playerY, tileSize, tileSize);
 
 
             // TODO: use this.Content to load your game content here
@@ -142,6 +151,8 @@ namespace KingDomino
             spriteBatch.Begin();
             positionAndSizeOfPLacement.X = playerX * tileSize;
             positionAndSizeOfPLacement.Y = playerY * tileSize;
+            positionAndSizeOfPLacement2.X = playerX2 * tileSize;
+            positionAndSizeOfPLacement2.Y = playerY2 * tileSize;
             
 
             //Draws boards
@@ -216,6 +227,7 @@ namespace KingDomino
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
 
             spriteBatch.Draw(square, positionAndSizeOfPLacement, Color.Red);
+            spriteBatch.Draw(square2, positionAndSizeOfPLacement2, Color.Red);
 
             KeyboardState newState = Keyboard.GetState();  // get the newest state
             DeckButtonInput(newState);
@@ -230,11 +242,14 @@ namespace KingDomino
         //TODO: add more keys A left D right etc this is just a baseline
         public void PlayerInput(KeyboardState state, int playerDomino){
             
+            
+
             if(oldState.IsKeyUp(Keys.A) && state.IsKeyDown(Keys.A))
             {
                 if(playerX >= 1)
                 {
                     --playerX;
+                    --playerX2;
                 }
             }
             else if(oldState.IsKeyUp(Keys.D) && state.IsKeyDown(Keys.D))
@@ -242,6 +257,7 @@ namespace KingDomino
                 if(playerX <= 6)
                 {
                     ++playerX;
+                    ++playerX2;
                 }
             }
 
@@ -250,6 +266,7 @@ namespace KingDomino
                 if(playerY >= 1)
                 {
                     --playerY;
+                    --playerY2;
                 }
             }
             else if(oldState.IsKeyUp(Keys.S) && state.IsKeyDown(Keys.S))
@@ -257,34 +274,33 @@ namespace KingDomino
                 if(playerY <= 7)
                 {
                     ++playerY;
+                    ++playerY2;
                 }
             }
-
-            int nextTileX = playerX + 1;
-            int nextTileY = playerY;
-            bool hit = false;
 
             if (oldState.IsKeyUp(Keys.R) && state.IsKeyDown(Keys.R) && rotateDeg == 0)
             {
                 rotateDeg = 90;
+                playerY2 = playerY - 1;
+                playerX2 = playerX;
 
             }
             else if(oldState.IsKeyUp(Keys.R) && state.IsKeyDown(Keys.R) && rotateDeg == 90){
                 rotateDeg = 180;
+                playerY2 = playerY2 + 1;
+                playerX2 = playerX - 1;
             }
             else if(oldState.IsKeyUp(Keys.R) && state.IsKeyDown(Keys.R) && rotateDeg == 180){
                 rotateDeg = 270;
+                playerX2 =  playerX;
+                playerY2 = playerY2 + 1;
             }
             else if(oldState.IsKeyUp(Keys.R) && state.IsKeyDown(Keys.R) && rotateDeg == 270){
                 rotateDeg = 0;
+                playerX2 = playerX + 1;
+                playerY2 = playerY2 - 1;
             }
-            
-            // may not need below
-            /*else if(hit != true)
-            {
-                nextTileX = playerX + 1;
-                nextTileY = playerY;
-            }*/ 
+
 
             if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 0) // below does normal 0
             {
