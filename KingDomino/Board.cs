@@ -38,13 +38,12 @@ namespace KingDomino
         }
         public void setTileAt(int row, int col, Tile currentTile){
             int tileSize = new BoardControler().TileSize;
-            /*Gameboard[row, col].EnvType = (currentTile.EnvType);
-            Gameboard[row, col].NumCrowns = (currentTile.NumCrowns);
-            Gameboard[row, col].TileImageName = (currentTile.TileImageName);
-            Gameboard[row, col].PositionAndSize = (currentTile.PositionAndSize);*/
-            currentTile.PositionAndSize = new Rectangle(row * tileSize, col * tileSize, tileSize, tileSize);
-            Gameboard[row, col] = currentTile;
-            FillTile(row, col);
+            if (currentTile.TileImageName != "Blank")
+            {
+                currentTile.PositionAndSize = new Rectangle(row * tileSize, col * tileSize, tileSize, tileSize);
+                Gameboard[row, col] = currentTile;
+                FillTile(row, col);
+            }
         }
 
 

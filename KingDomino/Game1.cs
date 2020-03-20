@@ -82,7 +82,7 @@ namespace KingDomino
             deckButton6 = 5;
             deckButton7 = 6;
             deckButton8 = 7;
-            deckBuffer = 7;
+            deckBuffer = 8;
             deckSize = 24 + deckBuffer;
             deckPositionY1 = 0;
             deckPositionY2 = 1;
