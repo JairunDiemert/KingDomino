@@ -20,6 +20,7 @@ namespace KingDomino
         BoardControler boardControl;
         Deck gameDeck;
         int deckSize;
+        int deckBuffer;
         int tileSize;
         int grid;
         Tile currentTile;
@@ -81,7 +82,8 @@ namespace KingDomino
             deckButton6 = 5;
             deckButton7 = 6;
             deckButton8 = 7;
-            deckSize = 24;
+            deckBuffer = 7;
+            deckSize = 24 + deckBuffer;
             deckPositionY1 = 0;
             deckPositionY2 = 1;
             deckPositionY3 = 2;

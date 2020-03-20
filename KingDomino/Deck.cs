@@ -170,7 +170,7 @@ namespace KingDomino
             DeckSize = 24;
             for (int i = 0; i < DeckSize; i++)
             {
-                DominoDeck.Add(new Domino(new Tile(), new Tile()));
+                DominoDeck.Add(new Domino(new Tile("Blank"), new Tile("Blank")));
             }
         }
 
@@ -189,7 +189,7 @@ namespace KingDomino
                 EnvironmentTypes envType1 = EnvironmentTypes.Default;
                 int numCrowns1 = 0;
                 bool filledSpace1 = false;
-                string tileImageName1 = "Empty";
+                string tileImageName1 = "Blank";
                 int x1 = -1;
                 int y1 = -1;
                 int width1 = -1;
@@ -199,7 +199,7 @@ namespace KingDomino
                 EnvironmentTypes envType2 = EnvironmentTypes.Default;
                 int numCrowns2 = 0;
                 bool filledSpace2 = false;
-                string tileImageName2 = "Empty";
+                string tileImageName2 = "Blank";
                 int x2 = -1;
                 int y2 = -1;
                 int width2 = -1;
@@ -234,6 +234,8 @@ namespace KingDomino
                 nameIndex1 += 2;
                 nameIndex2 += 2;
             }
+            for (int j = 0; j < 9; j++)
+            DominoDeck.Add(new Domino());
         }
 
         public ArrayList DominoDeck

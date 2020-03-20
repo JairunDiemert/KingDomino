@@ -24,6 +24,14 @@ namespace KingDomino
 			TileImageName = "T1";
 			positionAndSize = new Rectangle();
 		}
+		public Tile(string tileImageName)
+		{
+			EnvType = EnvironmentTypes.Blank;
+			NumCrowns = -1;
+			FilledSpace = false;
+			TileImageName = tileImageName;
+			positionAndSize = new Rectangle();
+		}
 		public Tile(EnvironmentTypes envType, int numCrowns, bool filledSpace, string tileImageName, int x, int y, int width, int height)
 		{
 			EnvType = envType;

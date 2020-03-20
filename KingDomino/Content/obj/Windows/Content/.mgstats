@@ -1,5 +1,6 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
 "C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/Content/ball.png","C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/Content/bin/Windows/Content/ball.xnb","TextureProcessor","Texture2DContent",8368,16469,0.1834725
+"C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/Content/Blank.png","C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/Content/bin/Windows/Content/Blank.xnb","TextureProcessor","Texture2DContent",382,44993,0.2169888
 "C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/Content/C1.png","C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/Content/bin/Windows/Content/C1.xnb","TextureProcessor","Texture2DContent",22193,44993,0.0059825
 "C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/Content/C2.png","C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/Content/bin/Windows/Content/C2.xnb","TextureProcessor","Texture2DContent",22048,44993,0.0049862
 "C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/Content/C3.png","C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/Content/bin/Windows/Content/C3.xnb","TextureProcessor","Texture2DContent",22022,44993,0.0059851

@@ -13,8 +13,8 @@ namespace KingDomino
 
         public Domino()
         {
-            Tile1 = new Tile();
-            Tile2 = new Tile();
+            Tile1 = new Tile("Blank");
+            Tile2 = new Tile("Blank");
         }
         public Domino(Tile tile1, Tile tile2)
         {
