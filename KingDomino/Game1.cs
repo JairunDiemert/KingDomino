@@ -34,6 +34,7 @@ namespace KingDomino
         int deckButton6;
         int deckButton7;
         int deckButton8;
+        int deckButtonMover;
         Rectangle positionAndSize;
         Rectangle positionAndSizeOfPLacement;
         Rectangle positionAndSizeOfPLacement2;
@@ -67,9 +68,10 @@ namespace KingDomino
 
             Window.AllowUserResizing = true;
             IsMouseVisible = true;
-            
+
             graphics.ApplyChanges();
             oldState = Keyboard.GetState();
+            deckButtonMover = 0;
             whereInDeck = 8;
             deckButton1 = 0;
             deckButton2 = 1;
@@ -112,7 +114,7 @@ namespace KingDomino
             gameDeck = new Deck(24);
             tileSize = boardControl.TileSize;
             grid = boardControl.Grid;
-            positionAndSize = new Rectangle(0,0,tileSize, tileSize);
+            positionAndSize = new Rectangle(0, 0, tileSize, tileSize);
             positionAndSizeOfPLacement = new Rectangle(playerX, playerY, tileSize, tileSize);
             positionAndSizeOfPLacement2 = new Rectangle(playerX + 1, playerY, tileSize, tileSize);
 
@@ -147,29 +149,30 @@ namespace KingDomino
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+
             GraphicsDevice.Clear(Color.White);
             spriteBatch.Begin();
             positionAndSizeOfPLacement.X = playerX * tileSize;
             positionAndSizeOfPLacement.Y = playerY * tileSize;
             positionAndSizeOfPLacement2.X = playerX2 * tileSize;
             positionAndSizeOfPLacement2.Y = playerY2 * tileSize;
-            
+
 
             //Draws boards
             for (int i = 0; i < grid; ++i)
             {
                 for (int j = 0; j < grid; ++j)
                 {
-                    currentTile = gameBoard.getTileAt(i,j);
+                    currentTile = gameBoard.getTileAt(i, j);
                     positionAndSize.X = i * tileSize;
                     positionAndSize.Y = j * tileSize;
-                    if(boardControl.DefaultChecker(currentTile.EnvType)){
+                    if (boardControl.DefaultChecker(currentTile.EnvType)) {
                         tileTexture = Content.Load<Texture2D>("T1");
                     }
                     else {
                         tileTexture = Content.Load<Texture2D>(currentTile.TileImageName);
                     }
-                    
+
                     spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
                 }
             }
@@ -180,7 +183,7 @@ namespace KingDomino
                     currentTile = gameBoard.getTileAt(i, j);
                     positionAndSize.X = (i + 10) * tileSize;
                     positionAndSize.Y = j * tileSize;
-                    if(boardControl.DefaultChecker(currentTile.EnvType)){
+                    if (boardControl.DefaultChecker(currentTile.EnvType)) {
                         tileTexture = Content.Load<Texture2D>("T1");
                     }
                     spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
@@ -230,48 +233,48 @@ namespace KingDomino
             spriteBatch.Draw(square2, positionAndSizeOfPLacement2, Color.Red);
 
             KeyboardState newState = Keyboard.GetState();  // get the newest state
-            DeckButtonInput(newState);
+            //DeckButtonInput(newState);
             PlayerInput(newState, deckButton1);
             oldState = newState;
 
             spriteBatch.End();
-            
+
             base.Draw(gameTime);
         }
 
         //TODO: add more keys A left D right etc this is just a baseline
-        public void PlayerInput(KeyboardState state, int playerDomino){
-            
-            
+        public void PlayerInput(KeyboardState state, int playerDomino) {
 
-            if(oldState.IsKeyUp(Keys.A) && state.IsKeyDown(Keys.A))
+
+
+            if (oldState.IsKeyUp(Keys.A) && state.IsKeyDown(Keys.A))
             {
-                if(playerX >= 1)
+                if (playerX >= 1)
                 {
                     --playerX;
                     --playerX2;
                 }
             }
-            else if(oldState.IsKeyUp(Keys.D) && state.IsKeyDown(Keys.D))
+            else if (oldState.IsKeyUp(Keys.D) && state.IsKeyDown(Keys.D))
             {
-                if(playerX <= 6)
+                if (playerX <= 6)
                 {
                     ++playerX;
                     ++playerX2;
                 }
             }
 
-            if(oldState.IsKeyUp(Keys.W) && state.IsKeyDown(Keys.W))
+            if (oldState.IsKeyUp(Keys.W) && state.IsKeyDown(Keys.W))
             {
-                if(playerY >= 1)
+                if (playerY >= 1)
                 {
                     --playerY;
                     --playerY2;
                 }
             }
-            else if(oldState.IsKeyUp(Keys.S) && state.IsKeyDown(Keys.S))
+            else if (oldState.IsKeyUp(Keys.S) && state.IsKeyDown(Keys.S))
             {
-                if(playerY <= 7)
+                if (playerY <= 7)
                 {
                     ++playerY;
                     ++playerY2;
@@ -285,17 +288,17 @@ namespace KingDomino
                 playerX2 = playerX;
 
             }
-            else if(oldState.IsKeyUp(Keys.R) && state.IsKeyDown(Keys.R) && rotateDeg == 90){
+            else if (oldState.IsKeyUp(Keys.R) && state.IsKeyDown(Keys.R) && rotateDeg == 90) {
                 rotateDeg = 180;
                 playerY2 = playerY2 + 1;
                 playerX2 = playerX - 1;
             }
-            else if(oldState.IsKeyUp(Keys.R) && state.IsKeyDown(Keys.R) && rotateDeg == 180){
+            else if (oldState.IsKeyUp(Keys.R) && state.IsKeyDown(Keys.R) && rotateDeg == 180) {
                 rotateDeg = 270;
-                playerX2 =  playerX;
+                playerX2 = playerX;
                 playerY2 = playerY2 + 1;
             }
-            else if(oldState.IsKeyUp(Keys.R) && state.IsKeyDown(Keys.R) && rotateDeg == 270){
+            else if (oldState.IsKeyUp(Keys.R) && state.IsKeyDown(Keys.R) && rotateDeg == 270) {
                 rotateDeg = 0;
                 playerX2 = playerX + 1;
                 playerY2 = playerY2 - 1;
@@ -305,6 +308,7 @@ namespace KingDomino
             if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 0) // below does normal 0
             {
                 int nextTile = playerX + 1;
+                IncrementDeck();
                 currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
                 gameBoard.setTileAt(playerX, playerY, currentDomino.Tile1);
                 gameBoard.setTileAt(nextTile, playerY, currentDomino.Tile2);
@@ -312,6 +316,7 @@ namespace KingDomino
             else if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 90) // does 90 
             {
                 int nextTile = playerX;
+                IncrementDeck();
                 currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
                 gameBoard.setTileAt(playerX, playerY, currentDomino.Tile1);
                 gameBoard.setTileAt(nextTile, playerY - 1, currentDomino.Tile2);
@@ -319,6 +324,7 @@ namespace KingDomino
             else if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 180) // below does 180
             {
                 int nextTile = playerX - 1;
+                IncrementDeck();
                 currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
                 gameBoard.setTileAt(playerX, playerY, currentDomino.Tile1);
                 gameBoard.setTileAt(nextTile, playerY, currentDomino.Tile2);
@@ -326,64 +332,60 @@ namespace KingDomino
             else if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 270) // below does 270
             {
                 int nextTile = playerX;
+                IncrementDeck();
                 currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
                 gameBoard.setTileAt(playerX, playerY, currentDomino.Tile1);
                 gameBoard.setTileAt(nextTile, playerY + 1, currentDomino.Tile2);
             }
-            else if(oldState.IsKeyUp(Keys.Space) && state.IsKeyDown(Keys.Space)){ //sets filled, for testing perposes mostly
-                int nextTile = playerX + 1;
-                gameBoard.FillTile(playerX, playerY);
-                gameBoard.FillTile(nextTile, playerY);
-            }
         }
 
-        public void DeckButtonInput(KeyboardState newState)
-        {
-            if(oldState.IsKeyUp(Keys.D1) && newState.IsKeyDown(Keys.D1))
-            {
-                if(whereInDeck < deckSize){
-                    deckButton5 = whereInDeck;
-                    UpdateDeck(deckButton5, deckPositionX1 + 3, deckPositionY1);
-                    whereInDeck++;
-                }
-                else{
-                
-                }
-            } 
-            else if(oldState.IsKeyUp(Keys.D2) && newState.IsKeyDown(Keys.D2))
-            {
-                if(whereInDeck < deckSize){
-                    deckButton6 = whereInDeck;
-                    UpdateDeck(deckButton6, deckPositionX1 + 3, deckPositionY2);
-                    whereInDeck++;
-                }
-                else{
-                
-                }
-            }
-            else if(oldState.IsKeyUp(Keys.D3) && newState.IsKeyDown(Keys.D3))
-            {
-                if(whereInDeck < deckSize){
-                    deckButton7 = whereInDeck;
-                    UpdateDeck(deckButton7, deckPositionX1 + 3, deckPositionY3);
-                    whereInDeck++;
-                }
-                else{
-                
-                }
-            }
-            else if(oldState.IsKeyUp(Keys.D4) && newState.IsKeyDown(Keys.D4))
-            {
-                if(whereInDeck < deckSize){
-                    deckButton8 = whereInDeck;
-                    UpdateDeck(deckButton8, deckPositionX1 + 3, deckPositionY4);
-                    whereInDeck++;
-                }
-                else{
-                
-                }
-            }
-        }
+        /*public void DeckButtonInput(KeyboardState newState)
+         {
+             if(oldState.IsKeyUp(Keys.D1) && newState.IsKeyDown(Keys.D1))
+             {
+                 if(whereInDeck < deckSize){
+                     deckButton5 = whereInDeck;
+                     UpdateDeck(deckButton5, deckPositionX1 + 3, deckPositionY1);
+                     whereInDeck++;
+                 }
+                 else{
+
+                 }
+             } 
+             else if(oldState.IsKeyUp(Keys.D2) && newState.IsKeyDown(Keys.D2))
+             {
+                 if(whereInDeck < deckSize){
+                     deckButton6 = whereInDeck;
+                     UpdateDeck(deckButton6, deckPositionX1 + 3, deckPositionY2);
+                     whereInDeck++;
+                 }
+                 else{
+
+                 }
+             }
+             else if(oldState.IsKeyUp(Keys.D3) && newState.IsKeyDown(Keys.D3))
+             {
+                 if(whereInDeck < deckSize){
+                     deckButton7 = whereInDeck;
+                     UpdateDeck(deckButton7, deckPositionX1 + 3, deckPositionY3);
+                     whereInDeck++;
+                 }
+                 else{
+
+                 }
+             }
+             else if(oldState.IsKeyUp(Keys.D4) && newState.IsKeyDown(Keys.D4))
+             {
+                 if(whereInDeck < deckSize){
+                     deckButton8 = whereInDeck;
+                     UpdateDeck(deckButton8, deckPositionX1 + 3, deckPositionY4);
+                     whereInDeck++;
+                 }
+                 else{
+
+                 }
+             }
+         }*/
         public void UpdateDeck(int where, int x, int y)
         {
             currentDomino = (Domino)gameDeck.DominoDeck[where];
@@ -399,6 +401,22 @@ namespace KingDomino
             positionAndSize.Y = y * tileSize;
             currentDomino.Tile2.PositionAndSize = positionAndSize;
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
+        }
+
+        public void IncrementDeck()
+        {
+            if (whereInDeck < deckSize)
+            {
+                deckButton1 += 1;
+                deckButton2 += 1;
+                deckButton3 += 1;
+                deckButton4 += 1;
+                deckButton5 += 1;
+                deckButton6 += 1;
+                deckButton7 += 1;
+                deckButton8 += 1;
+                ++whereInDeck;
+            }
         }
     }
 }

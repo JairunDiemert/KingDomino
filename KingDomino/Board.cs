@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,19 +29,25 @@ namespace KingDomino
         public Tile getTileAt(int row, int col){
             return Gameboard[row, col];
         }
-
+        public void FillTile(int row, int col)
+        {
+            if (Gameboard[row, col].FilledSpace != true)
+            {
+                Gameboard[row, col].FilledSpace = (true);
+            }
+        }
         public void setTileAt(int row, int col, Tile currentTile){
-            Gameboard[row, col].EnvType = (currentTile.EnvType);
+            int tileSize = new BoardControler().TileSize;
+            /*Gameboard[row, col].EnvType = (currentTile.EnvType);
             Gameboard[row, col].NumCrowns = (currentTile.NumCrowns);
             Gameboard[row, col].TileImageName = (currentTile.TileImageName);
-            Gameboard[row, col].PositionAndSize = (currentTile.PositionAndSize);
+            Gameboard[row, col].PositionAndSize = (currentTile.PositionAndSize);*/
+            currentTile.PositionAndSize = new Rectangle(row * tileSize, col * tileSize, tileSize, tileSize);
+            Gameboard[row, col] = currentTile;
+            FillTile(row, col);
         }
 
-        public void FillTile(int row, int col){
-            if(Gameboard[row, col].FilledSpace != true){
-                Gameboard[row, col].FilledSpace = (true);
-            } 
-        }
+
 
 
     }
