@@ -176,14 +176,25 @@ namespace KingDomino
 
         public Deck(int deckSize)
         {
+            ArrayList maxDeck = new ArrayList();
+            MaxDeck(maxDeck);
+            RandomOrder(maxDeck);
             DominoDeck = new ArrayList();
             DeckSize = deckSize;
+            DominoDeck = maxDeck.GetRange(0, DeckSize);
+            for (int j = 0; j < 9; j++)
+            DominoDeck.Add(new Domino());
+        }
+
+        public void MaxDeck(ArrayList maxDeck)
+        {
+            int deckSize = 48;
 
 
             int nameIndex1 = 2;
             int nameIndex2 = 3;
 
-            for (int i = 0; i < DeckSize; i++)
+            for (int i = 0; i < deckSize; i++)
             {
 
                 EnvironmentTypes envType1 = EnvironmentTypes.Default;
@@ -229,13 +240,23 @@ namespace KingDomino
                 if (TripleCrown.Contains(tileImageName1)) numCrowns1 = 3;
                 if (TripleCrown.Contains(tileImageName2)) numCrowns2 = 3;
 
-                DominoDeck.Add(new Domino(new Tile(envType1, numCrowns1, filledSpace1, tileImageName1, x1, y1, width1, height1),
-                    new Tile(envType2, numCrowns2, filledSpace2, tileImageName2, x2, y2, width1, height1)));
+                maxDeck.Add(new Domino(new Tile(envType1, numCrowns1, filledSpace1, tileImageName1, x1, y1, width1, height1),
+                    new Tile(envType2, numCrowns2, filledSpace2, tileImageName2, x2, y2, width2, height2)));
                 nameIndex1 += 2;
                 nameIndex2 += 2;
             }
-            for (int j = 0; j < 9; j++)
-            DominoDeck.Add(new Domino());
+        }
+        public void RandomOrder(ArrayList arrList)
+        {
+            Random r = new Random();
+            for (int cnt = 0; cnt < arrList.Count; cnt++)
+            {
+                object tmp = arrList[cnt];
+                int idx = r.Next(arrList.Count - cnt) + cnt;
+                arrList[cnt] = arrList[idx];
+                arrList[idx] = tmp;
+            }
+
         }
 
         public ArrayList DominoDeck

@@ -83,7 +83,7 @@ namespace KingDomino
             deckButton7 = 6;
             deckButton8 = 7;
             deckBuffer = 8;
-            deckSize = 24 + deckBuffer;
+            deckSize = 24;
             deckPositionY1 = 0;
             deckPositionY2 = 1;
             deckPositionY3 = 2;
@@ -113,7 +113,7 @@ namespace KingDomino
             spriteBatch = new SpriteBatch(GraphicsDevice);
             gameBoard = new Board();
             boardControl = new BoardControler();
-            gameDeck = new Deck(24);
+            gameDeck = new Deck(deckSize);
             tileSize = boardControl.TileSize;
             grid = boardControl.Grid;
             positionAndSize = new Rectangle(0, 0, tileSize, tileSize);
@@ -341,53 +341,7 @@ namespace KingDomino
             }
         }
 
-        /*public void DeckButtonInput(KeyboardState newState)
-         {
-             if(oldState.IsKeyUp(Keys.D1) && newState.IsKeyDown(Keys.D1))
-             {
-                 if(whereInDeck < deckSize){
-                     deckButton5 = whereInDeck;
-                     UpdateDeck(deckButton5, deckPositionX1 + 3, deckPositionY1);
-                     whereInDeck++;
-                 }
-                 else{
-
-                 }
-             } 
-             else if(oldState.IsKeyUp(Keys.D2) && newState.IsKeyDown(Keys.D2))
-             {
-                 if(whereInDeck < deckSize){
-                     deckButton6 = whereInDeck;
-                     UpdateDeck(deckButton6, deckPositionX1 + 3, deckPositionY2);
-                     whereInDeck++;
-                 }
-                 else{
-
-                 }
-             }
-             else if(oldState.IsKeyUp(Keys.D3) && newState.IsKeyDown(Keys.D3))
-             {
-                 if(whereInDeck < deckSize){
-                     deckButton7 = whereInDeck;
-                     UpdateDeck(deckButton7, deckPositionX1 + 3, deckPositionY3);
-                     whereInDeck++;
-                 }
-                 else{
-
-                 }
-             }
-             else if(oldState.IsKeyUp(Keys.D4) && newState.IsKeyDown(Keys.D4))
-             {
-                 if(whereInDeck < deckSize){
-                     deckButton8 = whereInDeck;
-                     UpdateDeck(deckButton8, deckPositionX1 + 3, deckPositionY4);
-                     whereInDeck++;
-                 }
-                 else{
-
-                 }
-             }
-         }*/
+ 
         public void UpdateDeck(int where, int x, int y)
         {
             currentDomino = (Domino)gameDeck.DominoDeck[where];
@@ -407,7 +361,7 @@ namespace KingDomino
 
         public void IncrementDeck()
         {
-            if (whereInDeck < deckSize)
+            if (whereInDeck < (deckSize + deckBuffer))
             {
                 deckButton1 += 1;
                 deckButton2 += 1;
