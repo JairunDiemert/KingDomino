@@ -11,6 +11,7 @@ namespace KingDomino
     /// </summary>
     public class Game1 : Game
     {
+        ViewLogic viewLogic;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Texture2D tileTexture;
@@ -69,7 +70,6 @@ namespace KingDomino
 
             Window.AllowUserResizing = true;
             IsMouseVisible = true;
-
             graphics.ApplyChanges();
             oldState = Keyboard.GetState();
             deckButtonMover = 0;
@@ -151,7 +151,7 @@ namespace KingDomino
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-
+            viewLogic = new ViewLogic(ref spriteBatch, tileSize, ref gameDeck, ref positionAndSize, ref gameBoard);
             GraphicsDevice.Clear(Color.White);
             spriteBatch.Begin();
             positionAndSizeOfPLacement.X = playerX * tileSize;
@@ -165,29 +165,18 @@ namespace KingDomino
             {
                 for (int j = 0; j < grid; ++j)
                 {
-                    currentTile = gameBoard.getTileAt(i, j);
-                    positionAndSize.X = i * tileSize;
-                    positionAndSize.Y = j * tileSize;
-                    if (boardControl.DefaultChecker(currentTile.EnvType)) {
-                        tileTexture = Content.Load<Texture2D>("T1");
-                    }
-                    else {
-                        tileTexture = Content.Load<Texture2D>(currentTile.TileImageName);
-                    }
-
+                    String texture = viewLogic.DrawBoard(ref boardControl, i, j, ref positionAndSize, 0);
+                    tileTexture = Content.Load<Texture2D>(texture);
                     spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
                 }
             }
+            
             for (int i = 0; i < grid; ++i)
             {
                 for (int j = 0; j < grid; ++j)
                 {
-                    currentTile = gameBoard.getTileAt(i, j);
-                    positionAndSize.X = (i + 10) * tileSize;
-                    positionAndSize.Y = j * tileSize;
-                    if (boardControl.DefaultChecker(currentTile.EnvType)) {
-                        tileTexture = Content.Load<Texture2D>("T1");
-                    }
+                    String texture = viewLogic.DrawBoard(ref boardControl, i, j, ref positionAndSize, 10);
+                    tileTexture = Content.Load<Texture2D>(texture);
                     spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
                 }
             }
@@ -201,6 +190,17 @@ namespace KingDomino
             positionAndSize.Y = 4 * tileSize;
             tileTexture = Content.Load<Texture2D>("C3");
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
+
+            /*
+            viewLogic.UpdateDeck(deckButton1, deckPositionX1, deckPositionY1);
+            viewLogic.UpdateDeck(deckButton2, deckPositionX1, deckPositionY2);
+            viewLogic.UpdateDeck(deckButton3, deckPositionX1, deckPositionY3);
+            viewLogic.UpdateDeck(deckButton4, deckPositionX1, deckPositionY4);
+            viewLogic.UpdateDeck(deckButton5, deckPositionX1 + 3, deckPositionY1);
+            viewLogic.UpdateDeck(deckButton6, deckPositionX1 + 3, deckPositionY2);
+            viewLogic.UpdateDeck(deckButton7, deckPositionX1 + 3, deckPositionY3);
+            viewLogic.UpdateDeck(deckButton8, deckPositionX1 + 3, deckPositionY4);
+            */
 
             UpdateDeck(deckButton1, deckPositionX1, deckPositionY1);
             UpdateDeck(deckButton2, deckPositionX1, deckPositionY2);
@@ -341,7 +341,7 @@ namespace KingDomino
             }
         }
 
- 
+        
         public void UpdateDeck(int where, int x, int y)
         {
             currentDomino = (Domino)gameDeck.DominoDeck[where];
@@ -358,7 +358,7 @@ namespace KingDomino
             currentDomino.Tile2.PositionAndSize = positionAndSize;
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
         }
-
+        
         public void IncrementDeck()
         {
             if (whereInDeck < (deckSize + deckBuffer))

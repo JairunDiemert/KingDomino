@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Board.cs" />
     <Compile Include="BoardControler.cs" />
+    <Compile Include="ViewLogic.cs" />
     <Compile Include="EnvironmentTypes.cs" />
     <Compile Include="Deck.cs" />
     <Compile Include="Domino.cs" />
