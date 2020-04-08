@@ -155,7 +155,7 @@ namespace KingDomino
             GraphicsDevice.Clear(Color.White);
             spriteBatch.Begin();
 
-            viewLogic.PositionAndSizeOfPlacementUpdate(ref positionAndSizeOfPLacement, ref positionAndSizeOfPLacement2, playerX, playerY, playerX2, playerY2)
+            viewLogic.PositionAndSizeOfPlacementUpdate(ref positionAndSizeOfPLacement, ref positionAndSizeOfPLacement2, playerX, playerY, playerX2, playerY2);
            /* positionAndSizeOfPLacement.X = playerX * tileSize;
             positionAndSizeOfPLacement.Y = playerY * tileSize;
             positionAndSizeOfPLacement2.X = playerX2 * tileSize;
