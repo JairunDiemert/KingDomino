@@ -154,10 +154,12 @@ namespace KingDomino
             viewLogic = new ViewLogic(ref spriteBatch, tileSize, ref gameDeck, ref positionAndSize, ref gameBoard);
             GraphicsDevice.Clear(Color.White);
             spriteBatch.Begin();
-            positionAndSizeOfPLacement.X = playerX * tileSize;
+
+            viewLogic.PositionAndSizeOfPlacementUpdate(ref positionAndSizeOfPLacement, ref positionAndSizeOfPLacement2, playerX, playerY, playerX2, playerY2)
+           /* positionAndSizeOfPLacement.X = playerX * tileSize;
             positionAndSizeOfPLacement.Y = playerY * tileSize;
             positionAndSizeOfPLacement2.X = playerX2 * tileSize;
-            positionAndSizeOfPLacement2.Y = playerY2 * tileSize;
+            positionAndSizeOfPLacement2.Y = playerY2 * tileSize;*/
 
 
             //Draws boards

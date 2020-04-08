@@ -26,6 +26,14 @@ namespace KingDomino
 
 
         }
+
+        public void PositionAndSizeOfPlacementUpdate(ref Rectangle positionAndSizeOfPLacement, ref Rectangle positionAndSizeOfPLacement2, int playerX, int playerY, int playerX2, int playerY2)
+        {
+            positionAndSizeOfPLacement.X = playerX * tileSize;
+            positionAndSizeOfPLacement.Y = playerY * tileSize;
+            positionAndSizeOfPLacement2.X = playerX2 * tileSize;
+            positionAndSizeOfPLacement2.Y = playerY2 * tileSize;
+        }
         
         public void UpdateDeck(ref Domino currentDomino, ref int x, ref int y, ref Rectangle positionAndSize, int positionAdder)
         {
