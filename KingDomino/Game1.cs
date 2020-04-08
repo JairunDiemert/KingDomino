@@ -191,16 +191,7 @@ namespace KingDomino
             tileTexture = Content.Load<Texture2D>("C3");
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
 
-            /*
-            viewLogic.UpdateDeck(deckButton1, deckPositionX1, deckPositionY1);
-            viewLogic.UpdateDeck(deckButton2, deckPositionX1, deckPositionY2);
-            viewLogic.UpdateDeck(deckButton3, deckPositionX1, deckPositionY3);
-            viewLogic.UpdateDeck(deckButton4, deckPositionX1, deckPositionY4);
-            viewLogic.UpdateDeck(deckButton5, deckPositionX1 + 3, deckPositionY1);
-            viewLogic.UpdateDeck(deckButton6, deckPositionX1 + 3, deckPositionY2);
-            viewLogic.UpdateDeck(deckButton7, deckPositionX1 + 3, deckPositionY3);
-            viewLogic.UpdateDeck(deckButton8, deckPositionX1 + 3, deckPositionY4);
-            */
+
 
             UpdateDeck(deckButton1, deckPositionX1, deckPositionY1);
             UpdateDeck(deckButton2, deckPositionX1, deckPositionY2);
@@ -344,6 +335,16 @@ namespace KingDomino
         
         public void UpdateDeck(int where, int x, int y)
         {
+
+            currentDomino = (Domino)gameDeck.DominoDeck[where];
+            viewLogic.UpdateDeck(ref currentDomino, ref x, ref y, ref positionAndSize, 0);
+            tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
+            spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
+
+            tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
+            viewLogic.UpdateDeck(ref currentDomino, ref x, ref y, ref positionAndSize, 1);
+            spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
+            /*
             currentDomino = (Domino)gameDeck.DominoDeck[where];
 
             tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
@@ -356,7 +357,7 @@ namespace KingDomino
             positionAndSize.X = (x + 1) * tileSize;
             positionAndSize.Y = y * tileSize;
             currentDomino.Tile2.PositionAndSize = positionAndSize;
-            spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
+            spriteBatch.Draw(tileTexture, positionAndSize, Color.White);*/
         }
         
         public void IncrementDeck()

@@ -26,23 +26,13 @@ namespace KingDomino
 
 
         }
-        /*
-        public void UpdateDeck(int where, int x, int y)
+        
+        public void UpdateDeck(ref Domino currentDomino, ref int x, ref int y, ref Rectangle positionAndSize, int positionAdder)
         {
-            Domino currentDomino = (Domino)gameDeck.DominoDeck[where];
-
-            Texture2D tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
-            positionAndSize.X = x * tileSize;
+            positionAndSize.X = (x + positionAdder) * tileSize;
             positionAndSize.Y = y * tileSize;
             currentDomino.Tile1.PositionAndSize = positionAndSize;
-            spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
-
-            tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
-            positionAndSize.X = (x + 1) * tileSize;
-            positionAndSize.Y = y * tileSize;
-            currentDomino.Tile2.PositionAndSize = positionAndSize;
-            spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
-        }*/
+        }
 
         public String DrawBoard(ref BoardControler boardControl, int i, int j, ref Rectangle positionAndSize, int positionAdder)
         {
