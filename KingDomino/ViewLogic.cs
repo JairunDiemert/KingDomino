@@ -11,20 +11,16 @@ namespace KingDomino
 {
     class ViewLogic : Game
     {
-        SpriteBatch spriteBatch;
         int tileSize;
         Deck gameDeck;
         Rectangle positionAnSize;
         Board gameBoard;
-        public ViewLogic(ref SpriteBatch sprite, int size, ref Deck deck, ref Rectangle positionSize, ref Board board)
+        public ViewLogic(int size, ref Deck deck, ref Rectangle positionSize, ref Board board)
         {
-            this.spriteBatch = sprite;
             tileSize = size;
             gameDeck = deck;
             positionAnSize = positionSize;
             gameBoard = board;
-
-
         }
 
         public void PositionAndSizeOfPlacementUpdate(ref Rectangle positionAndSizeOfPLacement, ref Rectangle positionAndSizeOfPLacement2, int playerX, int playerY, int playerX2, int playerY2)
@@ -40,6 +36,34 @@ namespace KingDomino
             positionAndSize.X = (x + positionAdder) * tileSize;
             positionAndSize.Y = y * tileSize;
             currentDomino.Tile1.PositionAndSize = positionAndSize;
+        }
+
+        public String DrawMeeples(ref Rectangle positionAndSize, int positionMultiplier, int tileSize, int playerNumber)
+        {
+            positionAndSize.X = 19 * tileSize;
+            positionAndSize.Y = positionMultiplier * tileSize;
+            if (playerNumber == 1)
+            {
+                return "K1";
+            }
+            else
+            {
+                return "K3";
+            }
+        }
+
+        public String DrawCastle(ref Rectangle positionAndSize, int positionMultiplier, int tileSize, int playerNumber)
+        {
+            positionAndSize.X = positionMultiplier * tileSize;
+            positionAndSize.Y = 4 * tileSize;
+            if(playerNumber == 1)
+            {
+                return "C1";
+            }
+            else
+            {
+                return "C3";
+            }
         }
 
         public String DrawBoard(ref BoardControler boardControl, int i, int j, ref Rectangle positionAndSize, int positionAdder)
