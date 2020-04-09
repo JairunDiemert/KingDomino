@@ -240,66 +240,13 @@ namespace KingDomino
         //TODO: add more keys A left D right etc this is just a baseline
         public void PlayerInput(KeyboardState state, int playerDomino) {
 
+            MovementLogic movement = new MovementLogic();
 
 
-            if (oldState.IsKeyUp(Keys.A) && state.IsKeyDown(Keys.A))
-            {
-                if (playerX >= 1)
-                {
-                    --playerX;
-                    --playerX2;
-                }
-            }
-            else if (oldState.IsKeyUp(Keys.D) && state.IsKeyDown(Keys.D))
-            {
-                if (playerX <= 6)
-                {
-                    ++playerX;
-                    ++playerX2;
-                }
-            }
-
-            if (oldState.IsKeyUp(Keys.W) && state.IsKeyDown(Keys.W))
-            {
-                if (playerY >= 1)
-                {
-                    --playerY;
-                    --playerY2;
-                }
-            }
-            else if (oldState.IsKeyUp(Keys.S) && state.IsKeyDown(Keys.S))
-            {
-                if (playerY <= 7)
-                {
-                    ++playerY;
-                    ++playerY2;
-                }
-            }
-
-            if (oldState.IsKeyUp(Keys.R) && state.IsKeyDown(Keys.R) && rotateDeg == 0)
-            {
-                rotateDeg = 90;
-                playerY2 = playerY - 1;
-                playerX2 = playerX;
-
-            }
-            else if (oldState.IsKeyUp(Keys.R) && state.IsKeyDown(Keys.R) && rotateDeg == 90) {
-                rotateDeg = 180;
-                playerY2 = playerY2 + 1;
-                playerX2 = playerX - 1;
-            }
-            else if (oldState.IsKeyUp(Keys.R) && state.IsKeyDown(Keys.R) && rotateDeg == 180) {
-                rotateDeg = 270;
-                playerX2 = playerX;
-                playerY2 = playerY2 + 1;
-            }
-            else if (oldState.IsKeyUp(Keys.R) && state.IsKeyDown(Keys.R) && rotateDeg == 270) {
-                rotateDeg = 0;
-                playerX2 = playerX + 1;
-                playerY2 = playerY2 - 1;
-            }
-
-
+            movement.KeyboardMovement(ref oldState,ref state,ref playerX,ref playerY,ref playerX2,ref playerY2);
+            movement.Rotation(ref oldState,ref state,ref playerX,ref playerY,ref playerX2,ref playerY2,ref rotateDeg);
+            //movement.Placement(ref oldState,ref state,ref playerX,ref playerY,ref playerX2,ref playerY2, ref rotateDeg);
+            
             if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 0) // below does normal 0
             {
                 int nextTile = playerX + 1;
