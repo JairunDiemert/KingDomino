@@ -79,9 +79,9 @@ namespace KingDomino
             }
         }
 
-        public void Placement(ref KeyboardState oldState,ref KeyboardState state,ref int playerX,ref int playerY,ref int playerX2,ref int playerY2, ref int rotateDeg)
+        public void Placement(ref KeyboardState oldState,ref KeyboardState state,ref int playerX,ref int playerY,ref int playerX2,ref int playerY2, ref int rotateDeg,ref Domino currentDomino,ref Deck gameDeck, ref int playerDomino,ref Board gameBoard,Action IncrementDeck)
         {
-            /*if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 0) // below does normal 0
+            if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 0) // below does normal 0
             {
                 int nextTile = playerX + 1;
                 IncrementDeck();
@@ -112,7 +112,8 @@ namespace KingDomino
                 currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
                 gameBoard.setTileAt(playerX, playerY, currentDomino.Tile1);
                 gameBoard.setTileAt(nextTile, playerY + 1, currentDomino.Tile2);
-            }*/
+            }
         }
+
     }
 }

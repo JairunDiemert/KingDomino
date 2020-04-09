@@ -20,6 +20,7 @@ namespace KingDomino
         Board gameBoard;
         BoardControler boardControl;
         Deck gameDeck;
+        MovementLogic movement;
         int deckSize;
         int deckBuffer;
         int tileSize;
@@ -119,7 +120,7 @@ namespace KingDomino
             positionAndSize = new Rectangle(0, 0, tileSize, tileSize);
             positionAndSizeOfPLacement = new Rectangle(playerX, playerY, tileSize, tileSize);
             positionAndSizeOfPLacement2 = new Rectangle(playerX + 1, playerY, tileSize, tileSize);
-
+            movement = new MovementLogic();
 
             // TODO: use this.Content to load your game content here
         }
@@ -240,45 +241,10 @@ namespace KingDomino
         //TODO: add more keys A left D right etc this is just a baseline
         public void PlayerInput(KeyboardState state, int playerDomino) {
 
-            MovementLogic movement = new MovementLogic();
-
-
             movement.KeyboardMovement(ref oldState,ref state,ref playerX,ref playerY,ref playerX2,ref playerY2);
             movement.Rotation(ref oldState,ref state,ref playerX,ref playerY,ref playerX2,ref playerY2,ref rotateDeg);
-            //movement.Placement(ref oldState,ref state,ref playerX,ref playerY,ref playerX2,ref playerY2, ref rotateDeg);
-            
-            if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 0) // below does normal 0
-            {
-                int nextTile = playerX + 1;
-                IncrementDeck();
-                currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
-                gameBoard.setTileAt(playerX, playerY, currentDomino.Tile1);
-                gameBoard.setTileAt(nextTile, playerY, currentDomino.Tile2);
-            }
-            else if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 90) // does 90 
-            {
-                int nextTile = playerX;
-                IncrementDeck();
-                currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
-                gameBoard.setTileAt(playerX, playerY, currentDomino.Tile1);
-                gameBoard.setTileAt(nextTile, playerY - 1, currentDomino.Tile2);
-            }
-            else if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 180) // below does 180
-            {
-                int nextTile = playerX - 1;
-                IncrementDeck();
-                currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
-                gameBoard.setTileAt(playerX, playerY, currentDomino.Tile1);
-                gameBoard.setTileAt(nextTile, playerY, currentDomino.Tile2);
-            }
-            else if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 270) // below does 270
-            {
-                int nextTile = playerX;
-                IncrementDeck();
-                currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
-                gameBoard.setTileAt(playerX, playerY, currentDomino.Tile1);
-                gameBoard.setTileAt(nextTile, playerY + 1, currentDomino.Tile2);
-            }
+            movement.Placement(ref oldState,ref state,ref playerX,ref playerY,ref playerX2,ref playerY2, ref rotateDeg,ref currentDomino, ref gameDeck, ref playerDomino, ref gameBoard, IncrementDeck);
+
         }
 
         
