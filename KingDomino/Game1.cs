@@ -20,6 +20,7 @@ namespace KingDomino
         Board gameBoard;
         BoardControler boardControl;
         Deck gameDeck;
+        MovementLogic movement;
         int deckSize;
         int deckBuffer;
         int tileSize;
@@ -119,7 +120,7 @@ namespace KingDomino
             positionAndSize = new Rectangle(0, 0, tileSize, tileSize);
             positionAndSizeOfPLacement = new Rectangle(playerX, playerY, tileSize, tileSize);
             positionAndSizeOfPLacement2 = new Rectangle(playerX + 1, playerY, tileSize, tileSize);
-
+            movement = new MovementLogic();
 
             // TODO: use this.Content to load your game content here
         }
@@ -151,11 +152,18 @@ namespace KingDomino
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            viewLogic = new ViewLogic(tileSize, ref gameDeck, ref positionAndSize, ref gameBoard);
+            viewLogic = new ViewLogic(ref spriteBatch, tileSize, ref gameDeck, ref positionAndSize, ref gameBoard);
             GraphicsDevice.Clear(Color.White);
             spriteBatch.Begin();
-            viewLogic.PositionAndSizeOfPlacementUpdate(ref positionAndSizeOfPLacement, ref positionAndSizeOfPLacement2, playerX, playerY, playerX2, playerY2);
 
+            viewLogic.PositionAndSizeOfPlacementUpdate(ref positionAndSizeOfPLacement, ref positionAndSizeOfPLacement2, playerX, playerY, playerX2, playerY2);
+           /* positionAndSizeOfPLacement.X = playerX * tileSize;
+            positionAndSizeOfPLacement.Y = playerY * tileSize;
+            positionAndSizeOfPLacement2.X = playerX2 * tileSize;
+            positionAndSizeOfPLacement2.Y = playerY2 * tileSize;*/
+
+
+            //Draws boards
             for (int i = 0; i < grid; ++i)
             {
                 for (int j = 0; j < grid; ++j)
@@ -176,13 +184,17 @@ namespace KingDomino
                 }
             }
 
-            String castle = viewLogic.DrawCastle(ref positionAndSize, 4, tileSize, 1);
-            tileTexture = Content.Load<Texture2D>(castle);
+            positionAndSize.X = 4 * tileSize;
+            positionAndSize.Y = 4 * tileSize;
+            tileTexture = Content.Load<Texture2D>("C1");
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
 
-            castle = viewLogic.DrawCastle(ref positionAndSize, 14, tileSize, 2);
-            tileTexture = Content.Load<Texture2D>(castle);
+            positionAndSize.X = 14 * tileSize;
+            positionAndSize.Y = 4 * tileSize;
+            tileTexture = Content.Load<Texture2D>("C3");
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
+
+
 
             UpdateDeck(deckButton1, deckPositionX1, deckPositionY1);
             UpdateDeck(deckButton2, deckPositionX1, deckPositionY2);
@@ -193,20 +205,24 @@ namespace KingDomino
             UpdateDeck(deckButton7, deckPositionX1 + 3, deckPositionY3);
             UpdateDeck(deckButton8, deckPositionX1 + 3, deckPositionY4);
 
-            String meeple = viewLogic.DrawMeeples(ref positionAndSize, 0, tileSize, 1);
-            tileTexture = Content.Load<Texture2D>(meeple);
+            positionAndSize.X = 19 * tileSize;
+            positionAndSize.Y = 0 * tileSize;
+            tileTexture = Content.Load<Texture2D>("K1");
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
 
-            meeple = viewLogic.DrawMeeples(ref positionAndSize, 1, tileSize, 1);
-            tileTexture = Content.Load<Texture2D>(meeple);
+            positionAndSize.X = 19 * tileSize;
+            positionAndSize.Y = 1 * tileSize;
+            tileTexture = Content.Load<Texture2D>("K1");
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
 
-            meeple = viewLogic.DrawMeeples(ref positionAndSize, 2, tileSize, 2);
-            tileTexture = Content.Load<Texture2D>(meeple);
+            positionAndSize.X = 19 * tileSize;
+            positionAndSize.Y = 2 * tileSize;
+            tileTexture = Content.Load<Texture2D>("K3");
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
 
-            meeple = viewLogic.DrawMeeples(ref positionAndSize, 3, tileSize, 2);
-            tileTexture = Content.Load<Texture2D>(meeple);
+            positionAndSize.X = 19 * tileSize;
+            positionAndSize.Y = 3 * tileSize;
+            tileTexture = Content.Load<Texture2D>("K3");
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
 
             spriteBatch.Draw(square, positionAndSizeOfPLacement, Color.Red);
@@ -222,49 +238,19 @@ namespace KingDomino
             base.Draw(gameTime);
         }
 
+        //TODO: add more keys A left D right etc this is just a baseline
         public void PlayerInput(KeyboardState state, int playerDomino) {
-            MovementLogic movement = new MovementLogic();
 
             movement.KeyboardMovement(ref oldState,ref state,ref playerX,ref playerY,ref playerX2,ref playerY2);
             movement.Rotation(ref oldState,ref state,ref playerX,ref playerY,ref playerX2,ref playerY2,ref rotateDeg);
-            //movement.Placement(ref oldState,ref state,ref playerX,ref playerY,ref playerX2,ref playerY2, ref rotateDeg);
-            
-            if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 0) // below does normal 0
-            {
-                int nextTile = playerX + 1;
-                IncrementDeck();
-                currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
-                gameBoard.setTileAt(playerX, playerY, currentDomino.Tile1);
-                gameBoard.setTileAt(nextTile, playerY, currentDomino.Tile2);
-            }
-            else if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 90) // does 90 
-            {
-                int nextTile = playerX;
-                IncrementDeck();
-                currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
-                gameBoard.setTileAt(playerX, playerY, currentDomino.Tile1);
-                gameBoard.setTileAt(nextTile, playerY - 1, currentDomino.Tile2);
-            }
-            else if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 180) // below does 180
-            {
-                int nextTile = playerX - 1;
-                IncrementDeck();
-                currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
-                gameBoard.setTileAt(playerX, playerY, currentDomino.Tile1);
-                gameBoard.setTileAt(nextTile, playerY, currentDomino.Tile2);
-            }
-            else if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 270) // below does 270
-            {
-                int nextTile = playerX;
-                IncrementDeck();
-                currentDomino = (Domino)gameDeck.DominoDeck[playerDomino];
-                gameBoard.setTileAt(playerX, playerY, currentDomino.Tile1);
-                gameBoard.setTileAt(nextTile, playerY + 1, currentDomino.Tile2);
-            }
+            movement.Placement(ref oldState,ref state,ref playerX,ref playerY,ref playerX2,ref playerY2, ref rotateDeg,ref currentDomino, ref gameDeck, ref playerDomino, ref gameBoard, IncrementDeck);
+
         }
 
+        
         public void UpdateDeck(int where, int x, int y)
         {
+
             currentDomino = (Domino)gameDeck.DominoDeck[where];
             viewLogic.UpdateDeck(ref currentDomino, ref x, ref y, ref positionAndSize, 0);
             tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
@@ -273,6 +259,20 @@ namespace KingDomino
             tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
             viewLogic.UpdateDeck(ref currentDomino, ref x, ref y, ref positionAndSize, 1);
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
+            /*
+            currentDomino = (Domino)gameDeck.DominoDeck[where];
+
+            tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
+            positionAndSize.X = x * tileSize;
+            positionAndSize.Y = y * tileSize;
+            currentDomino.Tile1.PositionAndSize = positionAndSize;
+            spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
+
+            tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
+            positionAndSize.X = (x + 1) * tileSize;
+            positionAndSize.Y = y * tileSize;
+            currentDomino.Tile2.PositionAndSize = positionAndSize;
+            spriteBatch.Draw(tileTexture, positionAndSize, Color.White);*/
         }
         
         public void IncrementDeck()
