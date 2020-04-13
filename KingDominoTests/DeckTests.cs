@@ -15,26 +15,16 @@ namespace KingDomino.Tests
         [TestMethod()]
         public void DeckTest()
         {
-            //Set Up
             int expected = 24;
-
-            //Act
             Deck atTest = new Deck(24);
-            int actual = atTest.DeckSize;
-
-            //Assert
+            int actual = atTest.deckSize;
             Assert.AreEqual(expected, actual);
         }
-
         [TestMethod()]
         public void DeckReturnTest()
         {
-
-            //Act
             Deck atTest = new Deck(24);
-            ArrayList actual = atTest.DominoDeck;
-
-            //Assert
+            ArrayList actual = atTest.dominoDeck;
             Assert.IsNotNull(actual);
         }
     }

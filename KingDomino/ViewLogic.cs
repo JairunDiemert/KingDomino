@@ -11,10 +11,10 @@ namespace KingDomino
 {
     class ViewLogic : Game
     {
-        int tileSize;
-        Deck gameDeck;
-        Rectangle positionAnSize;
-        Board gameBoard;
+        public int tileSize { get; set; } 
+        public Deck gameDeck { get; set; }
+        public Rectangle positionAnSize { get; set; }
+        public Board gameBoard { get; set; }
         public ViewLogic(int size, ref Deck deck, ref Rectangle positionSize, ref Board board)
         {
             tileSize = size;
@@ -22,7 +22,6 @@ namespace KingDomino
             positionAnSize = positionSize;
             gameBoard = board;
         }
-
         public void PositionAndSizeOfPlacementUpdate(ref Rectangle positionAndSizeOfPLacement, ref Rectangle positionAndSizeOfPLacement2, int playerX, int playerY, int playerX2, int playerY2)
         {
             positionAndSizeOfPLacement.X = playerX * tileSize;
@@ -30,14 +29,12 @@ namespace KingDomino
             positionAndSizeOfPLacement2.X = playerX2 * tileSize;
             positionAndSizeOfPLacement2.Y = playerY2 * tileSize;
         }
-        
         public void UpdateDeck(ref Domino currentDomino, ref int x, ref int y, ref Rectangle positionAndSize, int positionAdder)
         {
             positionAndSize.X = (x + positionAdder) * tileSize;
             positionAndSize.Y = y * tileSize;
-            currentDomino.Tile1.PositionAndSize = positionAndSize;
+            currentDomino.tile1.positionAndSize = positionAndSize;
         }
-
         public String DrawMeeples(ref Rectangle positionAndSize, int positionMultiplier, int tileSize, int playerNumber)
         {
             positionAndSize.X = 19 * tileSize;
@@ -51,7 +48,6 @@ namespace KingDomino
                 return "K3";
             }
         }
-
         public String DrawCastle(ref Rectangle positionAndSize, int positionMultiplier, int tileSize, int playerNumber)
         {
             positionAndSize.X = positionMultiplier * tileSize;
@@ -65,21 +61,19 @@ namespace KingDomino
                 return "C3";
             }
         }
-
         public String DrawBoard(ref BoardControler boardControl, int i, int j, ref Rectangle positionAndSize, int positionAdder)
         {
             Tile currentTile;
-
             currentTile = gameBoard.getTileAt(i, j);
             positionAndSize.X = (i + positionAdder) * tileSize;
             positionAndSize.Y = j * tileSize;
-            if (boardControl.DefaultChecker(currentTile.EnvType))
+            if (boardControl.DefaultChecker(currentTile.envType))
             {
                 return "T1";
             }
             else
             {
-                return currentTile.TileImageName;
+                return currentTile.tileImageName;
             }
         }
     }

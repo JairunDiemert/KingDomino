@@ -14,14 +14,9 @@ namespace KingDomino.Tests
         [TestMethod()]
         public void BoardControlerTest()
         {
-            //Set Up
             BoardControler atTest = new BoardControler();
             int expected = 9;
-
-            //Act
-            int actual = atTest.Grid;
-
-            //Assert
+            int actual = atTest.grid;
             Assert.AreEqual(expected, actual);
         }
     }

@@ -10,51 +10,44 @@ namespace KingDomino
 {
     public class Deck
     {
-
-        private ArrayList dominoDeck;
-        private int deckSize;
-        private ArrayList envNamesWheatField = CreateArrayListFromFile("envNamesWheatField.txt");
-        private ArrayList envNamesLakes = CreateArrayListFromFile("envNamesLakes.txt");
-        private ArrayList envNamesMountains = CreateArrayListFromFile("envNamesMountains.txt");
-        private ArrayList envNamesForests = CreateArrayListFromFile("envNamesForests.txt");
-        private ArrayList envNamesVillages = CreateArrayListFromFile("envNamesVillages.txt");
-        private ArrayList envNamesGardens = CreateArrayListFromFile("envNamesGardens.txt");
-        private ArrayList singleCrown = CreateArrayListFromFile("envNamesSingleCrown.txt");
-        private ArrayList doubleCrown = CreateArrayListFromFile("envNamesDoubleCrown.txt");
-        private ArrayList tripleCrown = CreateArrayListFromFile("envNamesTripleCrown.txt");
+        public ArrayList dominoDeck { get; set; }
+        public int deckSize { get; set; }
+        public ArrayList envNamesWheatField { get; set; } = CreateArrayListFromFile("envNamesWheatField.txt");
+        public ArrayList envNamesLakes { get; set; } = CreateArrayListFromFile("envNamesLakes.txt");
+        public ArrayList envNamesMountains { get; set; } = CreateArrayListFromFile("envNamesMountains.txt");
+        public ArrayList envNamesForests { get; set; } = CreateArrayListFromFile("envNamesForests.txt");
+        public ArrayList envNamesVillages { get; set; } = CreateArrayListFromFile("envNamesVillages.txt");
+        public ArrayList envNamesGardens { get; set; } = CreateArrayListFromFile("envNamesGardens.txt");
+        public ArrayList singleCrown { get; set; } = CreateArrayListFromFile("envNamesSingleCrown.txt");
+        public ArrayList doubleCrown { get; set; } = CreateArrayListFromFile("envNamesDoubleCrown.txt");
+        public ArrayList tripleCrown { get; set; } = CreateArrayListFromFile("envNamesTripleCrown.txt");
         public Deck()
         {
-            DominoDeck = new ArrayList();
-            DeckSize = 24;
-            for (int i = 0; i < DeckSize; i++)
+            dominoDeck = new ArrayList();
+            deckSize = 24;
+            for (int i = 0; i < deckSize; i++)
             {
-                DominoDeck.Add(new Domino(new Tile("Blank"), new Tile("Blank")));
+                dominoDeck.Add(new Domino(new Tile("Blank"), new Tile("Blank")));
             }
         }
-
-        public Deck(int deckSize)
+        public Deck(int dckSize)
         {
             ArrayList maxDeck = new ArrayList();
             MaxDeck(maxDeck);
             RandomOrder(maxDeck);
-            DominoDeck = new ArrayList();
-            DeckSize = deckSize;
-            DominoDeck = maxDeck.GetRange(0, DeckSize);
+            dominoDeck = new ArrayList();
+            deckSize = dckSize;
+            dominoDeck = maxDeck.GetRange(0, deckSize);
             for (int j = 0; j < 9; j++)
-            DominoDeck.Add(new Domino());
+            dominoDeck.Add(new Domino());
         }
-
         public void MaxDeck(ArrayList maxDeck)
         {
             int deckSize = 48;
-
-
             int nameIndex1 = 2;
             int nameIndex2 = 3;
-
             for (int i = 0; i < deckSize; i++)
             {
-
                 EnvironmentTypes envType1 = EnvironmentTypes.Default;
                 int numCrowns1 = 0;
                 bool filledSpace1 = false;
@@ -63,8 +56,6 @@ namespace KingDomino
                 int y1 = -1;
                 int width1 = -1;
                 int height1 = -1;
-
-
                 EnvironmentTypes envType2 = EnvironmentTypes.Default;
                 int numCrowns2 = 0;
                 bool filledSpace2 = false;
@@ -73,31 +64,26 @@ namespace KingDomino
                 int y2 = -1;
                 int width2 = -1;
                 int height2 = -1;
-
-
                 tileImageName1 = "T" + (nameIndex1);
                 tileImageName2 = "T" + (nameIndex2);
-
-                if (EnvNamesWheatField.Contains(tileImageName1)) envType1 = EnvironmentTypes.WheatFeild;
-                if (EnvNamesWheatField.Contains(tileImageName2)) envType2 = EnvironmentTypes.WheatFeild;
-                if (EnvNamesLakes.Contains(tileImageName1)) envType1 = EnvironmentTypes.Lakes;
-                if (EnvNamesLakes.Contains(tileImageName2)) envType2 = EnvironmentTypes.Lakes;
-                if (EnvNamesMountains.Contains(tileImageName1)) envType1 = EnvironmentTypes.Mountains;
-                if (EnvNamesMountains.Contains(tileImageName2)) envType2 = EnvironmentTypes.Mountains;
-                if (EnvNamesForests.Contains(tileImageName1)) envType1 = EnvironmentTypes.Forests;
-                if (EnvNamesForests.Contains(tileImageName2)) envType2 = EnvironmentTypes.Forests;
-                if (EnvNamesVillages.Contains(tileImageName1)) envType1 = EnvironmentTypes.Villages;
-                if (EnvNamesVillages.Contains(tileImageName2)) envType2 = EnvironmentTypes.Villages;
-                if (EnvNamesGardens.Contains(tileImageName1)) envType1 = EnvironmentTypes.Gardens;
-                if (EnvNamesGardens.Contains(tileImageName2)) envType2 = EnvironmentTypes.Gardens;
-
-                if (SingleCrown.Contains(tileImageName1)) numCrowns1 = 1;
-                if (SingleCrown.Contains(tileImageName2)) numCrowns2 = 1;
-                if (DoubleCrown.Contains(tileImageName1)) numCrowns1 = 2;
-                if (DoubleCrown.Contains(tileImageName2)) numCrowns2 = 2;
-                if (TripleCrown.Contains(tileImageName1)) numCrowns1 = 3;
-                if (TripleCrown.Contains(tileImageName2)) numCrowns2 = 3;
-
+                if (envNamesWheatField.Contains(tileImageName1)) envType1 = EnvironmentTypes.WheatFeild;
+                if (envNamesWheatField.Contains(tileImageName2)) envType2 = EnvironmentTypes.WheatFeild;
+                if (envNamesLakes.Contains(tileImageName1)) envType1 = EnvironmentTypes.Lakes;
+                if (envNamesLakes.Contains(tileImageName2)) envType2 = EnvironmentTypes.Lakes;
+                if (envNamesMountains.Contains(tileImageName1)) envType1 = EnvironmentTypes.Mountains;
+                if (envNamesMountains.Contains(tileImageName2)) envType2 = EnvironmentTypes.Mountains;
+                if (envNamesForests.Contains(tileImageName1)) envType1 = EnvironmentTypes.Forests;
+                if (envNamesForests.Contains(tileImageName2)) envType2 = EnvironmentTypes.Forests;
+                if (envNamesVillages.Contains(tileImageName1)) envType1 = EnvironmentTypes.Villages;
+                if (envNamesVillages.Contains(tileImageName2)) envType2 = EnvironmentTypes.Villages;
+                if (envNamesGardens.Contains(tileImageName1)) envType1 = EnvironmentTypes.Gardens;
+                if (envNamesGardens.Contains(tileImageName2)) envType2 = EnvironmentTypes.Gardens;
+                if (singleCrown.Contains(tileImageName1)) numCrowns1 = 1;
+                if (singleCrown.Contains(tileImageName2)) numCrowns2 = 1;
+                if (doubleCrown.Contains(tileImageName1)) numCrowns1 = 2;
+                if (doubleCrown.Contains(tileImageName2)) numCrowns2 = 2;
+                if (tripleCrown.Contains(tileImageName1)) numCrowns1 = 3;
+                if (tripleCrown.Contains(tileImageName2)) numCrowns2 = 3;
                 maxDeck.Add(new Domino(new Tile(envType1, numCrowns1, filledSpace1, tileImageName1, x1, y1, width1, height1),
                     new Tile(envType2, numCrowns2, filledSpace2, tileImageName2, x2, y2, width2, height2)));
                 nameIndex1 += 2;
@@ -114,14 +100,12 @@ namespace KingDomino
                 arrList[cnt] = arrList[idx];
                 arrList[idx] = tmp;
             }
-
         }
         public static ArrayList CreateArrayListFromFile(string file)
         {
             ArrayList list = new ArrayList();
             TextReader tr;
             tr = File.OpenText(file);
-
             string EnvironmentName;
             EnvironmentName = tr.ReadLine();
             while (EnvironmentName != null)
@@ -130,54 +114,6 @@ namespace KingDomino
                 EnvironmentName = tr.ReadLine();
             }
             return list;
-
-        }
-
-        public ArrayList DominoDeck
-        {
-            get { return dominoDeck; }
-            set { dominoDeck = value; }
-        }
-        public int DeckSize
-        {
-            get { return deckSize; }
-            set { deckSize = value; }
-        }
-        public ArrayList EnvNamesWheatField
-        {
-            get { return envNamesWheatField; }
-        }
-        public ArrayList EnvNamesLakes
-        {
-            get { return envNamesLakes; }
-        }
-        public ArrayList EnvNamesMountains
-        {
-            get { return envNamesMountains; }
-        }
-        public ArrayList EnvNamesForests
-        {
-            get { return envNamesForests; }
-        }
-        public ArrayList EnvNamesVillages
-        {
-            get { return envNamesVillages; }
-        }
-        public ArrayList EnvNamesGardens
-        {
-            get { return envNamesGardens; }
-        }
-        public ArrayList SingleCrown
-        {
-            get { return singleCrown; }
-        }
-        public ArrayList DoubleCrown
-        {
-            get { return doubleCrown; }
-        }
-        public ArrayList TripleCrown
-        {
-            get { return tripleCrown; }
         }
     }
 }

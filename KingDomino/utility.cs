@@ -8,12 +8,11 @@ using System.Threading.Tasks;
 
 namespace KingDomino
 {
-    static class utility
+    static class Utility
     {
         public static void CreateBorder(this Texture2D texture, int borderWidth, Color borderColor)
         {
             Color[] colors = new Color[texture.Width * texture.Height];
-
             for (int x = 0; x < texture.Width; x++)
             {
                 for (int y = 0; y < texture.Height; y++)
@@ -28,12 +27,10 @@ namespace KingDomino
                             break;
                         }
                     }
-
                     if (colored == false)
                         colors[x + y * texture.Width] = Color.Transparent;
                 }
             }
-
             texture.SetData(colors);
         }
     }

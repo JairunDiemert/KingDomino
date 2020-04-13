@@ -13,7 +13,14 @@ namespace KingDomino
         public bool kingsPlaced { get; set; }
         public bool tilesPlaced { get; set; }
         public int totalRounds { get; set; }
-
+        public Round() //Default game is two players
+        {
+            numberOfPlayers = 2;
+            playersTurn = 1;
+            kingsPlaced = false;
+            tilesPlaced = false;
+            totalRounds = 0;
+        }
         public Round(int numPlayers)
         {
             numberOfPlayers = numPlayers;

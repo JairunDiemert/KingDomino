@@ -14,16 +14,10 @@ namespace KingDomino.Tests
         [TestMethod()]
         public void TileTest()
         {
-            //Set Up
             string expected = "T1";
-
-            //Act
             Tile atTest = new Tile();
-            string actual = atTest.TileImageName;
-
-            //Assert
+            string actual = atTest.tileImageName;
             Assert.AreEqual(expected, actual);
         }
     }
-
 }

@@ -10,62 +10,35 @@ namespace KingDomino
 {
 	public class Tile
 	{
-		private EnvironmentTypes envType;
-		private int numCrowns;
-		private bool filledSpace;
-		private string tileImageName;
-		private Rectangle positionAndSize;
+		public EnvironmentTypes envType { get; set; }
+		public int numCrowns { get; set; }
+		public bool filledSpace { get; set; }
+		public string tileImageName { get; set; }
+		public Rectangle positionAndSize { get; set; }
 
 		public Tile() 
 		{
-			EnvType = EnvironmentTypes.Default;
-			NumCrowns = -1;
-			FilledSpace = false;
-			TileImageName = "T1";
+			envType = EnvironmentTypes.Default;
+			numCrowns = -1;
+			filledSpace = false;
+			tileImageName = "T1";
 			positionAndSize = new Rectangle();
 		}
-		public Tile(string tileImageName)
+		public Tile(string tileImgName)
 		{
-			EnvType = EnvironmentTypes.Blank;
-			NumCrowns = -1;
-			FilledSpace = false;
-			TileImageName = tileImageName;
+			envType = EnvironmentTypes.Blank;
+			numCrowns = -1;
+			filledSpace = false;
+			tileImageName = tileImgName;
 			positionAndSize = new Rectangle();
 		}
-		public Tile(EnvironmentTypes envType, int numCrowns, bool filledSpace, string tileImageName, int x, int y, int width, int height)
+		public Tile(EnvironmentTypes evType, int numberCrowns, bool fSpace, string tileImgName, int x, int y, int width, int height)
 		{
-			EnvType = envType;
-			NumCrowns = numCrowns;
-			FilledSpace = filledSpace;
-			TileImageName = tileImageName;
+			envType = evType;
+			numCrowns = numberCrowns;
+			filledSpace = fSpace;
+			tileImageName = tileImgName;
 			positionAndSize = new Rectangle(x, y, width, height);
-
-		}
-
-		public EnvironmentTypes EnvType
-		{
-			get { return envType; }
-			set { envType = value; }
-		}
-		public int NumCrowns
-		{
-			get { return numCrowns; }
-			set { numCrowns = value; }
-		}
-		public bool FilledSpace
-		{
-			get { return filledSpace; }
-			set { filledSpace = value; }
-		}
-		public string TileImageName
-		{
-			get { return tileImageName; }
-			set { tileImageName = value; }
-		}
-		public Rectangle PositionAndSize
-		{
-			get { return positionAndSize; }
-			set { positionAndSize = value; }
 		}
 	}
 }

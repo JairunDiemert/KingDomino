@@ -14,15 +14,10 @@ namespace KingDomino.Tests
         [TestMethod()]
         public void DominoTest()
         {
-            //Set Up
             Tile Tile1 = new Tile();
             Tile Tile2 = new Tile();
-
-            //Act
             Domino atTest = new Domino(Tile1, Tile2);
-            Tile actual = atTest.Tile1;
-
-            //Assert
+            Tile actual = atTest.tile1;
             Assert.AreEqual(Tile1, actual);
         }
     }

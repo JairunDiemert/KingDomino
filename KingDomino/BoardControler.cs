@@ -10,23 +10,12 @@ namespace KingDomino
 {
     public class BoardControler
     {
-        private int tileSize;
-        private int grid;
-
+        public int tileSize { get; set; }
+        public int grid { get; set; }
         public BoardControler()
         {
-            TileSize = 70;
-            Grid = 9;
-        }
-        public int TileSize
-        {
-            get { return tileSize; }
-            set { tileSize = value; }
-        }
-        public int Grid
-        {
-            get { return grid; }
-            set { grid = value; }
+            tileSize = 70;
+            grid = 9;
         }
         public Boolean DefaultChecker(EnvironmentTypes type)
         {
@@ -36,8 +25,5 @@ namespace KingDomino
             }
             return false;
         }
-
-
-
     }
 }

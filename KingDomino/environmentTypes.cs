@@ -24,6 +24,5 @@ namespace KingDomino
         YellowCastle,
         BlueCastle,
         Blank
-
     }
 }

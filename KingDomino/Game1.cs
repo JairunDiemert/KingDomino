@@ -101,8 +101,8 @@ namespace KingDomino
             gameBoard = new Board();
             boardControl = new BoardControler();
             gameDeck = new Deck(deckSize);
-            tileSize = boardControl.TileSize;
-            grid = boardControl.Grid;
+            tileSize = boardControl.tileSize;
+            grid = boardControl.grid;
             positionAndSize = new Rectangle(0, 0, tileSize, tileSize);
             positionAndSizeOfPLacement = new Rectangle(playerX, playerY, tileSize, tileSize);
             positionAndSizeOfPLacement2 = new Rectangle(playerX + 1, playerY, tileSize, tileSize);
@@ -209,12 +209,12 @@ namespace KingDomino
         }
         public void UpdateDeck(int where, int x, int y)
         {
-            currentDomino = (Domino)gameDeck.DominoDeck[where];
+            currentDomino = (Domino)gameDeck.dominoDeck[where];
             viewLogic.UpdateDeck(ref currentDomino, ref x, ref y, ref positionAndSize, 0);
-            tileTexture = Content.Load<Texture2D>(currentDomino.Tile1.TileImageName);
+            tileTexture = Content.Load<Texture2D>(currentDomino.tile1.tileImageName);
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
 
-            tileTexture = Content.Load<Texture2D>(currentDomino.Tile2.TileImageName);
+            tileTexture = Content.Load<Texture2D>(currentDomino.tile2.tileImageName);
             viewLogic.UpdateDeck(ref currentDomino, ref x, ref y, ref positionAndSize, 1);
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
         }

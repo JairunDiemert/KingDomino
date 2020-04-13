@@ -13,14 +13,8 @@ namespace KingDomino.Tests
     {
         public void CreateArrayListFromFileTest(string expected, string file, int index)
         {
-            //Set Up
-            //string expectedField = "T96";
-
-            //Act
             Deck atTest = new Deck();
             string actual = (string)Deck.CreateArrayListFromFile(file)[index];
-
-            //Assert
             Assert.AreEqual(expected, actual);
         }
         [TestMethod()]

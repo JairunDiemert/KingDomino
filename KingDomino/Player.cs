@@ -10,16 +10,20 @@ namespace KingDomino
 {
 	public class Player
 	{
-
-		private Domino[] playerHand; //Array of Dominos available to place
-		private int score; //Track score per player
-		private bool playerStatus; //Determines if player won or lost
-
-		public Player(int score)
-        {
-
-        }
-
-
+		public Domino[] playerHand { get; set; } //Array of Dominos available to place
+		public int score { get; set; } //Track score per player
+		public bool playerStatus { get; set; } //Determines if player won or lost
+		public Player()
+		{
+			playerHand = null;
+			score = 0;
+			playerStatus = false;
+		}
+		public Player(int scr) 
+		{
+			playerHand = null;
+			score = scr;
+			playerStatus = false;
+		}
 	}
 }

@@ -8,29 +8,17 @@ namespace KingDomino
 {
     public class Domino
     {
-        private Tile tile1;
-        private Tile tile2;
-
+        public Tile tile1 { get; set; }
+        public Tile tile2 { get; set; }
         public Domino()
         {
-            Tile1 = new Tile("Blank");
-            Tile2 = new Tile("Blank");
+            tile1 = new Tile("Blank");
+            tile2 = new Tile("Blank");
         }
-        public Domino(Tile tile1, Tile tile2)
+        public Domino(Tile t1, Tile t2)
         {
-            Tile1 = tile1;
-            Tile2 = tile2;
-        }
-
-        public Tile Tile1
-        {
-            get { return tile1; }
-            set { tile1 = value; }
-        }
-        public Tile Tile2
-        {
-            get { return tile2; }
-            set { tile2 = value; }
+            tile1 = t1;
+            tile2 = t2;
         }
     }
 }
