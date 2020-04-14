@@ -13,7 +13,7 @@ namespace KingDomino
 		public EnvironmentTypes envType { get; set; }
 		public int numCrowns { get; set; }
 		public bool filledSpace { get; set; }
-		public string tileImageName { get; set; }
+		public string tileName { get; set; }
 		public Rectangle positionAndSize { get; set; }
 
 		public Tile() 
@@ -21,7 +21,7 @@ namespace KingDomino
 			envType = EnvironmentTypes.Default;
 			numCrowns = -1;
 			filledSpace = false;
-			tileImageName = "T1";
+			tileName = "T1";
 			positionAndSize = new Rectangle();
 		}
 		public Tile(string tileImgName)
@@ -29,7 +29,7 @@ namespace KingDomino
 			envType = EnvironmentTypes.Blank;
 			numCrowns = -1;
 			filledSpace = false;
-			tileImageName = tileImgName;
+			tileName = tileImgName;
 			positionAndSize = new Rectangle();
 		}
 		public Tile(EnvironmentTypes evType, int numberCrowns, bool fSpace, string tileImgName, int x, int y, int width, int height)
@@ -37,7 +37,7 @@ namespace KingDomino
 			envType = evType;
 			numCrowns = numberCrowns;
 			filledSpace = fSpace;
-			tileImageName = tileImgName;
+			tileName = tileImgName;
 			positionAndSize = new Rectangle(x, y, width, height);
 		}
 	}

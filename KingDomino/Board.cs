@@ -31,7 +31,7 @@ namespace KingDomino
         }
         public void setTileAt(int row, int col, Tile currentTile){
             int tileSize = new BoardControler().tileSize;
-            if (currentTile.tileImageName != "Blank")
+            if (currentTile.tileName != "Blank")
             {
                 currentTile.positionAndSize = new Rectangle(row * tileSize, col * tileSize, tileSize, tileSize);
                 Gameboard[row, col] = currentTile;

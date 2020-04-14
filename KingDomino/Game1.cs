@@ -22,7 +22,6 @@ namespace KingDomino
         int deckBuffer;
         int tileSize;
         int grid;
-        Tile currentTile;
         Domino currentDomino;
         KeyboardState oldState;
         int whereInDeck;
@@ -127,37 +126,20 @@ namespace KingDomino
         }
         protected override void Draw(GameTime gameTime)
         {
-            viewLogic = new ViewLogic(tileSize, ref gameDeck, ref positionAndSize, ref gameBoard);
+            viewLogic = new ViewLogic(tileSize, ref gameDeck, ref positionAndSize, ref gameBoard );
             GraphicsDevice.Clear(Color.White);
             spriteBatch.Begin();
 
             viewLogic.PositionAndSizeOfPlacementUpdate(ref positionAndSizeOfPLacement, ref positionAndSizeOfPLacement2, playerX, playerY, playerX2, playerY2);
 
-            for (int i = 0; i < grid; ++i)
-            {
-                for (int j = 0; j < grid; ++j)
-                {
-                    String texture = viewLogic.DrawBoard(ref boardControl, i, j, ref positionAndSize, 0);
-                    tileTexture = Content.Load<Texture2D>(texture);
-                    spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
-                }
-            }
-            
-            for (int i = 0; i < grid; ++i)
-            {
-                for (int j = 0; j < grid; ++j)
-                {
-                    String texture = viewLogic.DrawBoard(ref boardControl, i, j, ref positionAndSize, 10);
-                    tileTexture = Content.Load<Texture2D>(texture);
-                    spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
-                }
-            }
+            DrawGameBoard(grid, ref boardControl, ref positionAndSize, 0);
+            DrawGameBoard(grid, ref boardControl, ref positionAndSize, 10);
 
             String castle = viewLogic.DrawCastle(ref positionAndSize, 4, tileSize, 1);
             tileTexture = Content.Load<Texture2D>(castle);
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
 
-            castle = viewLogic.DrawCastle(ref positionAndSize, 14, tileSize, 1);
+            castle = viewLogic.DrawCastle(ref positionAndSize, 14, tileSize, 2);
             tileTexture = Content.Load<Texture2D>(castle);
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
 
@@ -211,10 +193,10 @@ namespace KingDomino
         {
             currentDomino = (Domino)gameDeck.dominoDeck[where];
             viewLogic.UpdateDeck(ref currentDomino, ref x, ref y, ref positionAndSize, 0);
-            tileTexture = Content.Load<Texture2D>(currentDomino.tile1.tileImageName);
+            tileTexture = Content.Load<Texture2D>(currentDomino.tile1.tileName);
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
 
-            tileTexture = Content.Load<Texture2D>(currentDomino.tile2.tileImageName);
+            tileTexture = Content.Load<Texture2D>(currentDomino.tile2.tileName);
             viewLogic.UpdateDeck(ref currentDomino, ref x, ref y, ref positionAndSize, 1);
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
         }
@@ -232,6 +214,18 @@ namespace KingDomino
                 deckButton7 += 1;
                 deckButton8 += 1;
                 ++whereInDeck;
+            }
+        }
+        public void DrawGameBoard(int grid, ref BoardControler boardControl, ref Rectangle positionAndSize, int positionAdder)
+        {
+            for (int i = 0; i < grid; ++i)
+            {
+                for (int j = 0; j < grid; ++j)
+                {
+                    String texture = viewLogic.DrawBoard(ref boardControl, i, j, ref positionAndSize, positionAdder);
+                    tileTexture = Content.Load<Texture2D>(texture);
+                    spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
+                }
             }
         }
     }

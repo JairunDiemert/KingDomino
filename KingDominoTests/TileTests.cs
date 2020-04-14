@@ -16,7 +16,7 @@ namespace KingDomino.Tests
         {
             string expected = "T1";
             Tile atTest = new Tile();
-            string actual = atTest.tileImageName;
+            string actual = atTest.tileName;
             Assert.AreEqual(expected, actual);
         }
     }

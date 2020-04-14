@@ -73,7 +73,7 @@ namespace KingDomino
             }
             else
             {
-                return currentTile.tileImageName;
+                return currentTile.tileName;
             }
         }
     }
