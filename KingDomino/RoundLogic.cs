@@ -8,16 +8,23 @@ namespace KingDomino
 {
     class RoundLogic
     {
+        private Round currentRound;
         private Player[] players { get; set; }
         private Player currentPlayerTurn { get; set; }
 
-        public RoundLogic()
+        public RoundLogic(Player[] player, int playerNum)
         {
-            players = null;
-            currentPlayerTurn = null;
+            currentRound = new Round(playerNum);
+            players = player;
+            currentPlayerTurn = players[currentRound.playersTurn];
         }
 
         //TODO: Pick domino function w/ meeples
+
         //TODO: Place domino function on specific board
+        public void placeDomino()
+        {
+            
+        }
     }
 }

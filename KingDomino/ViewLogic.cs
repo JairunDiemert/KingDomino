@@ -14,13 +14,12 @@ namespace KingDomino
         public int tileSize { get; set; } 
         public Deck gameDeck { get; set; }
         public Rectangle positionAnSize { get; set; }
-        public Board gameBoard { get; set; }
+
         public ViewLogic(int size, ref Deck deck, ref Rectangle positionSize, ref Board board)
         {
             tileSize = size;
             gameDeck = deck;
             positionAnSize = positionSize;
-            gameBoard = board;
         }
         public void PositionAndSizeOfPlacementUpdate(ref Rectangle positionAndSizeOfPLacement, ref Rectangle positionAndSizeOfPLacement2, int playerX, int playerY, int playerX2, int playerY2)
         {
@@ -61,7 +60,7 @@ namespace KingDomino
                 return "C3";
             }
         }
-        public String DrawBoard(ref BoardControler boardControl, int i, int j, ref Rectangle positionAndSize, int positionAdder)
+        public String DrawBoard(ref BoardControler boardControl, int i, int j, ref Rectangle positionAndSize, int positionAdder, ref Board gameBoard)
         {
             Tile currentTile;
             currentTile = gameBoard.getTileAt(i, j);

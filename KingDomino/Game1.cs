@@ -14,7 +14,8 @@ namespace KingDomino
         Texture2D tileTexture;
         Texture2D square;
         Texture2D square2;
-        Board gameBoard;
+        Board gameBoard1;
+        Board gameBoard2;
         BoardControler boardControl;
         Deck gameDeck;
         MovementLogic movement;
@@ -97,7 +98,8 @@ namespace KingDomino
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            gameBoard = new Board();
+            gameBoard1 = new Board();
+            gameBoard2 = new Board();
             boardControl = new BoardControler();
             gameDeck = new Deck(deckSize);
             tileSize = boardControl.tileSize;
@@ -126,14 +128,14 @@ namespace KingDomino
         }
         protected override void Draw(GameTime gameTime)
         {
-            viewLogic = new ViewLogic(tileSize, ref gameDeck, ref positionAndSize, ref gameBoard );
+            viewLogic = new ViewLogic(tileSize, ref gameDeck, ref positionAndSize, ref gameBoard1 );
             GraphicsDevice.Clear(Color.White);
             spriteBatch.Begin();
 
             viewLogic.PositionAndSizeOfPlacementUpdate(ref positionAndSizeOfPLacement, ref positionAndSizeOfPLacement2, playerX, playerY, playerX2, playerY2);
 
-            DrawGameBoard(grid, ref boardControl, ref positionAndSize, 0);
-            DrawGameBoard(grid, ref boardControl, ref positionAndSize, 10);
+            DrawGameBoard(grid, ref boardControl, ref positionAndSize, 0, ref gameBoard1);
+            DrawGameBoard(grid, ref boardControl, ref positionAndSize, 10, ref gameBoard2);
 
             String castle = viewLogic.DrawCastle(ref positionAndSize, 4, tileSize, 1);
             tileTexture = Content.Load<Texture2D>(castle);
@@ -187,7 +189,7 @@ namespace KingDomino
         public void PlayerInput(KeyboardState state, int playerDomino) {
             movement.KeyboardMovement(ref oldState,ref state,ref playerX,ref playerY,ref playerX2,ref playerY2);
             movement.Rotation(ref oldState,ref state,ref playerX,ref playerY,ref playerX2,ref playerY2,ref rotateDeg);
-            movement.Placement(ref oldState,ref state,ref playerX,ref playerY,ref playerX2,ref playerY2, ref rotateDeg,ref currentDomino, ref gameDeck, ref playerDomino, ref gameBoard, IncrementDeck);
+            movement.Placement(ref oldState,ref state,ref playerX,ref playerY,ref playerX2,ref playerY2, ref rotateDeg,ref currentDomino, ref gameDeck, ref playerDomino, ref gameBoard1, IncrementDeck);
         }
         public void UpdateDeck(int where, int x, int y)
         {
@@ -216,13 +218,13 @@ namespace KingDomino
                 ++whereInDeck;
             }
         }
-        public void DrawGameBoard(int grid, ref BoardControler boardControl, ref Rectangle positionAndSize, int positionAdder)
+        public void DrawGameBoard(int grid, ref BoardControler boardControl, ref Rectangle positionAndSize, int positionAdder, ref Board gameBoard)
         {
             for (int i = 0; i < grid; ++i)
             {
                 for (int j = 0; j < grid; ++j)
                 {
-                    String texture = viewLogic.DrawBoard(ref boardControl, i, j, ref positionAndSize, positionAdder);
+                    String texture = viewLogic.DrawBoard(ref boardControl, i, j, ref positionAndSize, positionAdder, ref gameBoard);
                     tileTexture = Content.Load<Texture2D>(texture);
                     spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
                 }
