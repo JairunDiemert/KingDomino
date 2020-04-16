@@ -70,7 +70,7 @@ namespace KingDomino
                 playerY2 = playerY2 - 1;
             }
         }
-        public void Placement(ref KeyboardState oldState,ref KeyboardState state,ref int playerX,ref int playerY,ref int playerX2,ref int playerY2, ref int rotateDeg,ref Domino currentDomino,ref Deck gameDeck, ref int playerDomino,ref Board gameBoard,Action IncrementDeck)
+        public bool Placement(ref KeyboardState oldState,ref KeyboardState state,ref int playerX,ref int playerY,ref int playerX2,ref int playerY2, ref int rotateDeg,ref Domino currentDomino,ref Deck gameDeck, ref int playerDomino,ref Board gameBoard,Action IncrementDeck)
         {
             if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 0) // below does normal 0
             {
@@ -79,6 +79,7 @@ namespace KingDomino
                 currentDomino = (Domino)gameDeck.dominoDeck[playerDomino];
                 gameBoard.setTileAt(playerX, playerY, currentDomino.tile1);
                 gameBoard.setTileAt(nextTile, playerY, currentDomino.tile2);
+                return true;
             }
             else if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 90) // does 90 
             {
@@ -87,6 +88,7 @@ namespace KingDomino
                 currentDomino = (Domino)gameDeck.dominoDeck[playerDomino];
                 gameBoard.setTileAt(playerX, playerY, currentDomino.tile1);
                 gameBoard.setTileAt(nextTile, playerY - 1, currentDomino.tile2);
+                return true;
             }
             else if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 180) // below does 180
             {
@@ -95,6 +97,7 @@ namespace KingDomino
                 currentDomino = (Domino)gameDeck.dominoDeck[playerDomino];
                 gameBoard.setTileAt(playerX, playerY, currentDomino.tile1);
                 gameBoard.setTileAt(nextTile, playerY, currentDomino.tile2);
+                return true;
             }
             else if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 270) // below does 270
             {
@@ -103,7 +106,9 @@ namespace KingDomino
                 currentDomino = (Domino)gameDeck.dominoDeck[playerDomino];
                 gameBoard.setTileAt(playerX, playerY, currentDomino.tile1);
                 gameBoard.setTileAt(nextTile, playerY + 1, currentDomino.tile2);
+                return true;
             }
+            return false;
         }
     }
 }

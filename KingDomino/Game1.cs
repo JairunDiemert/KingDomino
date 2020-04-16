@@ -8,6 +8,7 @@ namespace KingDomino
 {
     public class Game1 : Game
     {
+        RoundLogic roundLogic;
         ViewLogic viewLogic;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -108,6 +109,7 @@ namespace KingDomino
             positionAndSizeOfPLacement = new Rectangle(playerX, playerY, tileSize, tileSize);
             positionAndSizeOfPLacement2 = new Rectangle(playerX + 1, playerY, tileSize, tileSize);
             movement = new MovementLogic();
+            roundLogic = new RoundLogic(2);
 
             // TODO: use this.Content to load your game content here
         }
@@ -134,14 +136,14 @@ namespace KingDomino
 
             viewLogic.PositionAndSizeOfPlacementUpdate(ref positionAndSizeOfPLacement, ref positionAndSizeOfPLacement2, playerX, playerY, playerX2, playerY2);
 
-            DrawGameBoard(grid, ref boardControl, ref positionAndSize, 0, ref gameBoard1);
-            DrawGameBoard(grid, ref boardControl, ref positionAndSize, 10, ref gameBoard2);
+            DrawGameBoard(grid, ref boardControl, ref positionAndSize, 0, ref roundLogic.currentBoardAtPlay(ref gameBoard1, ref gameBoard2));
+            DrawGameBoard(grid, ref boardControl, ref positionAndSize, 10, ref roundLogic.secondBoardAtPlay(ref gameBoard1, ref gameBoard2));
 
-            String castle = viewLogic.DrawCastle(ref positionAndSize, 4, tileSize, 1);
+            String castle = viewLogic.DrawCastle(ref positionAndSize, 4, tileSize, roundLogic.playerAtTurn);
             tileTexture = Content.Load<Texture2D>(castle);
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
 
-            castle = viewLogic.DrawCastle(ref positionAndSize, 14, tileSize, 2);
+            castle = viewLogic.DrawCastle(ref positionAndSize, 14, tileSize, roundLogic.secondPlayer());
             tileTexture = Content.Load<Texture2D>(castle);
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
 
@@ -189,7 +191,8 @@ namespace KingDomino
         public void PlayerInput(KeyboardState state, int playerDomino) {
             movement.KeyboardMovement(ref oldState,ref state,ref playerX,ref playerY,ref playerX2,ref playerY2);
             movement.Rotation(ref oldState,ref state,ref playerX,ref playerY,ref playerX2,ref playerY2,ref rotateDeg);
-            movement.Placement(ref oldState,ref state,ref playerX,ref playerY,ref playerX2,ref playerY2, ref rotateDeg,ref currentDomino, ref gameDeck, ref playerDomino, ref gameBoard1, IncrementDeck);
+            bool placed = movement.Placement(ref oldState,ref state,ref playerX,ref playerY,ref playerX2,ref playerY2, ref rotateDeg,ref currentDomino, ref gameDeck, ref playerDomino, ref roundLogic.currentBoardAtPlay(ref gameBoard1, ref gameBoard2), IncrementDeck);
+            roundLogic.changePlayerTurn(placed);
         }
         public void UpdateDeck(int where, int x, int y)
         {
