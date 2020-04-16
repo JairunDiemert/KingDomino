@@ -110,6 +110,7 @@ namespace KingDomino
             positionAndSizeOfPLacement2 = new Rectangle(playerX + 1, playerY, tileSize, tileSize);
             movement = new MovementLogic();
             roundLogic = new RoundLogic(2);
+            viewLogic = new ViewLogic(tileSize, ref gameDeck, ref positionAndSize);
 
             // TODO: use this.Content to load your game content here
         }
@@ -130,7 +131,6 @@ namespace KingDomino
         }
         protected override void Draw(GameTime gameTime)
         {
-            viewLogic = new ViewLogic(tileSize, ref gameDeck, ref positionAndSize, ref gameBoard1 );
             GraphicsDevice.Clear(Color.White);
             spriteBatch.Begin();
 

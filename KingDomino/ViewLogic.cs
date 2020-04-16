@@ -15,7 +15,7 @@ namespace KingDomino
         public Deck gameDeck { get; set; }
         public Rectangle positionAnSize { get; set; }
 
-        public ViewLogic(int size, ref Deck deck, ref Rectangle positionSize, ref Board board)
+        public ViewLogic(int size, ref Deck deck, ref Rectangle positionSize)
         {
             tileSize = size;
             gameDeck = deck;
