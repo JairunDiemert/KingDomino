@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections;
+using System.Diagnostics;
 
 namespace KingDomino
 {
@@ -49,6 +50,7 @@ namespace KingDomino
         int playerX2;
         int playerY2;
         int rotateDeg; // either 0, 90, 180, 270
+        int numberOfTilesPlaced;
 
         public Game1()
         {
@@ -94,6 +96,7 @@ namespace KingDomino
             playerY2 = 0;
             rotateDeg = 0;
             base.Initialize();
+            numberOfTilesPlaced = 0;
         }
 
         protected override void LoadContent()
@@ -208,17 +211,22 @@ namespace KingDomino
         
         public void IncrementDeck()
         {
-            if (whereInDeck < (deckSize + deckBuffer))
+            ++numberOfTilesPlaced;
+            Debug.WriteLine(numberOfTilesPlaced);
+            if (numberOfTilesPlaced % 4 == 0)
             {
-                deckButton1 += 1;
-                deckButton2 += 1;
-                deckButton3 += 1;
-                deckButton4 += 1;
-                deckButton5 += 1;
-                deckButton6 += 1;
-                deckButton7 += 1;
-                deckButton8 += 1;
-                ++whereInDeck;
+                if (whereInDeck < (deckSize + deckBuffer))
+                {
+                    deckButton1 += 4;
+                    deckButton2 += 4;
+                    deckButton3 += 4;
+                    deckButton4 += 4;
+                    deckButton5 += 4;
+                    deckButton6 += 4;
+                    deckButton7 += 4;
+                    deckButton8 += 4;
+                    whereInDeck += 4;
+                }
             }
         }
         public void DrawGameBoard(int grid, ref BoardControler boardControl, ref Rectangle positionAndSize, int positionAdder, ref Board gameBoard)
