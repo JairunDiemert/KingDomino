@@ -45,6 +45,7 @@
     <Compile Include="BoardControler.cs" />
     <Compile Include="Round.cs" />
     <Compile Include="MovementLogic.cs" />
+    <Compile Include="RoundLogic.cs" />
     <Compile Include="ViewLogic.cs" />
     <Compile Include="EnvironmentTypes.cs" />
     <Compile Include="Deck.cs" />
