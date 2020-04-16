@@ -154,10 +154,10 @@ namespace KingDomino
             UpdateDeck(deckButton2, deckPositionX1, deckPositionY2);
             UpdateDeck(deckButton3, deckPositionX1, deckPositionY3);
             UpdateDeck(deckButton4, deckPositionX1, deckPositionY4);
-            UpdateDeck(deckButton5, deckPositionX1 + 3, deckPositionY1);
-            UpdateDeck(deckButton6, deckPositionX1 + 3, deckPositionY2);
-            UpdateDeck(deckButton7, deckPositionX1 + 3, deckPositionY3);
-            UpdateDeck(deckButton8, deckPositionX1 + 3, deckPositionY4);
+            UpdateDeckHidden(deckButton5, deckPositionX1 + 3, deckPositionY1);
+            UpdateDeckHidden(deckButton6, deckPositionX1 + 3, deckPositionY2);
+            UpdateDeckHidden(deckButton7, deckPositionX1 + 3, deckPositionY3);
+            UpdateDeckHidden(deckButton8, deckPositionX1 + 3, deckPositionY4);
 
             String meeple = viewLogic.DrawMeeples(ref positionAndSize, 0, tileSize, 1);
             tileTexture = Content.Load<Texture2D>(meeple);
@@ -208,7 +208,18 @@ namespace KingDomino
             viewLogic.UpdateDeck(ref currentDomino, ref x, ref y, ref positionAndSize, 1);
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
         }
-        
+        public void UpdateDeckHidden(int where, int x, int y)
+        {
+            currentDomino = (Domino)gameDeck.dominoDeck[where];
+            viewLogic.UpdateDeck(ref currentDomino, ref x, ref y, ref positionAndSize, 0);
+            tileTexture = Content.Load<Texture2D>("T0");
+            spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
+
+            tileTexture = Content.Load<Texture2D>("T0");
+            viewLogic.UpdateDeck(ref currentDomino, ref x, ref y, ref positionAndSize, 1);
+            spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
+        }
+
         public void IncrementDeck()
         {
             ++numberOfTilesPlaced;

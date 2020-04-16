@@ -15,6 +15,7 @@
     <File>C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/Content/K3.png</File>
     <File>C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/Content/K4.png</File>
     <File>C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/Content/kingdomino_Title1.png</File>
+    <File>C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/Content/T0.png</File>
     <File>C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/Content/T1.png</File>
     <File>C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/Content/T10.png</File>
     <File>C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/Content/T11.png</File>
@@ -114,6 +115,7 @@
     <File>C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/Content/T97.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

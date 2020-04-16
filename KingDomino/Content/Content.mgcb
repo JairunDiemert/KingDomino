@@ -145,6 +145,18 @@
 /processorParam:TextureFormat=Color
 /build:kingdomino_Title1.png
 
+#begin T0.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:T0.png
+
 #begin T1.png
 /importer:TextureImporter
 /processor:TextureProcessor
