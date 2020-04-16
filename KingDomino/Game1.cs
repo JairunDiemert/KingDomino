@@ -183,7 +183,7 @@ namespace KingDomino
 
             KeyboardState newState = Keyboard.GetState();  // get the newest state
             //DeckButtonInput(newState);
-            PlayerInput(newState, deckButton1);
+            PlayerInput(newState, deckButton1 + numberOfTilesPlaced);
             oldState = newState;
 
             spriteBatch.End();
@@ -215,6 +215,7 @@ namespace KingDomino
             Debug.WriteLine(numberOfTilesPlaced);
             if (numberOfTilesPlaced % 4 == 0)
             {
+                numberOfTilesPlaced = 0;
                 if (whereInDeck < (deckSize + deckBuffer))
                 {
                     deckButton1 += 4;
