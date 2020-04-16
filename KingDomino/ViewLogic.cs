@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace KingDomino
 {
-    class ViewLogic : Game
+    public class ViewLogic : Game
     {
         public int tileSize { get; set; } 
         public Deck gameDeck { get; set; }

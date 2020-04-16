@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KingDomino
 {
-    class RoundLogic
+    public class RoundLogic
     {
         private Round currentRound;
         private Player[] players { get; set; }
