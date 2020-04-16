@@ -84,8 +84,8 @@ namespace KingDomino
                 if (doubleCrown.Contains(tileImageName2)) numCrowns2 = 2;
                 if (tripleCrown.Contains(tileImageName1)) numCrowns1 = 3;
                 if (tripleCrown.Contains(tileImageName2)) numCrowns2 = 3;
-                maxDeck.Add(new Domino(new Tile(envType1, numCrowns1, filledSpace1, tileImageName1, x1, y1, width1, height1),
-                    new Tile(envType2, numCrowns2, filledSpace2, tileImageName2, x2, y2, width2, height2)));
+                maxDeck.Add(new Domino(new Tile(envType1, numCrowns1, filledSpace1, tileImageName1, x1, y1, width1, height1, nameIndex1),
+                    new Tile(envType2, numCrowns2, filledSpace2, tileImageName2, x2, y2, width2, height2, nameIndex2)));
                 nameIndex1 += 2;
                 nameIndex2 += 2;
             }

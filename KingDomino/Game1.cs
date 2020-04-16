@@ -13,6 +13,7 @@ namespace KingDomino
         ViewLogic viewLogic;
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        SpriteFont textWriter;
         Texture2D tileTexture;
         Texture2D square;
         Texture2D square2;
@@ -102,6 +103,7 @@ namespace KingDomino
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            textWriter = Content.Load<SpriteFont>("TextWriter");
             gameBoard1 = new Board();
             gameBoard2 = new Board();
             boardControl = new BoardControler();
@@ -136,7 +138,7 @@ namespace KingDomino
         {
             GraphicsDevice.Clear(Color.White);
             spriteBatch.Begin();
-
+            
             viewLogic.PositionAndSizeOfPlacementUpdate(ref positionAndSizeOfPLacement, ref positionAndSizeOfPLacement2, playerX, playerY, playerX2, playerY2);
 
             DrawGameBoard(grid, ref boardControl, ref positionAndSize, 0, ref roundLogic.currentBoardAtPlay(ref gameBoard1, ref gameBoard2));
@@ -218,6 +220,7 @@ namespace KingDomino
             tileTexture = Content.Load<Texture2D>("T0");
             viewLogic.UpdateDeck(ref currentDomino, ref x, ref y, ref positionAndSize, 1);
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
+            spriteBatch.DrawString(textWriter, "" + currentDomino.tile2.tileNumber/2 , new Vector2((x * tileSize) + 51, (y * tileSize) + 23), Color.White);
         }
 
         public void IncrementDeck()

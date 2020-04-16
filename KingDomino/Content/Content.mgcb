@@ -1321,3 +1321,10 @@
 /processorParam:TextureFormat=Color
 /build:T97.png
 
+#begin TextWriter.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:TextWriter.spritefont
+
