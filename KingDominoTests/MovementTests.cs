@@ -28,6 +28,7 @@ namespace KingDominoTests
         public void PlacementTest()
         {
             MovementLogic MovementTests = new KingDomino.MovementLogic();
+            //test
         }
     }
 }
