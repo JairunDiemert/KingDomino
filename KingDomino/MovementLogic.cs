@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace KingDomino
 {
-    class MovementLogic : Game
+    public class MovementLogic : Game
     {
         public MovementLogic() { }
         public void KeyboardMovement(ref KeyboardState oldState,ref KeyboardState state,ref int playerX,ref int playerY,ref int playerX2,ref int playerY2)

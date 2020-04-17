@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KingDomino
 {
-    class Round
+    public class Round
     {
         public int numberOfPlayers { get; set; }
         public int playersTurn { get; set; }
