@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 using System.IO;
+using System.Diagnostics;
 
 namespace KingDomino
 {
@@ -32,14 +32,17 @@ namespace KingDomino
         }
         public Deck(int dckSize)
         {
+            deckSize = dckSize;
             ArrayList maxDeck = new ArrayList();
             MaxDeck(maxDeck);
             RandomOrder(maxDeck);
+            for (int j = 0; j < 50; j++)
+               maxDeck.Add(new Domino());
+            SortBy4s(maxDeck);
             dominoDeck = new ArrayList();
-            deckSize = dckSize;
             dominoDeck = maxDeck.GetRange(0, deckSize);
             for (int j = 0; j < 9; j++)
-            dominoDeck.Add(new Domino());
+                dominoDeck.Add(new Domino());
         }
         public void MaxDeck(ArrayList maxDeck)
         {
@@ -99,6 +102,14 @@ namespace KingDomino
                 int idx = r.Next(arrList.Count - cnt) + cnt;
                 arrList[cnt] = arrList[idx];
                 arrList[idx] = tmp;
+            }
+        }
+        public void SortBy4s(ArrayList arrList)
+        {
+            for (int i = 0; i < 48; )
+            {
+                arrList.Sort(i, (i + 3), new MyComparer());
+                i += 4;
             }
         }
         public static ArrayList CreateArrayListFromFile(string file)

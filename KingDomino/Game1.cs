@@ -201,32 +201,38 @@ namespace KingDomino
         }
         public void UpdateDeck(int where, int x, int y)
         {
-            currentDomino = (Domino)gameDeck.dominoDeck[where];
-            viewLogic.UpdateDeck(ref currentDomino, ref x, ref y, ref positionAndSize, 0);
-            tileTexture = Content.Load<Texture2D>(currentDomino.tile1.tileName);
-            spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
+            if (where < deckSize)
+            {
+                currentDomino = (Domino)gameDeck.dominoDeck[where];
+                viewLogic.UpdateDeck(ref currentDomino, ref x, ref y, ref positionAndSize, 0);
+                tileTexture = Content.Load<Texture2D>(currentDomino.tile1.tileName);
+                spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
 
-            tileTexture = Content.Load<Texture2D>(currentDomino.tile2.tileName);
-            viewLogic.UpdateDeck(ref currentDomino, ref x, ref y, ref positionAndSize, 1);
-            spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
+                tileTexture = Content.Load<Texture2D>(currentDomino.tile2.tileName);
+                viewLogic.UpdateDeck(ref currentDomino, ref x, ref y, ref positionAndSize, 1);
+                spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
+            }
         }
         public void UpdateDeckHidden(int where, int x, int y)
         {
-            currentDomino = (Domino)gameDeck.dominoDeck[where];
-            viewLogic.UpdateDeck(ref currentDomino, ref x, ref y, ref positionAndSize, 0);
-            tileTexture = Content.Load<Texture2D>("T0");
-            spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
+            if (where < deckSize)
+            {
+                currentDomino = (Domino)gameDeck.dominoDeck[where];
+                viewLogic.UpdateDeck(ref currentDomino, ref x, ref y, ref positionAndSize, 0);
+                tileTexture = Content.Load<Texture2D>("T0");
+                if (where < deckSize)
+                    spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
 
-            tileTexture = Content.Load<Texture2D>("T0");
-            viewLogic.UpdateDeck(ref currentDomino, ref x, ref y, ref positionAndSize, 1);
-            spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
-            spriteBatch.DrawString(textWriter, "" + currentDomino.tile2.tileNumber/2 , new Vector2((x * tileSize) + 51, (y * tileSize) + 23), Color.White);
+                tileTexture = Content.Load<Texture2D>("T0");
+                viewLogic.UpdateDeck(ref currentDomino, ref x, ref y, ref positionAndSize, 1);
+                spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
+                spriteBatch.DrawString(textWriter, "" + currentDomino.tile2.tileNumber / 2, new Vector2((x * tileSize) + 51, (y * tileSize) + 23), Color.White);
+            }
         }
 
         public void IncrementDeck()
         {
             ++numberOfTilesPlaced;
-            Debug.WriteLine(numberOfTilesPlaced);
             if (numberOfTilesPlaced % 4 == 0)
             {
                 numberOfTilesPlaced = 0;

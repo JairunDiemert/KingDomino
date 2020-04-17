@@ -23,6 +23,7 @@ namespace KingDomino
 			numCrowns = -1;
 			filledSpace = false;
 			tileName = "T1";
+			tileNumber = 100;
 			positionAndSize = new Rectangle();
 		}
 		public Tile(string tileImgName)
@@ -31,6 +32,7 @@ namespace KingDomino
 			numCrowns = -1;
 			filledSpace = false;
 			tileName = tileImgName;
+			tileNumber = 100;
 			positionAndSize = new Rectangle();
 		}
 		public Tile(EnvironmentTypes evType, int numberCrowns, bool fSpace, string tileImgName, int x, int y, int width, int height, int tileNum)
