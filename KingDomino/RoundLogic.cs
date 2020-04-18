@@ -17,7 +17,7 @@ namespace KingDomino
 
         public RoundLogic(int playerNum)
         {
-            meepleNum = 1;
+            meepleNum = 0;
             dominoesPlaced = 0;
             currentRound = new Round(playerNum);
             playerAtTurn = currentRound.playersTurn;
@@ -34,15 +34,18 @@ namespace KingDomino
 
         //TODO: Pick domino function w/ meeples
 
-        public void resetMeeple(ref Meeple meeple)
+        public void resetMeeple(ref Meeple[] meeples)
         {
             if (dominoesPlaced == 4)
             {
-                meeple.placed = false;
-                meeple.positionAdder = 0;
-                meeple.positionMultiplier = meeple.meepleNumber - 1;
+                for(int i = 0; i < meeples.Length; i++)
+                {
+                    meeples[i].placed = false;
+                    meeples[i].positionAdder = 0;
+                    meeples[i].positionMultiplier = meeples[i].meepleNumber - 1;
+                }
                 dominoesPlaced = 0;
-                meepleNum = 1;
+                meepleNum = 0;
             }
         }
         
@@ -53,39 +56,56 @@ namespace KingDomino
                 dominoesPlaced++;
             }
         }
-        public void meeplePlacement(KeyboardState newState, KeyboardState oldState, ref Meeple meeple)
+        public void incrementMeepleNum(bool placed)
         {
-            if (meeple.meepleNumber == meepleNum && !meeple.placed)
+            if (placed)
+            {
+                meepleNum++;
+            }
+        }
+
+        public ref Meeple currentMeeple( ref Meeple[] meeples)
+        {
+            return ref meeples[meepleNum];
+        }
+        public bool meeplePlacement(KeyboardState newState, KeyboardState oldState, ref Meeple[] meeples)
+        {
+            if (meepleNum == 4)
+                meepleNum = 0;
+
+            Meeple meeple = currentMeeple(ref meeples);
+            if (!meeple.placed)
             {
                 if (oldState.IsKeyUp(Keys.D1) && newState.IsKeyDown(Keys.D1))
                 {
                     meeple.positionAdder = 2;
                     meeple.positionMultiplier = 0;
                     meeple.placed = true;
-                    meepleNum++;
+                    return true;
                 }
                 else if (oldState.IsKeyUp(Keys.D2) && newState.IsKeyDown(Keys.D2))
                 {
                     meeple.positionAdder = 2;
                     meeple.positionMultiplier = 1;
                     meeple.placed = true;
-                    meepleNum++;
+                    return true;
                 }
                 else if (oldState.IsKeyUp(Keys.D3) && newState.IsKeyDown(Keys.D3))
                 {
                     meeple.positionAdder = 2;
                     meeple.positionMultiplier = 2;
                     meeple.placed = true;
-                    meepleNum++;
+                    return true;
                 }
                 else if (oldState.IsKeyUp(Keys.D4) && newState.IsKeyDown(Keys.D4))
                 {
                     meeple.positionAdder = 2;
                     meeple.positionMultiplier = 3;
                     meeple.placed = true;
-                    meepleNum++;
+                    return true;
                 }
             }
+            return false;
         }
 
         public void changePlayerTurn(bool placed)

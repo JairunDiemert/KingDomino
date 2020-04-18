@@ -28,10 +28,7 @@ namespace KingDomino
         int grid;
         Domino currentDomino;
         KeyboardState oldState;
-        Meeple meeple1;
-        Meeple meeple2;
-        Meeple meeple3;
-        Meeple meeple4;
+        Meeple[] meeples;
         int whereInDeck;
         int deckButton1;
         int deckButton2;
@@ -72,10 +69,11 @@ namespace KingDomino
             IsMouseVisible = true;
             graphics.ApplyChanges();
             oldState = Keyboard.GetState();
-            meeple1 = new Meeple(0, 0, 1, 1);
-            meeple2 = new Meeple(0, 1, 1, 3);
-            meeple3 = new Meeple(0, 2, 2, 2);
-            meeple4 = new Meeple(0, 3, 2, 4);
+            meeples = new Meeple[4];
+            meeples[0] = new Meeple(0, 0, 1, 4);
+            meeples[1] = new Meeple(0, 1, 1, 2);
+            meeples[2] = new Meeple(0, 2, 2, 3);
+            meeples[3] = new Meeple(0, 3, 2, 1);
             deckButtonMover = 0;
             whereInDeck = 8;
             deckButton1 = 0;
@@ -127,7 +125,6 @@ namespace KingDomino
 
             // TODO: use this.Content to load your game content here
         }
-
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
         /// game-specific content.
@@ -166,10 +163,10 @@ namespace KingDomino
             UpdateDeckHidden(deckButton7, deckPositionX1 + 3, deckPositionY3);
             UpdateDeckHidden(deckButton8, deckPositionX1 + 3, deckPositionY4);
 
-            DrawMeeples(meeple1);
-            DrawMeeples(meeple2);
-            DrawMeeples(meeple3);
-            DrawMeeples(meeple4);
+            DrawMeeples(meeples[0]);
+            DrawMeeples(meeples[1]);
+            DrawMeeples(meeples[2]);
+            DrawMeeples(meeples[3]);
 
             spriteBatch.Draw(square, positionAndSizeOfPLacement, Color.Red);
             spriteBatch.Draw(square2, positionAndSizeOfPLacement2, Color.Red);
@@ -179,7 +176,7 @@ namespace KingDomino
 
             KeyboardState newState = Keyboard.GetState();
             PlayerInputForDominos(newState, deckButton1 + numberOfTilesPlaced);
-            PlayerInputForMeeples(newState, oldState);
+            PlayerInputForMeeples(newState);
             oldState = newState;
 
             spriteBatch.End();
@@ -192,12 +189,11 @@ namespace KingDomino
             tileTexture = Content.Load<Texture2D>(meeple.meepleIcon);
             spriteBatch.Draw(tileTexture, positionAndSize, Color.White);
         }
-        public void PlayerInputForMeeples(KeyboardState newState, KeyboardState oldState)
+        public void PlayerInputForMeeples(KeyboardState newState)
         {
-            roundLogic.meeplePlacement(newState, oldState, ref meeple1);
-            //roundLogic.meeplePlacement(newState, oldState, ref meeple3);
-            //roundLogic.meeplePlacement(newState, oldState, ref meeple2);
-            //roundLogic.meeplePlacement(newState, oldState, ref meeple4);
+            bool placed = roundLogic.meeplePlacement(newState, oldState, ref meeples);
+            roundLogic.incrementMeepleNum(placed);
+            roundLogic.changePlayerTurn(placed);
         }
         public void PlayerInputForDominos(KeyboardState state, int playerDomino) 
         {
@@ -206,10 +202,7 @@ namespace KingDomino
             bool placed = movement.Placement(ref oldState,ref state,ref playerX,ref playerY,ref playerX2,ref playerY2, ref rotateDeg,ref currentDomino, ref gameDeck, ref playerDomino, ref roundLogic.currentBoardAtPlay(ref gameBoard1, ref gameBoard2), IncrementDeck);
             roundLogic.addDominoes(placed);
             roundLogic.changePlayerTurn(placed);
-            roundLogic.resetMeeple(ref meeple1);
-            //roundLogic.resetMeeple(ref meeple2);
-            //roundLogic.resetMeeple(ref meeple3);
-            //roundLogic.resetMeeple(ref meeple4);
+            roundLogic.resetMeeple(ref meeples);
         }
         public void UpdateDeck(int where, int x, int y)
         {
