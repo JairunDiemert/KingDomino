@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Board.cs" />
     <Compile Include="BoardControler.cs" />
+    <Compile Include="Meeple.cs" />
     <Compile Include="MyComparer.cs" />
     <Compile Include="Round.cs" />
     <Compile Include="MovementLogic.cs" />

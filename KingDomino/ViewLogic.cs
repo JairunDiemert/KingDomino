@@ -34,11 +34,11 @@ namespace KingDomino
             positionAndSize.Y = y * tileSize;
             currentDomino.tile1.positionAndSize = positionAndSize;
         }
-        public String DrawMeeples(ref Rectangle positionAndSize, int positionMultiplier, int tileSize, int playerNumber)
+        public String DrawMeeples(ref Rectangle positionAndSize, int tileSize, Meeple meeple)
         {
-            positionAndSize.X = 19 * tileSize;
-            positionAndSize.Y = positionMultiplier * tileSize;
-            if (playerNumber == 1)
+            positionAndSize.X = (19 + meeple.positionAdder) * tileSize;
+            positionAndSize.Y = meeple.positionMultiplier * tileSize;
+            if (meeple.playerNumber == 1)
             {
                 return "K1";
             }
