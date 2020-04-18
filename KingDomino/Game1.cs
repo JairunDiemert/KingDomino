@@ -70,10 +70,10 @@ namespace KingDomino
             graphics.ApplyChanges();
             oldState = Keyboard.GetState();
             meeples = new Meeple[4];
-            meeples[0] = new Meeple(0, 0, 1, 4);
-            meeples[1] = new Meeple(0, 1, 1, 2);
-            meeples[2] = new Meeple(0, 2, 2, 3);
-            meeples[3] = new Meeple(0, 3, 2, 1);
+            meeples[0] = new Meeple(0, 0, 1, 1);
+            meeples[2] = new Meeple(0, 1, 1, 2);
+            meeples[1] = new Meeple(0, 2, 2, 3);
+            meeples[3] = new Meeple(0, 3, 2, 4);
             deckButtonMover = 0;
             whereInDeck = 8;
             deckButton1 = 0;

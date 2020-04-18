@@ -14,9 +14,14 @@ namespace KingDomino
         public int playerAtTurn { get; set; }
         public int dominoesPlaced { get; set; }
         public int meepleNum { get; set;  }
+        private bool[] pressedKeys = new bool[4];
 
         public RoundLogic(int playerNum)
         {
+            pressedKeys[0] = false;
+            pressedKeys[1] = false;
+            pressedKeys[2] = false;
+            pressedKeys[3] = false;
             meepleNum = 0;
             dominoesPlaced = 0;
             currentRound = new Round(playerNum);
@@ -32,8 +37,6 @@ namespace KingDomino
             playerAtTurn = currentRound.playersTurn;
         }
 
-        //TODO: Pick domino function w/ meeples
-
         public void resetMeeple(ref Meeple[] meeples)
         {
             if (dominoesPlaced == 4)
@@ -46,6 +49,10 @@ namespace KingDomino
                 }
                 dominoesPlaced = 0;
                 meepleNum = 0;
+                pressedKeys[0] = false;
+                pressedKeys[1] = false;
+                pressedKeys[2] = false;
+                pressedKeys[3] = false;
             }
         }
         
@@ -76,32 +83,36 @@ namespace KingDomino
             Meeple meeple = currentMeeple(ref meeples);
             if (!meeple.placed)
             {
-                if (oldState.IsKeyUp(Keys.D1) && newState.IsKeyDown(Keys.D1))
+                if (oldState.IsKeyUp(Keys.D1) && newState.IsKeyDown(Keys.D1) && !pressedKeys[0]) 
                 {
                     meeple.positionAdder = 2;
                     meeple.positionMultiplier = 0;
                     meeple.placed = true;
+                    pressedKeys[0] = true;
                     return true;
                 }
-                else if (oldState.IsKeyUp(Keys.D2) && newState.IsKeyDown(Keys.D2))
+                else if (oldState.IsKeyUp(Keys.D2) && newState.IsKeyDown(Keys.D2) && !pressedKeys[1])
                 {
                     meeple.positionAdder = 2;
                     meeple.positionMultiplier = 1;
                     meeple.placed = true;
+                    pressedKeys[1] = true;
                     return true;
                 }
-                else if (oldState.IsKeyUp(Keys.D3) && newState.IsKeyDown(Keys.D3))
+                else if (oldState.IsKeyUp(Keys.D3) && newState.IsKeyDown(Keys.D3) && !pressedKeys[2])
                 {
                     meeple.positionAdder = 2;
                     meeple.positionMultiplier = 2;
                     meeple.placed = true;
+                    pressedKeys[2] = true;
                     return true;
                 }
-                else if (oldState.IsKeyUp(Keys.D4) && newState.IsKeyDown(Keys.D4))
+                else if (oldState.IsKeyUp(Keys.D4) && newState.IsKeyDown(Keys.D4) && !pressedKeys[3])
                 {
                     meeple.positionAdder = 2;
                     meeple.positionMultiplier = 3;
                     meeple.placed = true;
+                    pressedKeys[3] = true;
                     return true;
                 }
             }
