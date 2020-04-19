@@ -14,8 +14,9 @@ namespace KingDomino
         public int playerNumber { get; set; }
         public int meepleNumber { get; set; }
         public String meepleIcon { get; set; }
+        public int originalPlace { get; set; }
 
-        public Meeple(int add, int multi, int player, int meepNumber)
+        public Meeple(int add, int multi, int player, int meepNumber, int original)
         {
             placed = false;
             positionAdder = add;
@@ -23,6 +24,7 @@ namespace KingDomino
             playerNumber = player;
             meepleNumber = meepNumber;
             meepleIcon = "";
+            originalPlace = original;
         }
     }
 }

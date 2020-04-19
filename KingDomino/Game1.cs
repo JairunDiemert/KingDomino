@@ -71,10 +71,10 @@ namespace KingDomino
             graphics.ApplyChanges();
             oldState = Keyboard.GetState();
             meeples = new Meeple[4];
-            meeples[0] = new Meeple(0, 2, 2, 1);
-            meeples[1] = new Meeple(0, 0, 1, 2);
-            meeples[2] = new Meeple(0, 3, 2, 3);
-            meeples[3] = new Meeple(0, 1, 1, 4);
+            meeples[0] = new Meeple(0, 2, 2, 1, 2);
+            meeples[1] = new Meeple(0, 0, 1, 2, 0);
+            meeples[2] = new Meeple(0, 3, 2, 3, 3);
+            meeples[3] = new Meeple(0, 1, 1, 4, 1);
             players = new Player[2];
             players[0] = new Player();
             players[1] = new Player();

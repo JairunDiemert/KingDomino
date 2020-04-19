@@ -47,24 +47,24 @@ namespace KingDomino
         public void getProperDomino(ref Player[] players, ref int meepleNumber)
         {
             if(dominoesPlaced == 0)
-                meepleNumber = players[0].playerHand[0];
+                meepleNumber = players[playerAtTurn - 1].playerHand[0];
             else if(dominoesPlaced == 1)
-                meepleNumber = players[1].playerHand[0];
+                meepleNumber = players[playerAtTurn - 1].playerHand[0];
             else if (dominoesPlaced == 2)
-                meepleNumber = players[0].playerHand[1];
+                meepleNumber = players[playerAtTurn - 1].playerHand[1];
             else if(dominoesPlaced == 3)
-                meepleNumber = players[1].playerHand[1];
+                meepleNumber = players[playerAtTurn - 1].playerHand[1];
 
         }
         public void resetMeeple(ref Meeple[] meeples)
         {
-            if (dominoesPlaced == 4)
+            if (dominoesPlaced >= 4)
             {
                 for(int i = 0; i < meeples.Length; i++)
                 {
                     meeples[i].placed = false;
                     meeples[i].positionAdder = 0;
-                    meeples[i].positionMultiplier = meeples[i].meepleNumber - 1;
+                    meeples[i].positionMultiplier = meeples[i].originalPlace;
                 }
                 dominoesPlaced = 0;
                 meepleNum = 0;
@@ -73,7 +73,12 @@ namespace KingDomino
                 pressedKeys[2] = false;
                 pressedKeys[3] = false;
                 allPlaced = false;
-                changePlayerTurn(true);
+                playerAtTurn = 2;
+                currentRound.playersTurn = 2;
+                for( int i = 0; i < players.Length; i++)
+                {
+                    players[i].numInHand = 0;
+                }
             }
         }
         
@@ -103,8 +108,8 @@ namespace KingDomino
                 meepleNum = 0;
                 allPlaced = true;
             }
-
             Meeple meeple = currentMeeple(ref meeples);
+
             if (!meeple.placed)
             {
                 if (oldState.IsKeyUp(Keys.D1) && newState.IsKeyDown(Keys.D1) && !pressedKeys[0]) 
@@ -203,5 +208,14 @@ namespace KingDomino
                 return 1;
         }
 
+        private bool anyButtonsPressed()
+        {
+            for (int i =0; i < pressedKeys.Length; i++)
+            {
+                if (pressedKeys[i] == true)
+                    return true;
+            }
+            return false;
+        }
     }
 }
