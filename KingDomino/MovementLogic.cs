@@ -77,8 +77,14 @@ namespace KingDomino
                 int nextTile = playerX + 1;
                 IncrementDeck();
                 currentDomino = (Domino)gameDeck.dominoDeck[playerDomino];
+                if(gameBoard.getTileAt(playerX, playerY).filledSpace)
+                {
+                    return false;
+                }
                 gameBoard.setTileAt(playerX, playerY, currentDomino.tile1);
                 gameBoard.setTileAt(nextTile, playerY, currentDomino.tile2);
+                gameBoard.FillTile(playerX, playerY);
+                gameBoard.FillTile(nextTile, playerY);
                 return true;
             }
             else if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 90) // does 90 
@@ -86,8 +92,14 @@ namespace KingDomino
                 int nextTile = playerX;
                 IncrementDeck();
                 currentDomino = (Domino)gameDeck.dominoDeck[playerDomino];
+                if (gameBoard.getTileAt(playerX, playerY).filledSpace)
+                {
+                    return false;
+                }
                 gameBoard.setTileAt(playerX, playerY, currentDomino.tile1);
                 gameBoard.setTileAt(nextTile, playerY - 1, currentDomino.tile2);
+                gameBoard.FillTile(playerX, playerY);
+                gameBoard.FillTile(nextTile, playerY - 1);
                 return true;
             }
             else if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 180) // below does 180
@@ -95,8 +107,14 @@ namespace KingDomino
                 int nextTile = playerX - 1;
                 IncrementDeck();
                 currentDomino = (Domino)gameDeck.dominoDeck[playerDomino];
+                if (gameBoard.getTileAt(playerX, playerY).filledSpace)
+                {
+                    return false;
+                }
                 gameBoard.setTileAt(playerX, playerY, currentDomino.tile1);
                 gameBoard.setTileAt(nextTile, playerY, currentDomino.tile2);
+                gameBoard.FillTile(playerX, playerY);
+                gameBoard.FillTile(nextTile, playerY);
                 return true;
             }
             else if (oldState.IsKeyUp(Keys.Enter) && state.IsKeyDown(Keys.Enter) && rotateDeg == 270) // below does 270
@@ -104,8 +122,14 @@ namespace KingDomino
                 int nextTile = playerX;
                 IncrementDeck();
                 currentDomino = (Domino)gameDeck.dominoDeck[playerDomino];
+                if (gameBoard.getTileAt(playerX, playerY).filledSpace)
+                {
+                    return false;
+                }
                 gameBoard.setTileAt(playerX, playerY, currentDomino.tile1);
                 gameBoard.setTileAt(nextTile, playerY + 1, currentDomino.tile2);
+                gameBoard.FillTile(playerX, playerY);
+                gameBoard.FillTile(nextTile, playerY + 1);
                 return true;
             }
             return false;
