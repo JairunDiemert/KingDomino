@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/Content/T2.png</SourceFile>
-  <SourceTime>2020-04-16T12:30:13.4308597-05:00</SourceTime>
-  <DestFile>C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/Content/bin/Windows/Content/T2.xnb</DestFile>
-  <DestTime>2020-04-17T12:50:44.0038924-05:00</DestTime>
+  <SourceFile>D:/School/CEN3032/se-project-groups-group-4/KingDomino/Content/T2.png</SourceFile>
+  <SourceTime>2020-03-06T21:12:38.4080874-06:00</SourceTime>
+  <DestFile>D:/School/CEN3032/se-project-groups-group-4/KingDomino/Content/bin/Windows/Content/T2.xnb</DestFile>
+  <DestTime>2020-04-20T16:11:00.2385313-05:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2020-01-19T02:37:12-06:00</ImporterTime>
+  <ImporterTime>2018-12-08T10:35:54-06:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2020-01-19T02:37:12-06:00</ProcessorTime>
+  <ProcessorTime>2018-12-08T10:35:54-06:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>

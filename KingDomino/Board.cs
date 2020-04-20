@@ -26,7 +26,14 @@ namespace KingDomino
         {
             if (Gameboard[row, col].filledSpace != true)
             {
-                Gameboard[row, col].filledSpace = (true);
+                try
+                {
+                    Gameboard[row, col].filledSpace = (true);
+                }
+                catch(System.IndexOutOfRangeException e)
+                {
+                    System.Console.WriteLine(e.Message);
+                }
             }
         }
         public void setTileAt(int row, int col, Tile currentTile){
@@ -35,7 +42,14 @@ namespace KingDomino
             {
                 currentTile.positionAndSize = new Rectangle(row * tileSize, col * tileSize, tileSize, tileSize);
                 Gameboard[row, col] = currentTile;
-                FillTile(row, col);
+                try
+                {
+                    FillTile(row, col);
+                }
+                catch(Exception e)
+                {
+                    System.Console.WriteLine(e.Message);
+                }
             }
         }
     }
