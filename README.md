@@ -19,3 +19,4 @@
 <p>A : to move the selector left</p>
 <p>S : to move the selector down</p>
 <p>D : to move the selector right</p>
+<p>1, 2, 3, 4 : to select specific dominoes with the meeples </p>
