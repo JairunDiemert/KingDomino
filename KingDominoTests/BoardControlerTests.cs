@@ -12,7 +12,7 @@ namespace KingDomino.Tests
     public class BoardControlerTests
     {
         [TestMethod()]
-        public void BoardControlerTest()
+        public void BoardCreatedAsA9by9GridTest()
         {
             BoardControler atTest = new BoardControler();
             int expected = 9;

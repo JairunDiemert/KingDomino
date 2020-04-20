@@ -12,7 +12,7 @@ namespace KingDomino.Tests
     public class DominoTests
     {
         [TestMethod()]
-        public void DominoTest()
+        public void DominoCreationWithTwoTilesTest()
         {
             Tile Tile1 = new Tile();
             Tile Tile2 = new Tile();

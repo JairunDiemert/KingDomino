@@ -57,6 +57,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BoardControlerTests.cs" />
+    <Compile Include="BoardTests.cs" />
     <Compile Include="CreateArrayListFromFileTests.cs" />
     <Compile Include="DeckTests.cs" />
     <Compile Include="DominoTests.cs" />

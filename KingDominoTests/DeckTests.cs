@@ -13,7 +13,7 @@ namespace KingDomino.Tests
     public class DeckTests
     {
         [TestMethod()]
-        public void DeckTest()
+        public void DeckCreationSize24Test()
         {
             int expected = 24;
             Deck atTest = new Deck(24);
@@ -21,7 +21,7 @@ namespace KingDomino.Tests
             Assert.AreEqual(expected, actual);
         }
         [TestMethod()]
-        public void DeckReturnTest()
+        public void DeckReturnFormulatedDeckTest()
         {
             Deck atTest = new Deck(24);
             ArrayList actual = atTest.dominoDeck;

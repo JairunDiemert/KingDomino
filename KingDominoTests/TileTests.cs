@@ -12,7 +12,7 @@ namespace KingDomino.Tests
     public class TileTests
     {
         [TestMethod()]
-        public void TileTest()
+        public void TileCreationTest()
         {
             string expected = "T1";
             Tile atTest = new Tile();
