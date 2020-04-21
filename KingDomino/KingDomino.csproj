@@ -81,6 +81,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Button-variant2.jpg" />
+    <None Include="Resources\button.png" />
+    <None Include="Resources\Illustrationg2.png" />
     <None Include="Content\kingdomino_Title1.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>

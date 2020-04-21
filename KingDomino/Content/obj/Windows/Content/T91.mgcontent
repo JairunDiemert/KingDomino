@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>D:/School/CEN3032/se-project-groups-group-4/KingDomino/Content/T91.png</SourceFile>
-  <SourceTime>2020-03-06T21:12:38.4739113-06:00</SourceTime>
-  <DestFile>D:/School/CEN3032/se-project-groups-group-4/KingDomino/Content/bin/Windows/Content/T91.xnb</DestFile>
-  <DestTime>2020-04-20T16:11:03.8303219-05:00</DestTime>
+  <SourceFile>C:/Users/Major Mohir/Desktop/KD REPO/se-project-groups-group-4/KingDomino/Content/T91.png</SourceFile>
+  <SourceTime>2020-04-20T20:59:27.9600254-05:00</SourceTime>
+  <DestFile>C:/Users/Major Mohir/Desktop/KD REPO/se-project-groups-group-4/KingDomino/Content/bin/Windows/Content/T91.xnb</DestFile>
+  <DestTime>2020-04-20T20:59:56.0725947-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T10:35:54-06:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
