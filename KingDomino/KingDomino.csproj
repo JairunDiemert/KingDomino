@@ -51,6 +51,11 @@
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="MyComparer.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Round.cs" />
     <Compile Include="MovementLogic.cs" />
     <Compile Include="RoundLogic.cs" />
@@ -76,6 +81,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Content\kingdomino_Title1.png" />
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -86,6 +92,10 @@
   <ItemGroup>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace KingDomino
 {
@@ -8,6 +9,7 @@ namespace KingDomino
         [STAThread]
         static void Main()
         {
+            Application.Run(new Menu());
             using (var game = new Game1())
                 game.Run();
         }

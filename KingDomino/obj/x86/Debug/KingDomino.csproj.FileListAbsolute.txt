@@ -1439,3 +1439,6 @@ D:\School\CEN3032\se-project-groups-group-4\KingDomino\bin\Windows\x86\Debug\Con
 D:\School\CEN3032\se-project-groups-group-4\KingDomino\bin\Windows\x86\Debug\Content\T0.xnb
 D:\School\CEN3032\se-project-groups-group-4\KingDomino\bin\Windows\x86\Debug\Content\TextWriter.xnb
 D:\School\CEN3032\se-project-groups-group-4\KingDomino\obj\x86\Debug\KingDomino.csproj.CoreCompileInputs.cache
+D:\School\CEN3032\se-project-groups-group-4\KingDomino\obj\x86\Debug\KingDomino.Menu.resources
+D:\School\CEN3032\se-project-groups-group-4\KingDomino\obj\x86\Debug\KingDomino.csproj.GenerateResource.cache
+D:\School\CEN3032\se-project-groups-group-4\KingDomino\obj\x86\Debug\KingDomino.Properties.Resources.resources
