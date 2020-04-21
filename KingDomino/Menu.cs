@@ -21,5 +21,13 @@ namespace KingDomino
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //using (var game = new Game1())
+            //game.Run();
+            this.Close();
+            
+        }
     }
 }
