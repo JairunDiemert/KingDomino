@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Board.cs" />
     <Compile Include="BoardControler.cs" />
+    <Compile Include="GameEndLogic.cs" />
     <Compile Include="Meeple.cs" />
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>

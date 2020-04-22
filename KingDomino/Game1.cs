@@ -22,6 +22,7 @@ namespace KingDomino
         BoardControler boardControl;
         Deck gameDeck;
         MovementLogic movement;
+        GameEndLogic gameEnd;
         int deckSize;
         int deckBuffer;
         int tileSize;
@@ -54,6 +55,7 @@ namespace KingDomino
         int playerY2;
         int rotateDeg; // either 0, 90, 180, 270
         int numberOfTilesPlaced;
+        int totalNumberOfTilesPlaced;
 
         public Game1()
         {
@@ -95,6 +97,7 @@ namespace KingDomino
             deckPositionY3 = 2;
             deckPositionY4 = 3;
             deckPositionX1 = 20;
+            totalNumberOfTilesPlaced = 0;
 
             square = new Texture2D(GraphicsDevice, 100, 100);
             square2 = new Texture2D(GraphicsDevice, 100, 100);
@@ -108,6 +111,7 @@ namespace KingDomino
             rotateDeg = 0;
             base.Initialize();
             numberOfTilesPlaced = 0;
+            gameEnd = new GameEndLogic();
         }
 
         protected override void LoadContent()
@@ -184,7 +188,9 @@ namespace KingDomino
             roundLogic.getProperDomino(ref players, ref tileNum);
             PlayerInputForDominos(newState, deckButton1 + tileNum, roundLogic.allPlaced);
             oldState = newState;
-
+            //test
+            gameEnd.GameOverCheck(deckSize, totalNumberOfTilesPlaced, ref textWriter, ref spriteBatch);
+            //test
             spriteBatch.End();
 
             base.Draw(gameTime);
@@ -246,6 +252,8 @@ namespace KingDomino
         public void IncrementDeck()
         {
             ++numberOfTilesPlaced;
+            ++totalNumberOfTilesPlaced;
+            Debug.WriteLine(totalNumberOfTilesPlaced);
             if (numberOfTilesPlaced % 4 == 0)
             {
                 numberOfTilesPlaced = 0;
