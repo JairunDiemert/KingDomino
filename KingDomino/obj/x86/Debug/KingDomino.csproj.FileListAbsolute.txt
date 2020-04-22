@@ -1578,3 +1578,7 @@ C:\Users\Major Mohir\Desktop\KD REPO\se-project-groups-group-4\KingDomino\obj\x8
 C:\Users\Major Mohir\Desktop\KD REPO\se-project-groups-group-4\KingDomino\obj\x86\Debug\KingDomino.csproj.CopyComplete
 C:\Users\Major Mohir\Desktop\KD REPO\se-project-groups-group-4\KingDomino\obj\x86\Debug\KingDomino.exe
 C:\Users\Major Mohir\Desktop\KD REPO\se-project-groups-group-4\KingDomino\obj\x86\Debug\KingDomino.pdb
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\obj\x86\Debug\KingDomino.csprojAssemblyReference.cache
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\obj\x86\Debug\KingDomino.Menu.resources
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\obj\x86\Debug\KingDomino.Properties.Resources.resources
+C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\obj\x86\Debug\KingDomino.csproj.GenerateResource.cache

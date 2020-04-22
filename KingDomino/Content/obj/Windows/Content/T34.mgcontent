@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Major Mohir/Desktop/KD REPO/se-project-groups-group-4/KingDomino/Content/T34.png</SourceFile>
-  <SourceTime>2020-04-20T20:59:27.9350513-05:00</SourceTime>
-  <DestFile>C:/Users/Major Mohir/Desktop/KD REPO/se-project-groups-group-4/KingDomino/Content/bin/Windows/Content/T34.xnb</DestFile>
-  <DestTime>2020-04-20T20:59:53.8955537-05:00</DestTime>
+  <SourceFile>C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/Content/T34.png</SourceFile>
+  <SourceTime>2020-04-21T10:44:13.9712519-05:00</SourceTime>
+  <DestFile>C:/Users/JrNe/Source/Repos/se-project-groups-group-4/KingDomino/Content/bin/Windows/Content/T34.xnb</DestFile>
+  <DestTime>2020-04-21T10:44:30.3521968-05:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2018-12-08T10:35:54-06:00</ImporterTime>
+  <ImporterTime>2020-01-19T02:37:12-06:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2018-12-08T10:35:54-06:00</ProcessorTime>
+  <ProcessorTime>2020-01-19T02:37:12-06:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>
