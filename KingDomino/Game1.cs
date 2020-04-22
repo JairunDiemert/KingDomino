@@ -188,9 +188,8 @@ namespace KingDomino
             roundLogic.getProperDomino(ref players, ref tileNum);
             PlayerInputForDominos(newState, deckButton1 + tileNum, roundLogic.allPlaced);
             oldState = newState;
-            //test
             gameEnd.GameOverCheck(deckSize, totalNumberOfTilesPlaced, ref textWriter, ref spriteBatch);
-            //test
+
             spriteBatch.End();
 
             base.Draw(gameTime);
@@ -253,7 +252,6 @@ namespace KingDomino
         {
             ++numberOfTilesPlaced;
             ++totalNumberOfTilesPlaced;
-            Debug.WriteLine(totalNumberOfTilesPlaced);
             if (numberOfTilesPlaced % 4 == 0)
             {
                 numberOfTilesPlaced = 0;
