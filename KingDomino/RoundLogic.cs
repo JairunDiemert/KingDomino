@@ -14,12 +14,10 @@ namespace KingDomino
         public int playerAtTurn { get; set; }
         public int dominoesPlaced { get; set; }
         public int meepleNum { get; set;  }
-        public bool allPlaced { get; set; }
         private bool[] pressedKeys = new bool[4];
 
         public RoundLogic(int playerNum)
         {
-            allPlaced = false;
             pressedKeys[0] = false;
             pressedKeys[1] = false;
             pressedKeys[2] = false;
@@ -32,7 +30,6 @@ namespace KingDomino
 
         public RoundLogic(ref Player[] player, int playerNum)
         {
-            allPlaced = false;
             pressedKeys[0] = false;
             pressedKeys[1] = false;
             pressedKeys[2] = false;
@@ -44,6 +41,12 @@ namespace KingDomino
             playerAtTurn = currentRound.playersTurn;
         }
 
+        public bool isMeeplePlaced()
+        {
+            if (currentRound.meeplesPlaced)
+                return true;
+            return false;
+        }
         public void getProperDomino(ref Player[] players, ref int meepleNumber)
         {
             if(dominoesPlaced == 0)
@@ -56,7 +59,7 @@ namespace KingDomino
                 meepleNumber = players[playerAtTurn - 1].playerHand[1];
 
         }
-        public void resetMeeple(ref Meeple[] meeples)
+        public void resetRound(ref Meeple[] meeples)
         {
             if (dominoesPlaced >= 4)
             {
@@ -72,7 +75,8 @@ namespace KingDomino
                 pressedKeys[1] = false;
                 pressedKeys[2] = false;
                 pressedKeys[3] = false;
-                allPlaced = false;
+                currentRound.meeplesPlaced = false;
+                currentRound.totalRounds++;
                 playerAtTurn = 2;
                 currentRound.playersTurn = 2;
                 for( int i = 0; i < players.Length; i++)
@@ -106,7 +110,7 @@ namespace KingDomino
             if (meepleNum == 4)
             {
                 meepleNum = 0;
-                allPlaced = true;
+                currentRound.meeplesPlaced = true;
             }
             Meeple meeple = currentMeeple(ref meeples);
 

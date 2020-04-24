@@ -1582,3 +1582,6 @@ C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\obj\x86\Debug\Ki
 C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\obj\x86\Debug\KingDomino.Menu.resources
 C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\obj\x86\Debug\KingDomino.Properties.Resources.resources
 C:\Users\JrNe\Source\Repos\se-project-groups-group-4\KingDomino\obj\x86\Debug\KingDomino.csproj.GenerateResource.cache
+C:\Users\liter\wtf\Group4\KingDomino\obj\x86\Debug\KingDomino.Menu.resources
+C:\Users\liter\wtf\Group4\KingDomino\obj\x86\Debug\KingDomino.Properties.Resources.resources
+C:\Users\liter\wtf\Group4\KingDomino\obj\x86\Debug\KingDomino.csproj.GenerateResource.cache

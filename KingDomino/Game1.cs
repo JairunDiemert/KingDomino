@@ -186,7 +186,7 @@ namespace KingDomino
             PlayerInputForMeeples(newState);
             int tileNum = 0;
             roundLogic.getProperDomino(ref players, ref tileNum);
-            PlayerInputForDominos(newState, deckButton1 + tileNum, roundLogic.allPlaced);
+            PlayerInputForDominos(newState, deckButton1 + tileNum, roundLogic.isMeeplePlaced());
             oldState = newState;
             gameEnd.GameOverCheck(deckSize, totalNumberOfTilesPlaced, ref textWriter, ref spriteBatch);
 
@@ -215,7 +215,7 @@ namespace KingDomino
                 bool placed = movement.Placement(ref oldState, ref state, ref playerX, ref playerY, ref playerX2, ref playerY2, ref rotateDeg, ref currentDomino, ref gameDeck, ref playerDomino, ref roundLogic.currentBoardAtPlay(ref gameBoard1, ref gameBoard2), IncrementDeck);
                 roundLogic.addDominoes(placed);
                 roundLogic.changePlayerTurn(placed);
-                roundLogic.resetMeeple(ref meeples);
+                roundLogic.resetRound(ref meeples);
             }
         }
         public void UpdateDeck(int where, int x, int y)
